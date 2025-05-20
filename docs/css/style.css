@@ -17,7 +17,6 @@ body {
   background-color: #ffffff;
   overflow-x: hidden;
   font-size: var(--fs-1);
-  font-weight: 400;
   color: #000000;
   user-select: none;
 }
@@ -151,10 +150,10 @@ body {
   /* z-index: 2; */
 }
 
-.hero ul li:hover + .img {
+.hero ul li:hover + .img,
+.hero ul li:focus ~ .img {
   opacity: 1;
   transform: scale(1);
-  pointer-events: auto;
 }
 
 /* ------------ ABOUT PAGE -------------- */
