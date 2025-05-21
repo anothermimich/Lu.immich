@@ -92,6 +92,7 @@ body {
 }
 
 /* ------------ NAV -------------------- */
+
 .nav {
   display: flex;
   align-items: center;
@@ -115,7 +116,6 @@ body {
 
 /* ------------ MAIN PAGE -------------- */
 
-/* HERO */
 .hero {
   margin: auto 0;
 }
@@ -131,6 +131,15 @@ body {
 .hero ul li a {
   display: flex;
   gap: 1rem;
+}
+.hero ul li a p:first-child {
+  letter-spacing: 1px;
+  margin-top: -0.1rem;
+}
+.zero {
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+  font-weight: 200;
+  font-size: calc(var(--fs-1) + 0.1rem);
 }
 .img {
   opacity: 0;
