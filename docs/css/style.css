@@ -178,12 +178,11 @@ body {
 
 /* ------------ WORKS PAGE -------------- */
 .archive {
-  min-width: 80vw;
-  margin-left: 8vw;
+  width: 80vw;
+  margin-top: 20vh;
 }
 .archive-item {
-  max-width: 10vw;
-  min-width: 100px;
+  width: 17.6vw;
   display: flex;
   flex-direction: column;
   gap: 1rem;
