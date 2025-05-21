@@ -133,7 +133,7 @@ body {
   gap: 1rem;
 }
 .hero ul li a p:first-child {
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   margin-top: -0.1rem;
 }
 .zero {
