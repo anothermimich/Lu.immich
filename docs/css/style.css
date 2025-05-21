@@ -155,7 +155,7 @@ body {
   letter-spacing: 0.5px;
   margin-top: -0.1rem;
 }
-.img {
+.hero-img {
   opacity: 0;
   transform: scale(0.8);
   position: fixed;
@@ -171,14 +171,28 @@ body {
   transition-delay: 0.1s;
   z-index: 2;
 }
-.hero ul li:hover + .img {
+.hero ul li:hover + .hero-img {
   opacity: 1;
   transform: scale(1);
 }
 
-/* ------------ ABOUT PAGE -------------- */
-
 /* ------------ WORKS PAGE -------------- */
+.archive {
+  min-width: 80vw;
+  margin-left: 8vw;
+}
+.archive-item {
+  max-width: 10vw;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.archive-img {
+  width: 100%;
+}
+
+/* ------------ ABOUT PAGE -------------- */
 
 /* ------------ FOOTER ------------------ */
 
