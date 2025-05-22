@@ -4,7 +4,7 @@
     grid = new Minigrid({
       container: "#archive-item-container-2025",
       item: ".archive-item",
-      gutter: 32,
+      gutter: 1,
     });
     grid.mount();
   }
@@ -24,7 +24,7 @@
     grid = new Minigrid({
       container: "#archive-item-container-2024",
       item: ".archive-item",
-      gutter: 32,
+      gutter: 1,
     });
     grid.mount();
   }
