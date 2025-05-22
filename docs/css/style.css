@@ -179,6 +179,10 @@ body {
 /* ------------ ARCHIVE PAGE -------------- */
 
 .archive {
+  margin-top: 10vh;
+}
+
+.archive-item-container {
   width: 80vw;
   border-top: 3px solid #181818;
   border-right: 1px solid #181818;
@@ -188,29 +192,28 @@ body {
 .archive-tag-container {
   position: relative;
   justify-self: end;
-  max-height: 8rem;
+  max-height: 2rem;
   max-width: 15%;
   min-width: 180px;
 }
 .archive-tag {
   background: #000000;
   opacity: 0.9;
-  max-height: 8rem;
+  max-height: 2rem;
   max-width: 15%;
   min-width: 180px;
-  height: 6rem;
-  height: 10rem;
-  clip-path: polygon(0 84%, 10% 72%, 92% 73%, 100% 84%, 100% 100%, 0 100%);
+  height: 2rem;
+  clip-path: polygon(0 100%, 0 30%, 7% 0, 93% 0, 100% 30%, 100% 100%);
 }
 
 .archive-tag-small {
   position: absolute;
   background: white;
   width: 100%;
-  height: 103%;
-  top: 1px;
-  left: 0;
-  clip-path: polygon(0 84%, 10% 72%, 92% 73%, 100% 84%, 100% 100%, 0 100%);
+  height: 108%;
+  top: 2px;
+  left: 0px;
+  clip-path: polygon(0 100%, 0 30%, 7% 0, 93% 0, 100% 30%, 100% 100%);
   scale: 0.99;
   z-index: 3;
 }

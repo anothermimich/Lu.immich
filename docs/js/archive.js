@@ -2,7 +2,7 @@
   var grid;
   function init() {
     grid = new Minigrid({
-      container: ".archive",
+      container: ".archive-item-container",
       item: ".archive-item",
       gutter: 22,
     });
