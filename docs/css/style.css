@@ -177,12 +177,49 @@ body {
 }
 
 /* ------------ WORKS PAGE -------------- */
+
+.archive-tag {
+  margin-top: 10vh;
+  display: flex;
+  justify-self: end;
+  height: 2rem;
+  background: #181818;
+  width: 20%;
+  min-width: 200px;
+  position: relative;
+}
+
+.archive-tag:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top: 0.9rem solid white;
+  border-left: 1.1rem solid #181818;
+  width: 0;
+}
+.archive-tag:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 0.9rem solid white;
+  border-right: 1.1rem solid #181818;
+  width: 0;
+}
+.archive-tag-year {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 0.1rem;
+  color: #ffffff;
+  font-weight: 400;
+}
 .archive {
   width: 80vw;
-  margin-top: 20vh;
+  border: 1px solid, #181818;
 }
 .archive-item {
-  width: 17.6vw;
+  width: 15vw;
   display: flex;
   flex-direction: column;
   gap: 1rem;
