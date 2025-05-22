@@ -181,57 +181,68 @@ body {
 .archive {
   margin-top: 10vh;
 }
-
-.archive-item-container {
-  width: 80vw;
-  border-top: 3px solid #181818;
-  border-right: 1px solid #181818;
-  border-bottom: 1px solid #181818;
-  border-left: 1px solid #181818;
-}
 .archive-tag-container {
   position: relative;
-  justify-self: end;
   max-height: 2rem;
   max-width: 15%;
   min-width: 180px;
 }
 .archive-tag {
-  background: #000000;
-  opacity: 0.9;
+  background: #181818;
   max-height: 2rem;
   max-width: 15%;
   min-width: 180px;
   height: 2rem;
   clip-path: polygon(0 100%, 0 30%, 7% 0, 93% 0, 100% 30%, 100% 100%);
 }
-
 .archive-tag-small {
   position: absolute;
   background: white;
-  width: 100%;
-  height: 108%;
+  width: auto;
+  height: auto;
   top: 2px;
   left: 0px;
+  right: 0px;
+  bottom: -5px;
   clip-path: polygon(0 100%, 0 30%, 7% 0, 93% 0, 100% 30%, 100% 100%);
   scale: 0.99;
   z-index: 3;
 }
 .archive-tag-year {
   position: absolute;
-  right: 1.5rem;
-  bottom: 0.1rem;
+  right: 1rem;
+  top: 0.5rem;
   font-weight: 400;
   z-index: 4;
 }
+
+.archive-item-container {
+  border-top: 3px solid #181818;
+  border-right: 1px solid #181818;
+  border-bottom: 1px solid #181818;
+  border-left: 1px solid #181818;
+}
 .archive-item {
-  width: 15vw;
+  max-width: 17%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 .archive-img {
   width: 100%;
+}
+#archive-tag-container-2025 {
+  justify-self: start;
+}
+#archive-item-container-2025 {
+  width: 80vw !important;
+}
+#archive-tag-container-2024 {
+  justify-self: end;
+  margin-right: 15%;
+}
+#archive-item-container-2024 {
+  width: 80vw !important;
 }
 
 /* ------------ ABOUT PAGE -------------- */
