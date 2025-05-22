@@ -176,39 +176,8 @@ body {
   transform: scale(1);
 }
 
-/* ------------ WORKS PAGE -------------- */
+/* ------------ ARCHIVE PAGE -------------- */
 
-/*
-.archive-tag {
-  margin-top: 10vh;
-  display: flex;
-  justify-self: end;
-  height: 2rem;
-  background: #181818;
-  width: 20%;
-  min-width: 200px;
-  position: relative;
-}
-
-.archive-tag:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-top: 0.9rem solid white;
-  border-left: 1.1rem solid #181818;
-  width: 0;
-}
-.archive-tag:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-top: 0.9rem solid white;
-  border-right: 1.1rem solid #181818;
-  width: 0;
-}
-  */
 .archive {
   width: 80vw;
   border-top: 3px solid #181818;
