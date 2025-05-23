@@ -1,10 +1,12 @@
+const GUTTER_VALUE = 1;
+
 (function () {
   var grid;
   function init() {
     grid = new Minigrid({
       container: "#archive-item-container-2025",
       item: ".archive-item",
-      gutter: 1,
+      gutter: GUTTER_VALUE,
     });
     grid.mount();
   }
@@ -14,7 +16,13 @@
     grid.mount();
   }
 
-  document.addEventListener("DOMContentLoaded", init);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    // DOMContentLoaded already fired
+    init();
+  }
+  window.addEventListener("load", init); // fallback in case DOMContentLoaded missed
   window.addEventListener("resize", update);
 })();
 
@@ -24,7 +32,7 @@
     grid = new Minigrid({
       container: "#archive-item-container-2024",
       item: ".archive-item",
-      gutter: 1,
+      gutter: GUTTER_VALUE,
     });
     grid.mount();
   }
@@ -34,6 +42,12 @@
     grid.mount();
   }
 
-  document.addEventListener("DOMContentLoaded", init);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    // DOMContentLoaded already fired
+    init();
+  }
+  window.addEventListener("load", init); // fallback in case DOMContentLoaded missed
   window.addEventListener("resize", update);
 })();
