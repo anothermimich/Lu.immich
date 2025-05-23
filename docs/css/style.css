@@ -208,7 +208,7 @@ body {
   right: 0px;
   bottom: -5px;
   /* clip-path: polygon(1% 100%, 1% 28%, 7% 0, 93% 0, 99% 28%, 99% 100%); */
-  clip-path: polygon(0 100%, 0 30%, 7% 0, 93% 0, 100% 30%, 100% 100%);
+  clip-path: polygon(0 100%, 0 30%, 7% 1%, 93% 1%, 100% 30%, 100% 100%);
   scale: 0.99;
   z-index: 3;
 }
