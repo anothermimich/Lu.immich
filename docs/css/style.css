@@ -177,7 +177,13 @@ body {
 }
 
 /* ------------ ARCHIVE PAGE -------------- */
-
+.archive-item a:hover {
+  text-decoration: none;
+}
+.archive,
+.archive-top {
+  margin-top: 15vh;
+}
 .archive-tag-container {
   position: relative;
   max-height: 2rem;
@@ -250,7 +256,6 @@ body {
 }
 
 .archive-top {
-  margin-top: 10vh;
   clip-path: polygon(4% 0, 96% 0, 100% 100%, 0 100%);
   height: 0.4rem;
   width: 80vw;
@@ -324,18 +329,29 @@ footer a {
     --fs-3: 3rem;
   }
   section {
-    min-width: 90vw;
+    width: 90vw;
   }
   section:last-of-type {
-    padding: 1rem 0 5vh 0;
+    /* padding: 1rem 0 5vh 0; */
+  }
+  a:hover,
+  a:active,
+  li:hover {
+    text-decoration: none;
   }
 
   /* ------------ NAV -------------------- */
   .nav div a {
-    padding: 0 0;
+    padding: 0.3rem;
+  }
+  .nav-links:last-child::after {
+    margin-left: 0;
   }
 
   /* ------------ MAIN PAGE -------------- */
+  .hero {
+    margin-top: 10vh;
+  }
 
   .hero ul li:hover + .hero-img {
     opacity: 0;
@@ -344,23 +360,29 @@ footer a {
   /* ------------ ARCHIVE PAGE -------------- */
 
   .archive {
-    width: 90vw;
+    margin-top: 10vh;
+    /* width: 90vw; */
   }
   .archive-item {
-    width: 25vw;
+    width: 48%;
+    padding: 1rem;
   }
   .archive-tag-container {
-    max-height: 7rem;
-    max-width: 25%;
-    min-width: 150px;
+    max-height: 1.2rem;
+    max-width: 30%;
+    min-width: 70px;
   }
   .archive-tag {
-    max-height: 7rem;
-    max-width: 20%;
-    min-width: 150px;
-    height: 5rem;
-    height: 8rem;
+    max-width: 30%;
+    min-width: 70px;
+    height: 1.2rem;
   }
+  .archive-tag-year {
+    right: 0.6rem;
+    top: 0.2rem;
+    font-size: var(--fs-0);
+  }
+
   /* ------------ ABOUT PAGE -------------- */
 
   /* ------------ FOOTER ------------------ */
