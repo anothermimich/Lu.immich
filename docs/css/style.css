@@ -85,7 +85,7 @@ ul li {
 .zero {
   font-family: "Atkinson Hyperlegible Next", "Jost", Futura, sans-serif;
   font-weight: 200;
-  font-size: calc(var(--fs-1) + 0.1rem);
+  font-size: calc(var(--fs-1) + 0.14rem);
 }
 
 body {
