@@ -361,10 +361,10 @@ footer a {
 
   .archive {
     margin-top: 10vh;
-    width: 90vw;
+    width: 80vw;
   }
   .archive-item {
-    width: 48%;
+    width: 49%;
     padding: 1rem;
   }
   .archive-tag-container {
@@ -386,14 +386,14 @@ footer a {
     justify-self: start;
   }
   #archive-item-container-2025 {
-    width: 90vw !important;
+    width: 80vw !important;
   }
   #archive-tag-container-2024 {
     justify-self: start;
     margin-left: 30%;
   }
   #archive-item-container-2024 {
-    width: 90vw !important;
+    width: 80vw !important;
   }
 
   /* ------------ ABOUT PAGE -------------- */
