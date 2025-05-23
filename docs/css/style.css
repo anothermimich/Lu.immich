@@ -373,14 +373,16 @@ footer a {
     display: none;
   }
   .archive-tag-container {
+    position: relative;
     max-height: 1.2rem;
     max-width: 30%;
     min-width: 70px;
   }
   .archive-tag {
+    height: 1.2rem;
+    max-height: 1.2rem;
     max-width: 30%;
     min-width: 70px;
-    height: 1.2rem;
   }
   .archive-tag-year {
     right: 0.6rem;
