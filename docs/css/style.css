@@ -367,6 +367,9 @@ footer a {
     width: 49%;
     padding: 1rem;
   }
+  .archive-item a div {
+    display: none;
+  }
   .archive-tag-container {
     max-height: 1.2rem;
     max-width: 30%;
