@@ -382,6 +382,19 @@ footer a {
     top: 0.2rem;
     font-size: var(--fs-0);
   }
+  #archive-tag-container-2025 {
+    justify-self: start;
+  }
+  #archive-item-container-2025 {
+    width: 90vw !important;
+  }
+  #archive-tag-container-2024 {
+    justify-self: start;
+    margin-left: 25%;
+  }
+  #archive-item-container-2024 {
+    width: 90vw !important;
+  }
 
   /* ------------ ABOUT PAGE -------------- */
 
