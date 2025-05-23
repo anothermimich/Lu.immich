@@ -361,7 +361,7 @@ footer a {
 
   .archive {
     margin-top: 10vh;
-    /* width: 90vw; */
+    width: 90vw;
   }
   .archive-item {
     width: 48%;
