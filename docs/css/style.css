@@ -440,6 +440,9 @@ footer a {
   .archive-link .archive-tag-container:hover + .line {
     transform: none;
   }
+  .line {
+    width: 79.8vw;
+  }
 
   /* ------------ ABOUT PAGE -------------- */
 
