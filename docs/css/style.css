@@ -303,6 +303,7 @@ body {
   z-index: 5;
 }
 .archive-hand {
+  display: none;
   width: 100vw;
   position: relative;
 }
