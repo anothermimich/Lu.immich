@@ -273,7 +273,7 @@ body {
   max-width: 15%;
 }
 .archive-link .archive-tag-container {
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .archive-link .archive-tag-container:hover .archive-tag,
 .archive-link .archive-tag-container:hover .archive-tag-small,
@@ -418,6 +418,16 @@ footer a {
   }
   #archive-item-container-2024 {
     width: 80vw !important;
+  }
+  .archive-link .archive-tag-container {
+    transition: none;
+  }
+  .archive-link .archive-tag-container:hover .archive-tag,
+  .archive-link .archive-tag-container:hover .archive-tag-small,
+  .archive-link .archive-tag-container:hover .archive-tag-year,
+  .archive-link .archive-tag-container:hover .archive-tag-year .zero,
+  .archive-link .archive-tag-container:hover + .line {
+    transform: none;
   }
 
   /* ------------ ABOUT PAGE -------------- */
