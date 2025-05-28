@@ -302,6 +302,10 @@ body {
   margin-left: 5rem;
   z-index: 5;
 }
+#archive-link-empty {
+  margin-left: 8rem;
+  z-index: 5;
+}
 .archive-hand {
   display: none;
   width: 100vw;
@@ -457,7 +461,4 @@ footer a {
   .license-icons img {
     width: var(--fs-0);
   }
-}
-
-@media (min-width: 1100px) and (max-width: 1921px) and (min-height: 600px) and (max-height: 1080px) {
 }
