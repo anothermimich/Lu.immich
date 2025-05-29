@@ -1,0 +1,123 @@
+/* media queries, from narrow to wide */
+
+@media all and (max-width: 1000px) {
+  :root {
+    --fs-0: 0.8rem;
+    --fs-1: 1rem;
+    --fs-2: 2rem;
+    --fs-3: 3rem;
+  }
+  section {
+    width: 90vw;
+  }
+  section:last-of-type {
+    /* padding: 1rem 0 5vh 0; */
+  }
+  a:hover,
+  a:active,
+  li:hover {
+    text-decoration: none;
+  }
+
+  /* ------------ NAV -------------------- */
+  .nav div a {
+    padding: 0.3rem;
+  }
+  .nav-links:last-child::after {
+    margin-left: 0;
+  }
+
+  /* ------------ MAIN PAGE -------------- */
+  .hero {
+    margin-top: 10vh;
+  }
+
+  .hero ul li:hover + .hero-img {
+    opacity: 0;
+  }
+
+  /* ------------ ARCHIVE PAGE -------------- */
+
+  .archive-sheet,
+  .archive-top {
+    margin-top: 10vh;
+  }
+  .archive-item {
+    width: 49%;
+    padding: 1rem;
+  }
+  .archive-item a div {
+    display: none;
+  }
+  .archive-tag-container {
+    position: relative;
+    max-height: 1.2rem;
+    max-width: 30%;
+    min-width: 120px;
+  }
+  .archive-tag {
+    height: 1.2rem;
+    max-height: 1.2rem;
+    max-width: 30%;
+    min-width: 120px;
+  }
+  .archive-tag-year {
+    right: 0.6rem;
+    top: 0.2rem;
+    font-size: var(--fs-0);
+  }
+  .archive-tag-year .zero {
+    font-size: var(--fs-0);
+  }
+  #archive-tag-container-2025 {
+    justify-self: start;
+  }
+  #archive-item-container-2025 {
+    width: 80vw !important;
+  }
+  #archive-tag-container-2024 {
+    justify-self: start;
+    margin-left: 15%;
+  }
+  #archive-item-container-2024 {
+    width: 80vw !important;
+  }
+  .archive-link .archive-tag-container {
+    transition: none;
+  }
+  .archive-link .archive-tag-container:hover .archive-tag,
+  .archive-link .archive-tag-container:hover .archive-tag-small,
+  .archive-link .archive-tag-container:hover .archive-tag-year,
+  .archive-link .archive-tag-container:hover .archive-tag-year .zero,
+  .archive-link .archive-tag-container:hover + .line {
+    transform: none;
+  }
+  .line {
+    width: 79.8vw;
+  }
+
+  /* ------------ ABOUT PAGE -------------- */
+
+  /* ------------ FOOTER ------------------ */
+
+  footer {
+    padding: 1rem 10vw;
+  }
+  footer a {
+    font-size: var(--fs-0);
+  }
+  .license-icons img {
+    width: var(--fs-0);
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 999px) {
+  .archive-item {
+    width: 33%;
+  }
+}
+@media all and (min-width: 2500px) {
+  .archive-item {
+    width: 19.8%;
+  }
+}
