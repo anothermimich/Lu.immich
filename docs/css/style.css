@@ -108,12 +108,11 @@ body {
 .nav div a {
   padding: 0.5rem;
 }
-.nav-links:last-child::after {
+.nav-about-link::after {
   content: "";
-  display: inline-block;
   position: absolute;
-  margin-left: -0.4rem;
   margin-top: 0.2rem;
+  margin-left: 0.1rem;
   width: 0.6rem;
   height: 0.6rem;
   background-color: #ff0000;
@@ -121,7 +120,7 @@ body {
   border-radius: 50%;
 }
 
-.nav-links:last-child:hover::after {
+.nav-about-link:hover::after {
   opacity: 1;
 }
 /* ------------ MAIN PAGE -------------- */
@@ -313,6 +312,12 @@ body {
 }
 
 /* ------------ ABOUT PAGE -------------- */
+.about {
+  min-height: 100vh;
+  display: flex;
+  align-items: end;
+  padding-bottom: 10vh;
+}
 
 /* ------------ FOOTER ------------------ */
 
