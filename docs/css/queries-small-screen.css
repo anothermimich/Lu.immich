@@ -146,11 +146,3 @@
     width: 33%;
   }
 }
-@media all and (min-width: 2500px) {
-  /* ------------ ARCHIVE PAGE -------------- */
-
-  .archive-sheet,
-  .archive-item {
-    width: 19.8%;
-  }
-}
