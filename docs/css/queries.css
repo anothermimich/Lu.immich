@@ -117,11 +117,13 @@
   .not-found {
     flex-direction: column;
     justify-content: end;
+    align-items: start;
   }
   .not-found-title {
     font-weight: 500;
-    font-size: 6rem;
+    font-size: 43.5vw;
     margin-bottom: -1rem;
+    transform: translateX(-3px);
   }
   .not-found-container {
     margin: 0;
@@ -129,6 +131,10 @@
     padding: 1rem 0 0 0;
     border-top: 2px solid black;
     height: auto;
+    width: 100%;
+  }
+  .not-found-text {
+    padding-left: 0;
   }
 }
 
