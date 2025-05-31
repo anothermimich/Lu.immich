@@ -319,7 +319,7 @@ body {
   padding-bottom: 10vh;
 }
 
-/* ------------ 404 PAGE -------------- */
+/* ------------ 404 PAGE ---------------- */
 .not-found {
   min-height: 100%;
   flex-grow: 1;
@@ -337,10 +337,12 @@ body {
   margin-bottom: 3.5rem;
   margin-left: 1rem;
   border-left: 2px solid #000000;
-  padding-left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: end;
+}
+.not-found-text {
+  padding-left: 1rem;
 }
 
 /* ------------ FOOTER ------------------ */
