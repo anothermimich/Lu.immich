@@ -306,17 +306,6 @@ body {
   margin-left: 8rem;
   z-index: 5;
 }
-.archive-hand {
-  display: none;
-  width: 100vw;
-  position: relative;
-}
-.archive-hand img {
-  position: absolute;
-  bottom: 0;
-  left: 70vw;
-  width: 6rem;
-}
 
 /* ------------ ABOUT PAGE -------------- */
 .about {
