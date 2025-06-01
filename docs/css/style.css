@@ -245,6 +245,13 @@ body {
 #archive-item-container-2024 {
   width: 80vw !important;
 }
+.archive-hero {
+  display: flex;
+  flex-direction: column;
+  height: 99vh;
+  justify-content: end;
+  align-content: center;
+}
 .archive-top {
   clip-path: polygon(4% 0, 96% 0, 100% 100%, 0 100%);
   height: 0.4rem;
