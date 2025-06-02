@@ -40,9 +40,6 @@
     } */
 
   /* ------------ ARCHIVE PAGE -------------- */
-  .archive-hero {
-    padding-bottom: 10vh;
-  }
   .archive-sheet,
   .archive-top {
     margin-top: 10vh;
@@ -124,6 +121,14 @@
   }
   .license-icons img {
     width: var(--fs-0);
+  }
+}
+@media only screen and (max-widith: 1000px) {
+  .archive-hero {
+    padding-bottom: 10vh;
+  }
+  .about-container {
+    padding-bottom: 10vh;
   }
 }
 
