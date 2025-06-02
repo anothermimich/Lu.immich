@@ -31,18 +31,18 @@
   }
 
   /* ------------ MAIN PAGE -------------- */
-  .hero {
-    /* margin-top: 10vh; */
+  .hero-img {
+    display: none;
   }
-
+  /* 
   .hero ul li:hover + .hero-img {
     opacity: 0;
-  }
+  } */
 
   /* ------------ ARCHIVE PAGE -------------- */
 
   .archive-hero {
-    height: 93vh;
+    height: 90vh;
   }
   .archive-sheet,
   .archive-top {
@@ -115,7 +115,7 @@
   /* ------------ FOOTER ------------------ */
 
   footer {
-    padding: 5vh 10vw 1rem 10vw;
+    padding: 10vh 10vw 1rem 10vw;
   }
   footer a {
     font-size: var(--fs-0);
