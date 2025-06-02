@@ -170,7 +170,8 @@ body {
 .archive-hero {
   display: flex;
   flex-direction: column;
-  height: 99vh;
+  flex-grow: 1;
+  height: 90vh;
   justify-content: end;
   align-content: center;
 }
@@ -231,10 +232,45 @@ body {
 .archive-item a:hover {
   text-decoration: none;
 }
-.archive-sheet,
-.archive-top {
-  margin-top: 15vh;
+.archive-sheets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+  position: relative;
+  margin-top: 10vh;
 }
+.loader {
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.05);
+  background-color: #fff;
+}
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #000;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: terminal-blink 1s steps(1, end) infinite;
+}
+
+@keyframes terminal-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
 .archive-tag-container {
   position: relative;
   max-height: 2rem;
