@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Disable pointer events on archive tag links while loader is visible
   const archiveTagLinks = document.querySelectorAll(".archive-tag-container");
   archiveTagLinks.forEach((link) => {
-    // link.style.pointerEvents = "none";
+    link.style.pointerEvents = "none";
   });
 
   function enableLinks() {
