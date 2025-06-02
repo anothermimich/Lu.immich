@@ -8,10 +8,10 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Jost", Futura, sans-serif;
+  font-family: "Jost Variable", Futura, sans-serif;
   font-variant-ligatures: normal;
   font-feature-settings: "ss01" on;
-  font-weight: 390;
+  font-weight: 300;
 }
 body {
   background-color: #ffffff;
@@ -21,7 +21,6 @@ body {
   user-select: none;
 }
 a {
-  font-family: "Jost", Futura, sans-serif;
   text-decoration: none;
   color: #000000;
 }
