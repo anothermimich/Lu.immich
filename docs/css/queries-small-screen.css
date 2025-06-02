@@ -18,6 +18,9 @@
   li:hover {
     text-decoration: none;
   }
+  .mobile-hidden {
+    display: none;
+  }
 
   /* ------------ NAV -------------------- */
   .nav div a {
@@ -29,7 +32,7 @@
 
   /* ------------ MAIN PAGE -------------- */
   .hero {
-    margin-top: 10vh;
+    /* margin-top: 10vh; */
   }
 
   .hero ul li:hover + .hero-img {
@@ -38,6 +41,9 @@
 
   /* ------------ ARCHIVE PAGE -------------- */
 
+  .archive-hero {
+    height: 93vh;
+  }
   .archive-sheet,
   .archive-top {
     margin-top: 10vh;
@@ -97,11 +103,19 @@
   }
 
   /* ------------ ABOUT PAGE -------------- */
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .about-title {
+    line-height: 1;
+  }
 
   /* ------------ FOOTER ------------------ */
 
   footer {
-    padding: 1rem 10vw;
+    padding: 5vh 10vw 1rem 10vw;
   }
   footer a {
     font-size: var(--fs-0);
