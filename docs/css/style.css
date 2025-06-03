@@ -12,13 +12,21 @@
   font-variant-ligatures: normal;
   font-feature-settings: "ss01" on;
   font-weight: 300;
+  color: #000;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
   background-color: #ffffff;
   overflow-x: hidden;
   font-size: var(--fs-1);
-  color: #000000;
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
 }
 a {
   text-decoration: none;
@@ -79,14 +87,6 @@ ul li {
     pointer;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: space-between;
-  align-items: center;
-}
-
 /* ------------ NAV -------------------- */
 
 .nav {
@@ -118,7 +118,8 @@ body {
 .nav-about-link:hover::after {
   opacity: 1;
 }
-/* ------------ MAIN PAGE -------------- */
+
+/* ------------ HOME PAGE -------------- */
 
 .hero {
   margin: auto 0;
