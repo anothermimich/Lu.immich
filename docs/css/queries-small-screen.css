@@ -139,6 +139,7 @@
     flex-direction: column;
     justify-content: end;
     align-items: start;
+    padding-bottom: 10vh;
   }
   .not-found-title {
     font-weight: 500;

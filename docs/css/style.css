@@ -360,6 +360,7 @@ ul li {
   align-items: end;
   margin-left: 10vw;
   padding: 0;
+  transform: translateY(3.4rem);
 }
 .not-found-title {
   font-weight: 500;
