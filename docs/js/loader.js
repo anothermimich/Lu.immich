@@ -36,11 +36,20 @@ document.addEventListener("DOMContentLoaded", function () {
     link.style.pointerEvents = "none";
   });
 
+  // Reference to the archive sheets container
+  const archiveSheetsContainer = document.querySelector(".archive-sheets-container");
+
   function enableLinks() {
     archiveTagLinks.forEach((link) => {
       link.style.pointerEvents = "";
       link.style.opacity = ""; // reset opacity
     });
+  }
+
+  function showArchiveSheets() {
+    if (archiveSheetsContainer) {
+      archiveSheetsContainer.classList.add("visible");
+    }
   }
 
   // Listen for the custom event from minigrid
@@ -49,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
       loader.style.display = "none";
       loaderHidden = true;
       enableLinks();
+      showArchiveSheets();
     }
   });
 
@@ -60,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loader.style.display = "none";
         loaderHidden = true;
         enableLinks();
+        showArchiveSheets();
         observer.disconnect();
       }
     });
