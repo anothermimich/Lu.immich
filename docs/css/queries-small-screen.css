@@ -125,10 +125,10 @@
 }
 @media only screen and (max-device-width: 1000px) {
   .archive-hero {
-    padding-bottom: 10vh;
+    padding-bottom: 12vh;
   }
   .about-container {
-    padding-bottom: 10vh;
+    padding-bottom: 12vh;
   }
 }
 
