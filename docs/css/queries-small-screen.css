@@ -110,6 +110,27 @@
   .about-title {
     line-height: 1;
   }
+  .about-text {
+    max-width: 100%;
+  }
+  /* ------------ PROJECT ------------------ */
+  .project-container {
+    padding: 0;
+    border: none;
+    margin-top: 40vh;
+  }
+  .project-title {
+    font-size: 15vw;
+  }
+  .project-parts,
+  .project-concept {
+    display: none;
+  }
+  .project-team {
+    grid-column: 1;
+    grid-row: 3;
+    text-align: start;
+  }
 
   /* ------------ FOOTER ------------------ */
 
