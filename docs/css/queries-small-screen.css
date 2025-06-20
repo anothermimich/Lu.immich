@@ -51,11 +51,21 @@
   .archive-item a div {
     display: none;
   }
-  .archive-tag-container {
-    position: relative;
+  .archive-link {
+    width: 78vw;
+  }
+  .archive-front-container {
+    margin-top: -1rem;
+  }
+  .archive-front-top {
+    -webkit-transform: perspective(40vw) rotateX(15deg) scale(0.991);
+  }
+  .archive-tag-container,
+  .archive-tag-small,
+  .archive-tag {
     max-height: 1.2rem;
-    max-width: 30%;
     min-width: 120px;
+    max-width: 30%;
   }
   .archive-tag {
     height: 1.2rem;
@@ -93,9 +103,6 @@
   .archive-link .archive-tag-container:hover .archive-tag-year .zero,
   .archive-link .archive-tag-container:hover + .line {
     transform: none;
-  }
-  .line {
-    width: 79.8vw;
   }
   .archive-links-container {
     padding-bottom: 2rem;

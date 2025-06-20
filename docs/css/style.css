@@ -247,7 +247,6 @@ ul li {
   transform: translateY(-2rem);
 }
 .line {
-  /* width: 79.9vw; */
   height: 2px;
   background: black;
 }
