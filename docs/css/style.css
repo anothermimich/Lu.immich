@@ -241,8 +241,7 @@ ul li {
 }
 .archive-link .archive-tag-container:hover .archive-tag,
 .archive-link .archive-tag-container:hover .archive-tag-small,
-.archive-link .archive-tag-container:hover .archive-tag-year,
-.archive-link .archive-tag-container:hover .archive-tag-year .zero,
+.archive-link .archive-tag-container:hover .archive-tag-small + .archive-tag-year,
 .archive-link .archive-tag-container:hover + .line {
   transform: translateY(-2rem);
 }
@@ -346,9 +345,9 @@ ul li {
   font-weight: 400;
   z-index: 4;
 }
-.archive-tag-year .zero {
+/* .archive-tag-year .zero {
   font-weight: 400;
-}
+} */
 
 .archive-item-container {
   border-top: 3px solid #181818;
