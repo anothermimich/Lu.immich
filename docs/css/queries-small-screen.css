@@ -63,12 +63,12 @@
   .archive-tag-container,
   .archive-tag-small,
   .archive-tag {
-    max-height: 1.2rem;
+    /* max-height: 1.2rem; */
     min-width: 120px;
     max-width: 30%;
   }
   .archive-tag {
-    height: 1.2rem;
+    /* height: 1.2rem; */
     max-height: 1.2rem;
     max-width: 30%;
     min-width: 120px;
