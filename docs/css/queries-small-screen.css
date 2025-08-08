@@ -21,6 +21,9 @@
   .mobile-hidden {
     display: none;
   }
+  .border-img {
+    border: 0.5px #000 solid;
+  }
 
   /* ------------ NAV -------------------- */
   .nav div a {
