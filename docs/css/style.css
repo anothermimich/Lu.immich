@@ -149,7 +149,6 @@ ul li {
 }
 .hero ul li a > p:first-of-type {
   letter-spacing: 0.5px;
-  margin-top: -0.1rem;
 }
 .hero-img {
   opacity: 0;
