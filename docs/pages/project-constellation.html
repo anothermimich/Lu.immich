@@ -72,7 +72,52 @@
         </div>
       </div>
     </div>
+
+    <!-- Botão para abrir o timer (coloque onde preferir na sua UI) -->
+    <button id="btn-open-timer" class="btn-action">Abrir Cronômetro</button>
+
+    <!-- O Modal do Timer (Escondido por padrão) -->
+    <div id="timer-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <button id="btn-close-timer" class="btn-close">&times;</button>
+
+        <!-- Grade de 60 pontos gerada pelo JS -->
+        <div id="dot-grid" class="dot-grid"></div>
+
+        <div class="timer-controls">
+          <button id="btn-time-minus" class="time-adjust">-</button>
+          <span id="time-display">02:00</span>
+          <button id="btn-time-plus" class="time-adjust">+</button>
+        </div>
+
+        <button id="btn-start-timer" class="btn-start">COMEÇAR</button>
+      </div>
+    </div>
+
   </section>
+
+  <!-- Botão para abrir a roleta (coloque próximo ao do cronômetro) -->
+  <button id="btn-open-roller" class="btn-action">Abrir Roleta 2D6</button>
+
+  <!-- O Modal da Roleta -->
+  <div id="roller-modal" class="modal-overlay hidden">
+    <div class="modal-content roller-content">
+      <button id="btn-close-roller" class="btn-close">&times;</button>
+
+      <!-- O Marcador central -->
+      <div class="roller-indicator"></div>
+
+      <!-- O Container que vai girar -->
+      <div class="roller-container">
+        <div id="roller-wheel" class="roller-wheel">
+          <!-- Os números serão injetados aqui -->
+        </div>
+      </div>
+
+      <!-- Botão de Ação movido para a parte inferior -->
+      <button id="btn-spin" class="btn-start btn-spin-bottom">GIRAR</button>
+    </div>
+  </div>
 
 
   <footer class="flex--column">
