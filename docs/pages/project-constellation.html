@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Arquivo de trabalhos diversos. Lu Immich é uma designer e mestranda em Filosofia, investigando o pensamento enquanto forma.">
+  <meta name="keywords" content="Lu Immich, design, filosofia, pensamento, forma, ui/ux, design gráfico, web design">
+  <meta name="author" content="Lu Immich">
+  <meta name="theme-color" content="#fff" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/queries-small-screen.css" media="all and (max-width: 1000px)" />
+  <link rel="stylesheet" href="../css/queries-big-screen.css" media="all and (min-width: 2500px)" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="../fonts/jost/Jost.css" type="text/css" charset="utf-8" />
+  <link rel="manifest" href="../favicon/site.webmanifest">
+  <title>Lu Immich</title>
+</head>
+
+<body>
+  <nav class="nav">
+    <a class="nav-title" href="../index.html">Lu Immich</a>
+    <div class="nav-links">
+      <a class="nav-about-link" href="about.html">Sobre</a>
+    </div>
+  </nav>
+
+  <main class="project">
+    <div class="project-container">
+      <h1 class="project-title">Asterismo</h1>
+      <p class="project-team"><b>Lu Immich </b>(Design e Idealização)</p>
+      <p class="project-parts">
+        <b>Peças</b> <br> Neste projeto optei por empregar componentes amplamente disponíveis no mercado reinventando
+        suas funções. Deste modo tornou-se possível utilizar componentes em alumínio usinado, plástico injetado e
+        eletrônicos sem elevar o custo de fabricação em
+        baixa escala.
+      </p>
+      <p class="project-concept">
+        <b>Conceito</b> <br>Este teclado ergonômico repensa a relação entre humano e máquina com o objetivo de evitar
+        lesões advindas do uso prolongado de computador. Diferente de um teclado convencional, seu design dividido em
+        duas partes permite ajustar a posição de
+        acordo com a largura
+        dos ombros e o ângulo dos pulsos. O alinhamento de 90&deg; entre linhas e colunas se deve ao
+        movimento natural de
+        contração dos dedos, que por sua vez é linear.
+      </p>
+      <div class="project-desc-container">
+        <p class="project-year"><b>2026</b></p>
+        <p class="project-state">Protótipo funcional</p>
+      </div>
+    </div>
+  </main>
+
+  <section class="project-img-container">
+    <div class="constellation-generator-container">
+      <div class="canvas-wrapper">
+        <canvas id="skyCanvas"></canvas>
+      </div>  
+      <div class="constellation-generator-description">
+        <h3>Comece agora mesmo</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci culpa, non autem voluptatibus
+          laboriosam neque corrupti voluptates ratione quia reprehenderit velit est aliquid sapiente incidunt possimus.
+          Voluptatem, deserunt laborumluptates ratione quia reprehenderit velit est aliquid sapiente incidunt possimus.
+          Voluptatem, deserunt laborumluptates ratione quia reprehenderit velit est aliquid sapiente incidunt possimus.
+          Voluptatem, deserunt laborum!</p>
+        <div class="constellation-panel">
+          <button id="btn-generate" class="btn-action">Gerar</button>
+          <button id="btn-download" class="btn-action">Imprimir</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="flex--column">
+    <div class="footer-license">
+      <a class="made-with-love heart-cursor" href="https://github.com/anothermimich">Feito com amor por Lu Immich</a>
+      <a class="license-icons" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+        <img src="../icons/license/cc.svg" alt="CC">
+        <img src="../icons/license/by.svg" alt="BY">
+        <img src="../icons/license/nc.svg" alt="NC">
+        <img src="../icons/license/nd.svg" alt="ND">
+      </a>
+    </div>
+  </footer>
+
+  <!-- Importação do jsPDF via CDN (Deve vir ANTES do seu script) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+   
+  <script src="../js/constellation.js"></script>
+</body>
+
+
+</html>
