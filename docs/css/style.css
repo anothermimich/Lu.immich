@@ -28,6 +28,10 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+html,
+body {
+  overscroll-behavior-y: none;
+}
 a {
   text-decoration: none;
   color: #000000;
