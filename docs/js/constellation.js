@@ -270,6 +270,7 @@ btnOpen.addEventListener("click", () => {
   remainingSeconds = defaultTimeSeconds;
   updateDisplay();
   updateGrid();
+
   setMobileThemeColor(true);
 });
 
@@ -279,6 +280,13 @@ btnClose.addEventListener("click", () => {
   isRunning = false;
   btnStart.textContent = "COMEÇAR";
   releaseWakeLock();
+
+  // Garante que os botões reaparecem com opacidade 100%
+  btnMinus.style.opacity = "1";
+  btnPlus.style.opacity = "1";
+  btnMinus.style.pointerEvents = "auto";
+  btnPlus.style.pointerEvents = "auto";
+
   setMobileThemeColor(false);
 });
 
@@ -305,6 +313,12 @@ btnStart.addEventListener("click", async () => {
     isRunning = false;
     btnStart.textContent = "RETOMAR";
     releaseWakeLock();
+
+    // Revela os botões de forma suave (0.5s fade in)
+    btnMinus.style.opacity = "1";
+    btnPlus.style.opacity = "1";
+    btnMinus.style.pointerEvents = "auto";
+    btnPlus.style.pointerEvents = "auto";
   } else {
     // Ação de Início/Retomada
     if (remainingSeconds === 0) {
@@ -312,9 +326,15 @@ btnStart.addEventListener("click", async () => {
       updateGrid();
     }
 
-    await requestWakeLock(); // Mantém a tela acesa durante o debate
+    await requestWakeLock();
     isRunning = true;
     btnStart.textContent = "PAUSAR";
+
+    // Oculta os botões de forma suave (0.5s fade out) e desativa cliques
+    btnMinus.style.opacity = "0";
+    btnPlus.style.opacity = "0";
+    btnMinus.style.pointerEvents = "none";
+    btnPlus.style.pointerEvents = "none";
 
     timerInterval = setInterval(() => {
       remainingSeconds--;
@@ -326,6 +346,12 @@ btnStart.addEventListener("click", async () => {
         isRunning = false;
         btnStart.textContent = "RESETAR";
         releaseWakeLock();
+
+        // Devolve os botões suavemente quando o tempo esgota
+        btnMinus.style.opacity = "1";
+        btnPlus.style.opacity = "1";
+        btnMinus.style.pointerEvents = "auto";
+        btnPlus.style.pointerEvents = "auto";
       }
     }, 1000);
   }

@@ -589,6 +589,23 @@ footer a {
   color: white;
 }
 
+#time-display {
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: -0.3rem;
+}
+#btn-start-timer {
+  width: 180px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 20px;
+}
+
+/* Prepara os botões de + e - para animarem suavemente */
+#btn-time-minus,
+#btn-time-plus {
+  transition: opacity 1s ease;
+}
 .btn-close {
   position: fixed; /* Muda de absolute para fixed para ancorar na tela do navegador */
   top: 1.5rem;
@@ -601,6 +618,7 @@ footer a {
   line-height: 1;
   z-index: 10000; /* Garante que fique acima de tudo */
   transition: color 0.2s ease;
+  font-weight: 250;
 }
 
 .btn-close:hover {
@@ -637,7 +655,7 @@ footer a {
 
 .time-adjust {
   background: none;
-  border: 1px solid #333;
+  border: 1px solid #000;
   color: white;
   padding: 0.2rem 0.8rem;
   cursor: pointer;
