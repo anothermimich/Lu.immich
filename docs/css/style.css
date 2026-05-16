@@ -594,7 +594,8 @@ footer a {
   font-weight: 400;
   margin-bottom: -0.3rem;
 }
-#btn-start-timer {
+#btn-start-timer,
+#btn-spin {
   width: 180px;
   text-align: center;
   display: inline-block;

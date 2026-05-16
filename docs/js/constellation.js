@@ -214,7 +214,7 @@ const timeDisplay = document.getElementById("time-display");
 const btnMinus = document.getElementById("btn-time-minus");
 const btnPlus = document.getElementById("btn-time-plus");
 const btnStart = document.getElementById("btn-start-timer");
-const alarmSound = new Audio("./sound/alarm.mp3");
+const alarmSound = new Audio("/sound/alarm.mp3");
 
 const TOTAL_DOTS = 60;
 let defaultTimeSeconds = 120; // Orçamento padrão de 2 minutos
