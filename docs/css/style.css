@@ -601,7 +601,14 @@ footer a {
   border-radius: 20px;
 }
 
-/* Prepara os botões de + e - para animarem suavemente */
+.dot,
+#btn-open-timer,
+#btn-open-roller {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 #btn-time-minus,
 #btn-time-plus {
   transition: opacity 1s ease;

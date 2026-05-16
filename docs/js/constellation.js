@@ -10,15 +10,25 @@ const CONFIG = {
 };
 
 // ============================================================================
-// CONTROLE DE COR DO SISTEMA MOBILE (Theme Color)
+// CONTROLE DE AMBIENTE MOBILE (Cor do Sistema e Trava de Zoom)
 // ============================================================================
-function setMobileThemeColor(isModalOpen) {
+function setMobileEnvironment(isModalOpen) {
   const themeMeta = document.getElementById("theme-color-meta");
+  const viewportMeta = document.getElementById("viewport-meta");
+
   if (isModalOpen) {
+    // MODAL ABERTO: Fundo preto e trava o zoom do usuário
     if (themeMeta) themeMeta.setAttribute("content", "#000000");
+    if (viewportMeta)
+      viewportMeta.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+      );
     document.body.style.backgroundColor = "#000000";
   } else {
+    // MODAL FECHADO: Fundo branco e libera o zoom no mapa
     if (themeMeta) themeMeta.setAttribute("content", "#ffffff");
+    if (viewportMeta) viewportMeta.setAttribute("content", "width=device-width, initial-scale=1.0");
     document.body.style.backgroundColor = "#ffffff";
   }
 }
@@ -204,6 +214,7 @@ const timeDisplay = document.getElementById("time-display");
 const btnMinus = document.getElementById("btn-time-minus");
 const btnPlus = document.getElementById("btn-time-plus");
 const btnStart = document.getElementById("btn-start-timer");
+const alarmSound = new Audio("./sound/alarm.mp3");
 
 const TOTAL_DOTS = 60;
 let defaultTimeSeconds = 120; // Orçamento padrão de 2 minutos
@@ -271,7 +282,7 @@ btnOpen.addEventListener("click", () => {
   updateDisplay();
   updateGrid();
 
-  setMobileThemeColor(true);
+  setMobileEnvironment(true);
 });
 
 btnClose.addEventListener("click", () => {
@@ -287,7 +298,7 @@ btnClose.addEventListener("click", () => {
   btnMinus.style.pointerEvents = "auto";
   btnPlus.style.pointerEvents = "auto";
 
-  setMobileThemeColor(false);
+  setMobileEnvironment(false);
 });
 
 // 6.6. Gestão de Orçamento de Tempo
@@ -346,6 +357,9 @@ btnStart.addEventListener("click", async () => {
         isRunning = false;
         btnStart.textContent = "RESETAR";
         releaseWakeLock();
+
+        // Dispara o som
+        alarmSound.play();
 
         // Devolve os botões suavemente quando o tempo esgota
         btnMinus.style.opacity = "1";
@@ -454,12 +468,12 @@ function highlightWinner(index) {
 btnOpenRoller.addEventListener("click", () => {
   rollerModal.classList.remove("hidden");
   setTimeout(buildWheel, 50); // Delay mínimo para garantir o cálculo do Radius via CSS
-  setMobileThemeColor(true);
+  setMobileEnvironment(true);
 });
 
 btnCloseRoller.addEventListener("click", () => {
   rollerModal.classList.add("hidden");
-  setMobileThemeColor(false);
+  setMobileEnvironment(false);
 });
 
 btnSpin.addEventListener("click", spinWheel);
