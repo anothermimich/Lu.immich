@@ -55,26 +55,35 @@
   </main>
 
   <section class="project-img-container">
-    <div class="constellation-generator-container">
+    <img class="project-img" src="../projects/asterismo/asterismo-01.webp" alt="Tabuleiro" loading="lazy">
+    <img class="project-img" src="../projects/asterismo/asterismo-02.webp" alt="Ceu estrelado" loading="lazy">
+    <div class="project-split-img">
+      <img class="" src="../projects/asterismo/asterismo-03.webp" alt="Cronometro" loading="lazy">
+      <img class="" src="../projects/asterismo/asterismo-04.webp" alt="Roleta" loading="lazy">
+    </div>
+
+    <div class="constellation-panel-container">
+      <h3>Vamos jogar?</h3>
       <div class="canvas-wrapper">
         <canvas id="skyCanvas"></canvas>
       </div>  
-      <div class="constellation-generator-description">
-        <h3>Comece agora mesmo</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor adipisci culpa, non autem voluptatibus
-          laboriosam neque corrupti voluptates ratione quia reprehenderit velit est aliquid sapiente incidunt possimus.
-          Voluptatem, deserunt laborumluptates ratione quia reprehenderit velit est aliquid sapiente incidunt possimus.
-          Voluptatem, deserunt laborumluptates ratione quia reprehenderit velit est aliquid sapiente incidunt possimus.
-          Voluptatem, deserunt laborum!</p>
-        <div class="constellation-panel">
+      <div class="constellation-panel-description">
+        <h3>Vamos jogar?</h3>
+        <p>Utilize os botões abaixo para gerar um céu noturno único.</p>
+        <div class="constellation-panel-btns">
           <button id="btn-generate" class="btn-action">Gerar</button>
-          <button id="btn-download" class="btn-action">Imprimir</button>
+          <button id="btn-download" class="btn-action">Baixar</button>
+        </div>
+        <p><b>Não tem cronometro?</b></p>
+        <div class="constellation-panel-btns">
+          <button id="btn-open-timer" class="btn-action">Cronômetro</button>
+        </div>
+        <p><b>Perdeu seus dados D6?</b></p>
+        <div class="constellation-panel-btns">
+          <button id="btn-open-roller" class="btn-action">Roleta</button>
         </div>
       </div>
     </div>
-
-    <!-- Botão para abrir o timer (coloque onde preferir na sua UI) -->
-    <button id="btn-open-timer" class="btn-action">Abrir Cronômetro</button>
 
     <!-- O Modal do Timer (Escondido por padrão) -->
     <div id="timer-modal" class="modal-overlay hidden">
@@ -95,9 +104,6 @@
     </div>
 
   </section>
-
-  <!-- Botão para abrir a roleta (coloque próximo ao do cronômetro) -->
-  <button id="btn-open-roller" class="btn-action">Abrir Roleta 2D6</button>
 
   <!-- O Modal da Roleta -->
   <div id="roller-modal" class="modal-overlay hidden">
@@ -135,7 +141,7 @@
   <!-- Importação do jsPDF via CDN (Deve vir ANTES do seu script) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
    
-  <script src="../js/constellation.js"></script>
+  <script src="../js/asterism.js"></script>
 </body>
 
 

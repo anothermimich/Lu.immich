@@ -141,6 +141,25 @@
     grid-row: 3;
     text-align: start;
   }
+  .project-split-img {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+  }
+  .constellation-panel-container {
+    flex-direction: column;
+    border-top: 1px solid black;
+    padding-top: 10vh;
+  }
+  .canvas-wrapper {
+    max-width: 80vw;
+  }
+  .constellation-panel-container h3 {
+    display: block;
+  }
+  .constellation-panel-description h3 {
+    display: none;
+  }
 
   /* ------------ FOOTER ------------------ */
 
