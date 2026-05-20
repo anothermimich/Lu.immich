@@ -16,7 +16,7 @@ function ajustarHeroDinamicamente() {
 
     // Margem item e footeer (in px)
     margemMinimaDesktop: 80,
-    margemMinimaMobile: 80,
+    margemMinimaMobile: 180,
   };
 
   const isMobile = window.innerWidth <= config.mobileBreakpoint;
