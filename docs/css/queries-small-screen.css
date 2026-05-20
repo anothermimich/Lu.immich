@@ -146,6 +146,9 @@
     flex-direction: column;
     gap: 10vh;
   }
+  .project-split-img img {
+    max-width: 100%;
+  }
   .constellation-panel-container {
     flex-direction: column;
     border-top: 1px solid black;

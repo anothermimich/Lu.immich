@@ -24,9 +24,12 @@ body {
   user-select: none;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100svh;
   justify-content: space-between;
   align-items: center;
+}
+.vh-hidden {
+  display: none !important;
 }
 html,
 body {
@@ -263,16 +266,20 @@ ul li {
 .archive-link a {
   margin-top: 1rem;
 }
-#archive-link-2025 {
+#archive-link-2026 {
   margin-left: 2%;
+  z-index: 5;
+}
+#archive-link-2025 {
+  margin-left: 10vw;
 }
 
 #archive-link-2024 {
-  margin-left: 5rem;
+  margin-left: 15vw;
   z-index: 5;
 }
 #archive-link-empty {
-  margin-left: 8rem;
+  margin-left: 25vw;
   z-index: 5;
 }
 .archive-item a:hover {
@@ -361,6 +368,7 @@ ul li {
   border-right: 1px solid #181818;
   border-bottom: 1px solid #181818;
   border-left: 1px solid #181818;
+  width: 80vw !important;
 }
 .archive-item {
   width: 24.8%;
@@ -371,19 +379,10 @@ ul li {
 .archive-img {
   width: 100%;
 }
-#archive-tag-container-2025 {
+
+.archive-tag-container {
   justify-self: start;
-  margin-left: 2%;
-}
-#archive-item-container-2025 {
-  width: 80vw !important;
-}
-#archive-tag-container-2024 {
-  justify-self: start;
-  margin-left: 7%;
-}
-#archive-item-container-2024 {
-  width: 80vw !important;
+  margin-left: 2vw;
 }
 
 /* ------------ ABOUT PAGE -------------- */
@@ -490,6 +489,7 @@ ul li {
   flex: 1;
   min-width: 0;
   width: 100%;
+  max-width: 46%;
   height: auto;
   object-fit: cover;
 }
