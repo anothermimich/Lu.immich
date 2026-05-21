@@ -1,4 +1,4 @@
-// Função de Debounce para evitar "layout thrashing" ao redimensionar a tela
+// Debounce protege a performance do celular
 function debounce(func, wait) {
   let timeout;
   return function executedFunction(...args) {
@@ -15,15 +15,12 @@ function ajustarHeroDinamicamente() {
   const hero = document.querySelector(".hero");
   const footer = document.querySelector("footer");
   const nav = document.querySelector(".nav");
+  const ul = hero ? hero.querySelector("ul") : null;
 
-  // Se estivermos em uma página que não tem a hero, aborta silenciosamente
-  if (!hero || !footer || !nav) return;
+  if (!hero || !footer || !nav || !ul) return;
 
-  const items = Array.from(hero.querySelectorAll("li"));
+  const items = Array.from(ul.querySelectorAll("li"));
   if (items.length === 0) return;
-
-  // 1. Reseta todos os itens antes do cálculo
-  items.forEach((item) => item.classList.remove("vh-hidden"));
 
   // ==========================================
   // 🎛️ PAINEL DE CONTROLE
@@ -31,56 +28,54 @@ function ajustarHeroDinamicamente() {
   const config = {
     mobileBreakpoint: 1000,
     maxMobileItens: 5,
-
-    // Margem exigida entre o grid e o footer (em pixels)
     margemMinimaDesktop: 80,
-    margemMinimaMobile: 40,
+    margemMinimaMobile: 20,
   };
   // ==========================================
+
+  // Remove a classe de ocultar para fazer o cálculo correto caso a tela mude de retrato para paisagem
+  items.forEach((item) => item.classList.remove("vh-hidden"));
 
   const isMobile = window.innerWidth <= config.mobileBreakpoint;
   const margemExigida = isMobile ? config.margemMinimaMobile : config.margemMinimaDesktop;
 
-  // 2. REGRA 1: Limite máximo estático do Mobile
-  if (isMobile) {
-    items.forEach((item, index) => {
-      if (index >= config.maxMobileItens) {
-        item.classList.add("vh-hidden");
-      }
-    });
-  }
-
-  // 3. REGRA 2: Cálculo Matemático Seguro (Livre de pulos do Flexbox)
-
-  // Usamos clientHeight em vez de innerHeight para ignorar as barras do navegador mobile com segurança
+  // 1. ÁREA LIVRE: Mede o tamanho real da tela menos Nav, Footer e Margens
   const viewportHeight = document.documentElement.clientHeight;
-  const navHeight = nav.getBoundingClientRect().height;
-  const footerHeight = footer.getBoundingClientRect().height;
+  const navHeight = nav.offsetHeight;
+  const footerHeight = footer.offsetHeight;
 
-  // Como a hero tem "margin: auto 0", ela distribui o espaço vazio em cima e embaixo.
-  // Para garantir a sua margem mínima apenas no footer, precisamos do dobro desse espaço livre total.
-  const margemTotalNecessaria = margemExigida * 2;
+  const alturaMaximaHero = viewportHeight - navHeight - footerHeight - margemExigida * 2;
 
-  // Esta é a altura MÁXIMA que o seu grid pode ter sem estourar as margens ou a tela
-  const alturaMaximaHero = viewportHeight - navHeight - footerHeight - margemTotalNecessaria;
+  // 2. MATEMÁTICA DA GRID: Pega o tamanho exato de 1 item e o gap(espaço) entre eles
+  const itemHeight = items[0].offsetHeight;
+  const gap = parseFloat(window.getComputedStyle(ul).rowGap) || 0;
 
-  // Oculta de baixo para cima com base estritamente na altura do elemento
-  for (let i = items.length - 1; i > 0; i--) {
-    if (items[i].classList.contains("vh-hidden")) continue;
+  // 3. O VEREDITO: Quantos itens cabem perfeitos na tela?
+  // (Altura Livre + Gap) dividido por (Altura do Item + Gap)
+  let quantidadePermitida = Math.floor((alturaMaximaHero + gap) / (itemHeight + gap));
 
-    // Mede a altura do grid neste exato momento
-    const heroHeight = hero.getBoundingClientRect().height;
+  // Regra de Segurança: Nunca permite que fiquem 0 itens na tela
+  if (quantidadePermitida < 1) quantidadePermitida = 1;
 
-    // Se o grid for maior que o espaço permitido, oculta o último item
-    if (heroHeight > alturaMaximaHero) {
-      items[i].classList.add("vh-hidden");
-    } else {
-      // Se couber perfeitamente na conta, interrompe o loop
-      break;
-    }
+  // Regra do Mobile: Respeita o seu teto máximo estipulado no painel
+  if (isMobile && quantidadePermitida > config.maxMobileItens) {
+    quantidadePermitida = config.maxMobileItens;
   }
+
+  // 4. APLICA O CORTE
+  items.forEach((item, index) => {
+    if (index >= quantidadePermitida) {
+      item.classList.add("vh-hidden");
+    }
+  });
+
+  // 5. REVELA A TELA: A mágica acontece, mostra os itens já cortados
+  ul.classList.add("grid-calculado");
 }
 
-// Executa ao carregar e com debounce no redimensionamento para performance
+// Dispara IMEDIATAMENTE quando o HTML é lido (evita o piscar muito antes do load)
+window.addEventListener("DOMContentLoaded", ajustarHeroDinamicamente);
+// Dispara novamente quando as fontes da Jost carregam (pois a fonte muda a altura das letras)
 window.addEventListener("load", ajustarHeroDinamicamente);
+// Dispara suavemente se virar o celular ou redimensionar no PC
 window.addEventListener("resize", debounce(ajustarHeroDinamicamente, 150));
