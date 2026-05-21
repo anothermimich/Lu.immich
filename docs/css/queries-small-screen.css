@@ -10,9 +10,6 @@
   section {
     width: 90vw;
   }
-  section:last-of-type {
-    /* padding: 1rem 0 5vh 0; */
-  }
   a:hover,
   a:active,
   li:hover {
