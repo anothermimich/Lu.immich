@@ -29,7 +29,7 @@ function ajustarHeroDinamicamente() {
     mobileBreakpoint: 1000,
     maxMobileItens: 5,
     margemMinimaDesktop: 80,
-    margemMinimaMobile: 20,
+    margemMinimaMobile: 60,
   };
   // ==========================================
 
