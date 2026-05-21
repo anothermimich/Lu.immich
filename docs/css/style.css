@@ -143,15 +143,10 @@ ul li {
   display: grid;
   grid-template-columns: 1fr 3fr;
   row-gap: var(--fs-2);
-}
-
-/* Inicia a lista invisível para o Javascript calcular escondido */
-.hero ul {
   opacity: 0;
-  transition: opacity 0.4s ease-out; /* Revela de forma suave e sofisticada */
+  transition: opacity 0.4s ease-out;
 }
 
-/* O Javascript vai adicionar essa classe quando o cálculo terminar */
 .hero ul.grid-calculado {
   opacity: 1;
 }
