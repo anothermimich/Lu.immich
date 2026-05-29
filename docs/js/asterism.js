@@ -371,113 +371,113 @@ btnStart.addEventListener("click", async () => {
   }
 });
 
-// ============================================================================
-// 7. MOTOR DE CAOS (Simulador de 2D6 com Curva de Sino)
-// ============================================================================
+// // ============================================================================
+// // 7. MOTOR DE CAOS (Simulador de 2D6 com Curva de Sino)
+// // ============================================================================
 
-const rollerModal = document.getElementById("roller-modal");
-const btnOpenRoller = document.getElementById("btn-open-roller");
-const btnCloseRoller = document.getElementById("btn-close-roller");
-const rollerWheel = document.getElementById("roller-wheel");
-const btnSpin = document.getElementById("btn-spin");
+// const rollerModal = document.getElementById("roller-modal");
+// const btnOpenRoller = document.getElementById("btn-open-roller");
+// const btnCloseRoller = document.getElementById("btn-close-roller");
+// const rollerWheel = document.getElementById("roller-wheel");
+// const btnSpin = document.getElementById("btn-spin");
 
-const NUMBERS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const TOTAL_SLOTS = NUMBERS.length;
-const ANGLE_PER_SLOT = 360 / TOTAL_SLOTS;
+// const NUMBERS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+// const TOTAL_SLOTS = NUMBERS.length;
+// const ANGLE_PER_SLOT = 360 / TOTAL_SLOTS;
 
-let currentRotation = 0;
-let isSpinning = false;
+// let currentRotation = 0;
+// let isSpinning = false;
 
-// 7.1. Distribuição radial dos resultados
-function buildWheel() {
-  rollerWheel.innerHTML = "";
-  const radius = rollerWheel.offsetWidth / 2;
+// // 7.1. Distribuição radial dos resultados
+// function buildWheel() {
+//   rollerWheel.innerHTML = "";
+//   const radius = rollerWheel.offsetWidth / 2;
 
-  NUMBERS.forEach((num, index) => {
-    const angleDeg = index * ANGLE_PER_SLOT;
-    const numberDiv = document.createElement("div");
-    numberDiv.className = "roller-number";
-    numberDiv.textContent = num.toString().padStart(2, "0");
+//   NUMBERS.forEach((num, index) => {
+//     const angleDeg = index * ANGLE_PER_SLOT;
+//     const numberDiv = document.createElement("div");
+//     numberDiv.className = "roller-number";
+//     numberDiv.textContent = num.toString().padStart(2, "0");
 
-    // Projeta os números para as bordas do círculo mantendo o eixo no centro
-    numberDiv.style.transform = `translate(-50%, -50%) rotate(${angleDeg}deg) translateX(${radius - 70}px)`;
-    rollerWheel.appendChild(numberDiv);
-  });
-}
+//     // Projeta os números para as bordas do círculo mantendo o eixo no centro
+//     numberDiv.style.transform = `translate(-50%, -50%) rotate(${angleDeg}deg) translateX(${radius - 70}px)`;
+//     rollerWheel.appendChild(numberDiv);
+//   });
+// }
 
-// 7.2. Lógica de probabilidade real (2D6)
-function roll2D6() {
-  const d1 = Math.floor(Math.random() * 6) + 1;
-  const d2 = Math.floor(Math.random() * 6) + 1;
-  return d1 + d2; // Garante a curva de sino (o número 7 tem maior incidência)
-}
+// // 7.2. Lógica de probabilidade real (2D6)
+// function roll2D6() {
+//   const d1 = Math.floor(Math.random() * 6) + 1;
+//   const d2 = Math.floor(Math.random() * 6) + 1;
+//   return d1 + d2; // Garante a curva de sino (o número 7 tem maior incidência)
+// }
 
-// 7.3. Gatilho de Rotação Cinética
-function spinWheel() {
-  if (isSpinning) return;
-  isSpinning = true;
-  btnSpin.style.opacity = "0.5";
+// // 7.3. Gatilho de Rotação Cinética
+// function spinWheel() {
+//   if (isSpinning) return;
+//   isSpinning = true;
+//   btnSpin.style.opacity = "0.5";
 
-  // Limpa o destaque da rolagem anterior
-  const numbers = document.querySelectorAll(".roller-number");
-  numbers.forEach((num) => {
-    num.style.color = "#333";
-    num.style.transform = num.style.transform.replace(" scale(1.2)", "");
-  });
+//   // Limpa o destaque da rolagem anterior
+//   const numbers = document.querySelectorAll(".roller-number");
+//   numbers.forEach((num) => {
+//     num.style.color = "#333";
+//     num.style.transform = num.style.transform.replace(" scale(1.2)", "");
+//   });
 
-  const result = roll2D6();
-  const targetIndex = NUMBERS.indexOf(result);
+//   const result = roll2D6();
+//   const targetIndex = NUMBERS.indexOf(result);
 
-  // Alinhamento geométrico do resultado
-  const targetAngle = 360 - targetIndex * ANGLE_PER_SLOT;
+//   // Alinhamento geométrico do resultado
+//   const targetAngle = 360 - targetIndex * ANGLE_PER_SLOT;
 
-  // Adiciona 2 voltas completas para gerar tensão mecânica (cinética)
-  const extraSpins = 1 * 360;
-  currentRotation += extraSpins;
+//   // Adiciona 2 voltas completas para gerar tensão mecânica (cinética)
+//   const extraSpins = 1 * 360;
+//   currentRotation += extraSpins;
 
-  // Ajuste fino para cravar no ângulo do número sorteado
-  const currentMod = currentRotation % 360;
-  const adjustment = targetAngle - currentMod;
-  currentRotation += adjustment < 0 ? adjustment + 360 : adjustment;
+//   // Ajuste fino para cravar no ângulo do número sorteado
+//   const currentMod = currentRotation % 360;
+//   const adjustment = targetAngle - currentMod;
+//   currentRotation += adjustment < 0 ? adjustment + 360 : adjustment;
 
-  rollerWheel.style.transform = `rotate(${currentRotation}deg)`;
+//   rollerWheel.style.transform = `rotate(${currentRotation}deg)`;
 
-  // Trava os botões por 7s (tempo da animação CSS) e aplica o estilo vencedor
-  setTimeout(() => {
-    isSpinning = false;
-    btnSpin.style.opacity = "1";
-    highlightWinner(targetIndex);
-  }, 7000);
-}
+//   // Trava os botões por 7s (tempo da animação CSS) e aplica o estilo vencedor
+//   setTimeout(() => {
+//     isSpinning = false;
+//     btnSpin.style.opacity = "1";
+//     highlightWinner(targetIndex);
+//   }, 7000);
+// }
 
-// 7.4. UI de Sucesso
-function highlightWinner(index) {
-  const numbers = document.querySelectorAll(".roller-number");
-  numbers.forEach((num, i) => {
-    if (i === index) {
-      num.style.color = "#FFFFFF";
-      num.style.transform += " scale(1.2)";
-    } else {
-      num.style.color = "#444444";
-      num.style.transform = num.style.transform.replace(" scale(1.2)", "");
-    }
-  });
-}
+// // 7.4. UI de Sucesso
+// function highlightWinner(index) {
+//   const numbers = document.querySelectorAll(".roller-number");
+//   numbers.forEach((num, i) => {
+//     if (i === index) {
+//       num.style.color = "#FFFFFF";
+//       num.style.transform += " scale(1.2)";
+//     } else {
+//       num.style.color = "#444444";
+//       num.style.transform = num.style.transform.replace(" scale(1.2)", "");
+//     }
+//   });
+// }
 
-// 7.5. Eventos da Roleta
-btnOpenRoller.addEventListener("click", () => {
-  rollerModal.classList.remove("hidden");
-  setTimeout(buildWheel, 50); // Delay mínimo para garantir o cálculo do Radius via CSS
-  setMobileEnvironment(true);
-});
+// // 7.5. Eventos da Roleta
+// btnOpenRoller.addEventListener("click", () => {
+//   rollerModal.classList.remove("hidden");
+//   setTimeout(buildWheel, 50); // Delay mínimo para garantir o cálculo do Radius via CSS
+//   setMobileEnvironment(true);
+// });
 
-btnCloseRoller.addEventListener("click", () => {
-  rollerModal.classList.add("hidden");
-  setMobileEnvironment(false);
-});
+// btnCloseRoller.addEventListener("click", () => {
+//   rollerModal.classList.add("hidden");
+//   setMobileEnvironment(false);
+// });
 
-btnSpin.addEventListener("click", spinWheel);
+// btnSpin.addEventListener("click", spinWheel);
 
-window.addEventListener("resize", () => {
-  if (!rollerModal.classList.contains("hidden")) buildWheel();
-});
+// window.addEventListener("resize", () => {
+//   if (!rollerModal.classList.contains("hidden")) buildWheel();
+// });
