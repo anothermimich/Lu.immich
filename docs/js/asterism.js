@@ -192,7 +192,7 @@ function downloadPDF() {
   doc.text(textRight, bgRightX + padding, bgRightY + padding, { baseline: "top" });
 
   // 5.4. Disparo do Download
-  doc.save("Ceu_Noturno_Mapeamento.pdf");
+  doc.save("asterismo-ceu-noturno.pdf");
 }
 
 // Start visual na inicialização do site
