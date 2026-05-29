@@ -549,13 +549,13 @@ footer a {
 .constellation-panel-description {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 2rem;
 }
 
 .constellation-panel-btns {
   margin-top: -1.25rem;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   width: 100%;
 }
 
@@ -570,6 +570,7 @@ footer a {
 
 .btn-action:hover {
   transform: translateY(-3px);
+  text-decoration: none !important;
 }
 
 .canvas-wrapper {
