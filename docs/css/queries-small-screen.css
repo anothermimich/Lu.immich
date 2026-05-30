@@ -172,6 +172,11 @@
   .license-icons img {
     width: var(--fs-0);
   }
+
+  /* ------------ ASTERISM -------------- */
+  .btn-action:hover {
+    transform: none;
+  }
 }
 @media only screen and (max-device-width: 1000px) {
   .archive-hero {
