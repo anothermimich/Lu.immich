@@ -188,75 +188,75 @@ function downloadPDF() {
   doc.save("asterismo-ceu-noturno.pdf");
 }
 
-// ============================================================================
-// 5.B EXPORTAÇÃO TÁTIL (Matriz de Texto)
-// ============================================================================
+// // ============================================================================
+// // 5.B EXPORTAÇÃO TÁTIL (Matriz de Texto)
+// // ============================================================================
 
-// CRUCIAL: Estes valores devem bater com a configuração física da impressora a ser utilizada.
-const BRAILLE_CONFIG = {
-  CPL: 40, // Caracteres por linha (Largura máxima antes da quebra)
-  LPP: 25, // Linhas por página (Altura máxima)
-  DOT_CHAR: "a", // Caractere que ativa apenas o Ponto 1 na cela Braille
-  EMPTY_CHAR: " ", // Espaço vazio para não perfurar o papel
-};
+// // CRUCIAL: Estes valores devem bater com a configuração física da impressora a ser utilizada.
+// const BRAILLE_CONFIG = {
+//   CPL: 40, // Caracteres por linha (Largura máxima antes da quebra)
+//   LPP: 25, // Linhas por página (Altura máxima)
+//   DOT_CHAR: "a", // Caractere que ativa apenas o Ponto 1 na cela Braille
+//   EMPTY_CHAR: " ", // Espaço vazio para não perfurar o papel
+// };
 
-function downloadBrailleTXT() {
-  if (!stars || stars.length === 0) {
-    console.warn("O mapa está vazio. Gere o céu noturno primeiro.");
-    return;
-  }
+// function downloadBrailleTXT() {
+//   if (!stars || stars.length === 0) {
+//     console.warn("O mapa está vazio. Gere o céu noturno primeiro.");
+//     return;
+//   }
 
-  // 1. Reserva de Espaço (Layout)
-  // Subtraímos 2 linhas do total da página para garantir espaço seguro para o rodapé
-  const mapLines = BRAILLE_CONFIG.LPP - 2;
+//   // 1. Reserva de Espaço (Layout)
+//   // Subtraímos 2 linhas do total da página para garantir espaço seguro para o rodapé
+//   const mapLines = BRAILLE_CONFIG.LPP - 2;
 
-  // Inicia a matriz preenchida com espaços vazios
-  let grid = Array.from({ length: mapLines }, () =>
-    Array(BRAILLE_CONFIG.CPL).fill(BRAILLE_CONFIG.EMPTY_CHAR),
-  );
+//   // Inicia a matriz preenchida com espaços vazios
+//   let grid = Array.from({ length: mapLines }, () =>
+//     Array(BRAILLE_CONFIG.CPL).fill(BRAILLE_CONFIG.EMPTY_CHAR),
+//   );
 
-  // 2. Transposição Espacial (Quantização)
-  stars.forEach((star) => {
-    // Projeta o pixel na grade (Regra de Três)
-    const col = Math.floor((star.x / canvas.width) * BRAILLE_CONFIG.CPL);
-    const row = Math.floor((star.y / canvas.height) * mapLines);
+//   // 2. Transposição Espacial (Quantização)
+//   stars.forEach((star) => {
+//     // Projeta o pixel na grade (Regra de Três)
+//     const col = Math.floor((star.x / canvas.width) * BRAILLE_CONFIG.CPL);
+//     const row = Math.floor((star.y / canvas.height) * mapLines);
 
-    // Failsafe rigoroso: Garante que um arredondamento não estoure o Array (Out-of-Bounds)
-    const safeCol = Math.min(Math.max(col, 0), BRAILLE_CONFIG.CPL - 1);
-    const safeRow = Math.min(Math.max(row, 0), mapLines - 1);
+//     // Failsafe rigoroso: Garante que um arredondamento não estoure o Array (Out-of-Bounds)
+//     const safeCol = Math.min(Math.max(col, 0), BRAILLE_CONFIG.CPL - 1);
+//     const safeRow = Math.min(Math.max(row, 0), mapLines - 1);
 
-    // Imprime a estrela. Se houver colisão na mesma cela, ele apenas sobrescreve "a" com "a".
-    grid[safeRow][safeCol] = BRAILLE_CONFIG.DOT_CHAR;
-  });
+//     // Imprime a estrela. Se houver colisão na mesma cela, ele apenas sobrescreve "a" com "a".
+//     grid[safeRow][safeCol] = BRAILLE_CONFIG.DOT_CHAR;
+//   });
 
-  // 3. Renderização do Mapa para String
-  let textOutput = grid.map((row) => row.join("")).join("\n");
+//   // 3. Renderização do Mapa para String
+//   let textOutput = grid.map((row) => row.join("")).join("\n");
 
-  // 4. Injeção do Rodapé Isolado (Evita sobrescrever estrelas e quebrar o Array)
-  textOutput += "\n\n"; // Desce para as últimas linhas reservadas
+//   // 4. Injeção do Rodapé Isolado (Evita sobrescrever estrelas e quebrar o Array)
+//   textOutput += "\n\n"; // Desce para as últimas linhas reservadas
 
-  const textLeft = "DATA      SERIE"; // Sem acentos por segurança de Encoding
-  const textRight = "ASTERISMO";
+//   const textLeft = "DATA      SERIE"; // Sem acentos por segurança de Encoding
+//   const textRight = "ASTERISMO";
 
-  // Calcula o espaço vazio necessário no meio para empurrar o texto direito para a borda
-  const spacesNeeded = BRAILLE_CONFIG.CPL - textLeft.length - textRight.length;
+//   // Calcula o espaço vazio necessário no meio para empurrar o texto direito para a borda
+//   const spacesNeeded = BRAILLE_CONFIG.CPL - textLeft.length - textRight.length;
 
-  if (spacesNeeded > 0) {
-    textOutput += textLeft + " ".repeat(spacesNeeded) + textRight;
-  } else {
-    // Failsafe: se as palavras forem muito grandes para a folha, junta com 1 espaço
-    textOutput += textLeft + " " + textRight;
-  }
+//   if (spacesNeeded > 0) {
+//     textOutput += textLeft + " ".repeat(spacesNeeded) + textRight;
+//   } else {
+//     // Failsafe: se as palavras forem muito grandes para a folha, junta com 1 espaço
+//     textOutput += textLeft + " " + textRight;
+//   }
 
-  // 5. Disparo Limpo do Arquivo
-  const blob = new Blob([textOutput], { type: "text/plain;charset=utf-8" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "asterismo-ceu-estrelado-tatil.txt";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
+//   // 5. Disparo Limpo do Arquivo
+//   const blob = new Blob([textOutput], { type: "text/plain;charset=utf-8" });
+//   const link = document.createElement("a");
+//   link.href = URL.createObjectURL(blob);
+//   link.download = "asterismo-ceu-estrelado-tatil.txt";
+//   document.body.appendChild(link);
+//   link.click();
+//   document.body.removeChild(link);
+// }
 
 // Start visual na inicialização do site
 generateSky();
@@ -264,7 +264,7 @@ generateSky();
 // Listeners de Interface
 document.getElementById("btn-generate").addEventListener("click", generateSky);
 document.getElementById("btn-download").addEventListener("click", downloadPDF);
-document.getElementById("btn-download-braille").addEventListener("click", downloadBrailleTXT);
+// document.getElementById("btn-download-braille").addEventListener("click", downloadBrailleTXT);
 
 // ============================================================================
 // 6. MOTOR DE FRICÇÃO (Cronômetro Sensorial)
@@ -435,9 +435,9 @@ btnStart.addEventListener("click", async () => {
   }
 });
 
-// // ============================================================================
-// // 7. MOTOR DE CAOS (Simulador de 2D6 com Curva de Sino)
-// // ============================================================================
+// ============================================================================
+// 7. MOTOR DE CAOS (Simulador de 2D6 com Curva de Sino)
+// ============================================================================
 
 // const rollerModal = document.getElementById("roller-modal");
 // const btnOpenRoller = document.getElementById("btn-open-roller");
