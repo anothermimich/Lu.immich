@@ -10,28 +10,35 @@ const CONFIG = {
 };
 
 // ============================================================================
-// CONTROLE DE AMBIENTE MOBILE (Cor do Sistema e Trava de Zoom)
+// SISTEMA ANTI-ZOOM FORÇADO PARA BROWSERS MODERNOS (iOS/Android)
 // ============================================================================
-function setMobileEnvironment(isModalOpen) {
-  const themeMeta = document.getElementById("theme-color-meta");
-  const viewportMeta = document.getElementById("viewport-meta");
 
-  if (isModalOpen) {
-    // MODAL ABERTO: Fundo preto e trava o zoom do usuário
-    if (themeMeta) themeMeta.setAttribute("content", "#000000");
-    if (viewportMeta)
-      viewportMeta.setAttribute(
-        "content",
-        "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
-      );
-    document.body.style.backgroundColor = "#000000";
-  } else {
-    // MODAL FECHADO: Fundo branco e libera o zoom no mapa
-    if (themeMeta) themeMeta.setAttribute("content", "#ffffff");
-    if (viewportMeta) viewportMeta.setAttribute("content", "width=device-width, initial-scale=1.0");
-    document.body.style.backgroundColor = "#ffffff";
-  }
-}
+// 1. Impede o "Pinch-to-zoom" (movimento de pinça com 2 ou mais dedos)
+document.addEventListener(
+  "touchmove",
+  function (event) {
+    if (document.body.classList.contains("modal-open") && event.touches.length > 1) {
+      event.preventDefault();
+    }
+  },
+  { passive: false },
+);
+
+// 2. Impede o "Double-tap to zoom" (duplo toque rápido no ecrã)
+let lastTouchEnd = 0;
+document.addEventListener(
+  "touchend",
+  function (event) {
+    if (document.body.classList.contains("modal-open")) {
+      const now = new Date().getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    }
+  },
+  { passive: false },
+);
 
 // ============================================================================
 // 2. SETUP DO CANVAS E CONTEXTO
