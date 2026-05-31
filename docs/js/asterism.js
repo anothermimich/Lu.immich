@@ -352,8 +352,6 @@ btnOpen.addEventListener("click", () => {
   remainingSeconds = defaultTimeSeconds;
   updateDisplay();
   updateGrid();
-
-  setMobileEnvironment(true);
 });
 
 btnClose.addEventListener("click", () => {
@@ -368,8 +366,6 @@ btnClose.addEventListener("click", () => {
   btnPlus.style.opacity = "1";
   btnMinus.style.pointerEvents = "auto";
   btnPlus.style.pointerEvents = "auto";
-
-  setMobileEnvironment(false);
 });
 
 // 6.6. Gestão de Orçamento de Tempo
