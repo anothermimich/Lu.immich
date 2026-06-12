@@ -22,18 +22,14 @@ function ajustarHeroDinamicamente() {
   const items = Array.from(ul.querySelectorAll("li"));
   if (items.length === 0) return;
 
-  // ==========================================
-  // 🎛️ PAINEL DE CONTROLE
-  // ==========================================
+  // PAINEL DE CONTROLE
   const config = {
     mobileBreakpoint: 1000,
     maxMobileItens: 5,
     margemMinimaDesktop: 80,
-    margemMinimaMobile: 110,
+    margemMinimaMobile: 100,
   };
-  // ==========================================
 
-  // Remove a classe de ocultar para fazer o cálculo correto caso a tela mude de retrato para paisagem
   items.forEach((item) => item.classList.remove("vh-hidden"));
 
   const isMobile = window.innerWidth <= config.mobileBreakpoint;
@@ -69,13 +65,10 @@ function ajustarHeroDinamicamente() {
     }
   });
 
-  // 5. REVELA A TELA: A mágica acontece, mostra os itens já cortados
+  // 5. REVELA A TELA
   ul.classList.add("grid-calculado");
 }
 
-// Dispara IMEDIATAMENTE quando o HTML é lido (evita o piscar muito antes do load)
 window.addEventListener("DOMContentLoaded", ajustarHeroDinamicamente);
-// Dispara novamente quando as fontes da Jost carregam (pois a fonte muda a altura das letras)
 window.addEventListener("load", ajustarHeroDinamicamente);
-// Dispara suavemente se virar o celular ou redimensionar no PC
 window.addEventListener("resize", debounce(ajustarHeroDinamicamente, 150));
