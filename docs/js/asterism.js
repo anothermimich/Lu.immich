@@ -193,6 +193,11 @@ function downloadPDF() {
 
   // 5.4. Disparo do Download
   doc.save("asterismo-ceu-noturno.pdf");
+
+  // 5.5. Automação: Regenera o canvas para a próxima interação
+  setTimeout(() => {
+    generateSky();
+  }, 600);
 }
 
 // // ============================================================================
