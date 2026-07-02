@@ -365,7 +365,7 @@ ul li {
 }
 .archive-tag-year {
   position: absolute;
-  right: 1rem;
+  left: 1rem;
   top: 0.5rem;
   font-weight: 400;
   z-index: 4;
