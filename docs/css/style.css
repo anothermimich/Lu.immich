@@ -338,9 +338,10 @@ ul li {
 
 .archive-tag-container {
   position: relative;
+  width: fit-content;
   max-height: 2rem;
-  max-width: 15%;
-  min-width: 180px;
+  justify-self: start;
+  margin-left: 2vw;
 }
 .archive-tag {
   background: #181818;
@@ -365,7 +366,7 @@ ul li {
 }
 .archive-tag-year {
   position: absolute;
-  left: 1rem;
+  right: 1rem;
   top: 0.5rem;
   font-weight: 400;
   z-index: 4;
@@ -389,11 +390,6 @@ ul li {
 }
 .archive-img {
   width: 100%;
-}
-
-.archive-tag-container {
-  justify-self: start;
-  margin-left: 2vw;
 }
 
 /* ------------ ABOUT PAGE -------------- */
