@@ -1,5 +1,3 @@
-*convert-to-webp*
-purgatory/
 node_modules/
 _site/
 .DS_Store

@@ -2,6 +2,9 @@
 layout: base.njk
 title: DESAN - Lu Immich
 permalink: "/DESAN/"
+isProject: true
+description: "Identidade visual desenvolvida para o DESAN."
+image: "/project-files/desan/desan4.webp"
 ---
 
   <main class="project">

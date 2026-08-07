@@ -1,27 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="Principais trabalhos. Lu Immich é uma designer e mestranda em Filosofia, investigando o pensamento enquanto forma.">
-  <meta name="keywords" content="Lu Immich, design, filosofia, pensamento, forma, ui/ux, design gráfico, web design">
-  <meta name="author" content="Lu Immich">
-  <meta name="theme-color" content="#fff" />
+  
+  <!-- SEO Básico -->
+  <title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} | Design & Filosofia{% endif %}</title>
+  <meta name="description" content="{{ description | default(site.description) }}">
+  <meta name="author" content="{{ site.author }}">
+  <meta name="keywords" content="{{ keywords | default('Lu Immich, design, filosofia, ontologia social, desenho industrial, ui/ux') }}">
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Canonical URL (Evita punição por conteúdo duplicado no Google) -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  
+  <!-- Open Graph / Redes Sociais (LinkedIn, WhatsApp, Facebook) -->
+  <meta property="og:type" content="{% if isProject %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
+  <meta property="og:description" content="{{ description | default(site.description) }}">
+  <meta property="og:image" content="{{ site.url }}{{ image | default('/icons/favicon/android-chrome-512x512.png') }}">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
+  <meta name="twitter:description" content="{{ description | default(site.description) }}">
+  <meta name="twitter:image" content="{{ site.url }}{{ image | default('/icons/favicon/android-chrome-512x512.png') }}">
+
+  <!-- JSON-LD (Schema.org / Padrão Ouro do Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{% if isProject %}CreativeWork{% else %}Person{% endif %}",
+    "name": "{% if title %}{{ title }}{% else %}{{ site.name }}{% endif %}",
+    "description": "{{ description | default(site.description) }}",
+    "url": "{{ site.url }}{{ page.url }}",
+    {% if not isProject %}
+    "jobTitle": "Filosofa e Designer",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Universidade Federal de Santa Maria"
+    },
+    {% endif %}
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}"
+    }
+  }
+  </script>
+
+  <!-- Links CSS e Fontes -->
   <link rel="stylesheet" href="/css/style.css" type="text/css" charset="utf-8" />
   <link rel="stylesheet" href="/css/queries-small-screen.css" media="all and (max-width: 1000px)" />
   <link rel="stylesheet" href="/css/queries-big-screen.css" media="all and (min-width: 2500px)" />
+  <link rel="stylesheet" href="/fonts/jost/Jost.css" type="text/css" charset="utf-8" />
+  
+  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png">
-  <link rel="stylesheet" href="/fonts/jost/Jost.css" type="text/css" charset="utf-8" />
   <link rel="manifest" href="/icons/favicon/site.webmanifest">
-  <title>Lu Immich</title>
+</head>
 
 <body>
-
-  <script src="js/home.js"></script>
   <nav class="nav">
     <a class="nav-title" href="/">Lu Immich</a>
     <div class="nav-links">
@@ -31,7 +72,6 @@
   </nav>
 
   {{ content | safe }}
-
 
   <footer class="flex--column">
     <div class="footer-license">
@@ -45,5 +85,4 @@
     </div>
   </footer>
 </body>
-
 </html>
