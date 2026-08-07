@@ -44,10 +44,11 @@ a {
   text-decoration: none;
   color: #000000;
 }
-a:hover,
-a:active,
-li:hover {
-  text-decoration: line-through;
+@media (hover: hover) and (pointer: fine) {
+  a:hover,
+  a:active {
+    text-decoration: line-through;
+  }
 }
 h1,
 h2,
@@ -180,9 +181,11 @@ ul li {
   transition-delay: 0.1s;
   z-index: 2;
 }
-.hero ul li:hover + .hero-img {
-  opacity: 1;
-  transform: scale(1);
+@media (hover: hover) and (pointer: fine) {
+  .hero ul li:hover + .hero-img {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ------------ ARCHIVE PAGE -------------- */
