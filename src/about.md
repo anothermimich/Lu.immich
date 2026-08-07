@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: About - Lu Immich
+permalink: "/Sobre/"
+---
+
+  <main class="about">
+    <div class="about-container">
+      <h1 class="about-title">Sobre</h1>
+      <p class="about-text">
+        <i>"Entre ideias e interfaces, Lu Immich investiga o pensamento enquanto forma — doutoranda em Filosofia e
+          graduanda
+          em desenho industrial, ela atua onde conceito encontra a visualidade."</i> &mdash; Jornalista importante,
+        porém
+        inexistente.
+      </p>
+  </main>

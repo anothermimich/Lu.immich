@@ -1,0 +1,70 @@
+---
+layout: base.njk
+title: Asterismo - Lu Immich
+permalink: "/Asterismo/"
+---
+
+<main class="project">
+  <div class="project-container">
+    <h1 class="project-title">Asterismo</h1>
+    <p class="project-team"><b>Lu Immich </b>(Design e Idealização)</p>
+    
+    <p class="project-parts">
+      O que emerge dos traços é uma configuração que não teria surgido de
+      nenhuma intenção isolada. O sentido desta configuração encontra-se suspenso. É nesse estado de suspensão que as
+      participantes agem coletivamente atribuindo sentido ao que emergiu. Ao final, o Céu Noturno é um registro único
+      do que aconteceu naquele encontro específico.
+    </p>
+    
+    <p class="project-concept">
+      <b>ÁSTER (estrela) + ISMO (ação)</b><br>
+      Asterismo é uma ferramenta conceitual para criar sentido coletivamente. Sua proposta central é contra-intuitiva, em vez de impor sentido ao que emerge, deve-se deixar o sentido aparecer na inter(ação). O terreno desta ação é um céu estrelado. Sobre ele as participantes conectam estrelas traçando linhas em um gesto contínuo.
+    </p>
+    
+    <div class="project-desc-container">
+      <p class="project-year"><b>2026</b></p>
+    </div>
+  </div>
+</main>
+
+<section class="project-img-container">
+  <img class="" src="/project-files/asterismo/asterismo-06.webp" alt="Manual" loading="lazy">
+  <img class="project-img" src="/project-files/asterismo/asterismo-02.webp" alt="Ceu estrelado" loading="lazy">
+  <img class="" src="/project-files/asterismo/asterismo-03.webp" alt="Cronometro" loading="lazy">
+
+  <div class="constellation-panel-container">
+    <h3>Vamos?</h3>
+    <div class="canvas-wrapper">
+      <canvas id="skyCanvas"></canvas>
+    </div>  
+    <div class="constellation-panel-description">
+      <h3>Vamos?</h3>
+      <div class="constellation-panel-btns">
+        <a href="/projects/asterismo/asterismo-instrucoes.pdf" class="btn-action" download>Instruções</a>
+        <a id="btn-open-timer" class="btn-action">Cronômetro</a>
+      </div>
+      <div class="constellation-panel-btns">
+        <a id="btn-generate" class="btn-action">Reorganizar o céu</a>
+        <a id="btn-download" class="btn-action">Baixe o céu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O Modal do Timer -->
+<div id="timer-modal" class="modal-overlay hidden">
+  <div class="modal-content">
+    <button id="btn-close-timer" class="btn-close">&times;</button>
+    <div id="dot-grid" class="dot-grid"></div>
+    <div class="timer-controls">
+      <button id="btn-time-minus" class="time-adjust">-</button>
+      <span id="time-display">02:00</span>
+      <button id="btn-time-plus" class="time-adjust">+</button>
+    </div>
+    <button id="btn-start-timer" class="btn-start">COMEÇAR</button>
+  </div>
+</div>
+
+<!-- Page-Specific Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="/js/asterism.js"></script>
