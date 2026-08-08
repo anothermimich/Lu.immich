@@ -12,7 +12,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/project-files");
 
   return {
-    pathPrefix: "/Lu.immich/", // THIS MUST MATCH YOUR REPOSITORY NAME EXACTLY
     dir: {
       input: "src",
       output: "_site",
