@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: DESAN - Lu Immich
-permalink: "/DESAN/"
+permalink: "/desan/"
 isProject: true
 description: "Identidade visual desenvolvida para o DESAN."
 image: "/project-files/desan/desan4.webp"

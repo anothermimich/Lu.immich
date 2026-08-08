@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Queer - Lu Immich
-permalink: "/Leituras-Queer/"
+permalink: "/leituras-queer/"
 isProject: true
 description: "Identidade visual e peças gráficas desenvolvidas para o grupo Leituras Queer."
 image: "/project-files/leituras-queer/Cartaz-gravidade.webp"

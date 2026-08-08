@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: K01 - Lu Immich
-permalink: "/K01/"
+permalink: "/k01/"
 isProject: true
 description: "Design de produto do Teclado K01. Este é um teclado ortolinear dividido (split) inspirado no movimento de Design Internacional."
 image: "/project-files/k01/k01-06.webp"
