@@ -11,12 +11,13 @@ image: "/project-files/desan/desan4.webp"
     <div class="project-container">
       <h1 class="project-title">DESAN</h1>
       <p class="project-team"><b>Lu Immich </b>(Design)</p>
-      <p class="project-concept">Este projeto de Identidade Visual foi elaborado para o Grupo de estudos sobre
+      <div class="project-description">
+        <p>Este projeto de Identidade Visual foi elaborado para o Grupo de estudos sobre
         Determinantes Sociais da
         Alimentação, Nutrição e Saúde da UFRGS. Busquei nesse projeto aliar a solidez de um grupo de estudos
-        universitário a abertura para dialogar com o público. Para tanto adotei principios da gestalt para compor o logo
-        principal junto ao observador. 
-      </p>
+        universitário a abertura para dialogar com o público. Para tanto adotei principios da gestalt para compor o logo principal junto ao observador. 
+        </p>
+      </div>
       <div class="project-desc-container">
         <p class="project-year"><b>2025</b></p>
         <a class="project-in-use" href="https://www.instagram.com/desan.ufrgs/">Instagram</a>

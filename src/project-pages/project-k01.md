@@ -12,13 +12,8 @@ image: "/project-files/k01/k01-06.webp"
       <h1 class="project-title">Teclado<br> K01</h1>
       <p class="project-team"><b>Lu Immich </b>(Design de produto) <br> <b> Aline Dal Pont </b>(Fotografia)
       </p>
-      <p class="project-parts">
-        <b>Peças</b> <br> Neste projeto optei por empregar componentes amplamente disponíveis no mercado reinventando
-        suas funções. Deste modo tornou-se possível utilizar componentes em alumínio usinado, plástico injetado e
-        eletrônicos sem elevar o custo de fabricação em
-        baixa escala.
-      </p>
-      <p class="project-concept">
+      <div class="project-description">
+      <p>
         <b>Conceito</b> <br>Este teclado ergonômico repensa a relação entre humano e máquina com o objetivo de evitar
         lesões advindas do uso prolongado de computador. Diferente de um teclado convencional, seu design dividido em
         duas partes permite ajustar a posição de
@@ -27,6 +22,13 @@ image: "/project-files/k01/k01-06.webp"
         movimento natural de
         contração dos dedos, que por sua vez é linear.
       </p>
+      <p>
+        <b>Peças</b> <br> Neste projeto optei por empregar componentes amplamente disponíveis no mercado reinventando
+        suas funções. Deste modo tornou-se possível utilizar componentes em alumínio usinado, plástico injetado e
+        eletrônicos sem elevar o custo de fabricação em
+        baixa escala.
+      </p>
+      </div>
       <div class="project-desc-container">
         <p class="project-year"><b>2024</b></p>
         <a class="project-in-use" href="https://github.com/anothermimich/k01">Repositório</a>

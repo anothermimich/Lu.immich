@@ -49,10 +49,14 @@
   }
   </script>
 
-  <!-- Links CSS e Fontes -->
+<!-- Links CSS e Fontes -->
   <link rel="stylesheet" href="/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/css/queries-small-screen.css" media="all and (max-width: 1000px)" />
-  <link rel="stylesheet" href="/css/queries-big-screen.css" media="all and (min-width: 2500px)" />
+  
+  <!-- CSS Dinâmico: Só carrega se a página exigir -->
+  {% if custom_css %}
+  <link rel="stylesheet" href="/css/{{ custom_css }}" type="text/css" charset="utf-8" />
+  {% endif %}
+  
   <link rel="stylesheet" href="/fonts/jost/Jost.css" type="text/css" charset="utf-8" />
   
   <!-- Favicons -->
