@@ -17,6 +17,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  margin-top: -0.75rem;
+  margin-left: 0.75rem;
 }
 
 .constellation-panel-btns {
@@ -58,7 +60,7 @@
 @media (max-width: 1000px) {
   .constellation-panel-container {
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     border-top: 1px solid black;
     padding-top: 10vh;
   }
@@ -74,11 +76,11 @@
   }
   .constellation-panel-description {
     width: 100%;
-    align-items: center;
+    margin-top: 0;
+    margin-left: 0;
   }
   .constellation-panel-btns {
     margin-top: 0;
-    justify-content: center;
     flex-wrap: wrap;
   }
 }

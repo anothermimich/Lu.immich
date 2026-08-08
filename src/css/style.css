@@ -652,6 +652,17 @@ footer a {
   .project-description {
     display: none;
   }
+  /* .project-description {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .project-description > *:nth-child(n + 2) {
+    border-left: none;
+    padding-left: 0;
+  } */
   .project-team {
     grid-column: 1;
     grid-row: 3;
