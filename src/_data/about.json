@@ -1,0 +1,50 @@
+{
+  "philosophy": [
+    {
+      "year": "2026",
+      "title": "Ontologia Social e a Categoria de Gênero",
+      "type": "Pesquisa de Doutorado em Andamento",
+      "url": "/publicacoes/ontologia-social/"
+    },
+    {
+      "year": "2025",
+      "title": "II Oficina de Escrita GEFOP: Resumos",
+      "type": "Organização de Evento",
+      "url": "/publicacoes/oficina-gefop/"
+    },
+    {
+      "year": "2024",
+      "title": "Mulheres Também Sabem Filosofia",
+      "type": "Diretório Acadêmico Web",
+      "url": "/publicacoes/mulheres-sabem-filosofia/"
+    }
+  ],
+  "design_layer_1": [
+    {
+      "image": "/project-files/k02/k02-04.webp",
+      "alt": "Teclado K02",
+      "caption": "Teclado K02. Hardware e Ergonomia.",
+      "url": "/k02/"
+    },
+    {
+      "image": "/project-files/desan/desan1.webp",
+      "alt": "Cartaz DESAN",
+      "caption": "DESAN. Identidade Visual.",
+      "url": "/desan/"
+    }
+  ],
+  "design_layer_2": [
+    {
+      "image": "/project-files/asterismo/asterismo-02.webp",
+      "alt": "Asterismo",
+      "caption": "Asterismo. Performance.",
+      "url": "/asterismo/"
+    },
+    {
+      "image": "/project-files/k01/k01-06.webp",
+      "alt": "Teclado K01",
+      "caption": "Teclado K01. Hardware.",
+      "url": "/k01/"
+    }
+  ]
+}

@@ -1,57 +1,71 @@
 ---
 layout: base.njk
 title: Lu Immich
+permalink: "/"
 ---
 
-  <main class="hero">
-    <ul>
-      <li>
-        <a href="/k02/">
-          <p>(01)</p>
-          <div>
-            <p>Teclado K02</p>
-            <p>Design de Produto</p>
-            <p>2025</p>
-          </div>
-        </a>
-      </li>
-      <img class="hero-img" src="/project-files/k02/k02-04.webp" alt="Vista lateral do teclado K02" loading="lazy">
-      
-      <li>
-        <a href="/desan/">
-          <p>(02)</p>
-          <div>
-            <p>DESAN</p>
-            <p>Identidade</p>
-            <p>2025</p>
-          </div>
-        </a>
-      </li>
-      <img class="hero-img" src="/project-files/desan/desan1.webp" alt="Cartaz do DESAN" loading="lazy">
-      
-      <li>
-        <a href="/asterismo/">
-          <p>(03)</p>
-          <div>
-            <p>Asterismo</p>
-            <p>Performance participativa</p>
-            <p>2026</p>
-          </div>
-        </a>
-      </li>
-      <img class="hero-img" src="/project-files/asterismo/asterismo-02.webp" alt="Céu noturno" loading="lazy">
-      
-      <li>
-        <a href="/k01/">
-          <p>(04)</p>
-          <div>
-            <p>Teclado K01</p>
-            <p>Produto</p>
-            <p>2024</p>
-          </div>
-        </a>
-      </li>
-      <img class="hero-img" src="/project-files/k01/k01-06.webp" alt="Vista superior do teclado K01" loading="lazy">
-    </ul>
-  </main>
+<main class="hero">
+  <ul id="hero-list">
+    <!-- O JavaScript injeta os projetos aqui de forma síncrona -->
+  </ul>
+</main>
+
+<script>
+  // 1. O Eleventy puxa os dados do home.json no servidor e os entrega limpos para o navegador
+  const allProjects = {{ home | dump | safe }};
+
+  // 2. A função de Sorteio Ponderado (Weighted Random)
+  function getWeightedRandom(projects, count) {
+      let result = [];
+      let pool = [...projects];
+
+      for (let i = 0; i < count; i++) {
+          if (pool.length === 0) break; // Trava de segurança
+
+          let totalWeight = pool.reduce((sum, p) => sum + p.weight, 0);
+          let random = Math.random() * totalWeight;
+
+          for (let j = 0; j < pool.length; j++) {
+              random -= pool[j].weight;
+              
+              if (random <= 0) {
+                  result.push(pool[j]);
+                  pool.splice(j, 1); 
+                  break;
+              }
+          }
+      }
+      return result;
+  }
+
+  // 3. Sorteia até 10 projetos (ou o máximo do banco de dados) para entregar ao home.js
+  const maxToDraw = Math.min(10, allProjects.length);
+  const selectedProjects = getWeightedRandom(allProjects, maxToDraw);
+  
+  const ul = document.getElementById('hero-list');
+  let html = '';
+
+  // 4. Monta a estrutura exata que o CSS e o home.js esperam
+  selectedProjects.forEach((proj, index) => {
+      const num = String(index + 1).padStart(2, '0');
+      html += `
+        <li>
+          <a href="${proj.url}">
+            <p>(${num})</p>
+            <div>
+              <p>${proj.title}</p>
+              <p>${proj.type}</p>
+              <p>${proj.year}</p>
+            </div>
+          </a>
+        </li>
+        <img class="hero-img" src="${proj.img}" alt="${proj.title}" loading="lazy">
+      `;
+  });
+
+  // 5. Injeta no HTML *antes* do home.js rodar
+  ul.innerHTML = html;
+</script>
+
+<!-- 6. O seu script assume daqui. Ele vai ler a UL preenchida acima, calcular a altura livre, cortar os extras e adicionar a classe "grid-calculado" -->
 <script src="/js/home.js"></script>

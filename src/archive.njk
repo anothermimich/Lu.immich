@@ -1,41 +1,27 @@
 ---
 layout: base.njk
-title: Lu Immich
+title: Lu Immich | Arquivo
 permalink: "/arquivo/"
 ---
 
 <main>
   <section class="archive-hero">
-    <!-- <div class="loader"></div> -->
-    <!-- <div class="archive-top"></div> -->
     <div class="archive-links-container">
+      
+      <!-- Loop 1: Gera automaticamente o menu de anos no topo (2026, 2025, 2024...) -->
+      {% for sheet in archive %}
       <div class="archive-link">
-        <a class="archive-tag-container" id="archive-link-2026" href="#archive-sheet-2026">
+        <a class="archive-tag-container" id="archive-link-{{ sheet.year }}" href="#archive-sheet-{{ sheet.year }}">
           <div class="archive-tag"></div>
           <div class="archive-tag-small">
-            <p class="archive-tag-year">2026</p>
+            <p class="archive-tag-year">{{ sheet.year }}</p>
           </div>
         </a>
-        <div class="line" id="archive-link-line-2025"></div>
+        <div class="line" {% if sheet.year == '2025' %}id="archive-link-line-2025"{% endif %}></div>
       </div>
-      <div class="archive-link">
-        <a class="archive-tag-container" id="archive-link-2025" href="#archive-sheet-2025">
-          <div class="archive-tag"></div>
-          <div class="archive-tag-small">
-            <p class="archive-tag-year">2025</p>
-          </div>
-        </a>
-        <div class="line" id="archive-link-line-2025"></div>
-      </div>
-      <div class="archive-link">
-        <a class="archive-tag-container" id="archive-link-2024" href="#archive-sheet-2024">
-          <div class="archive-tag"></div>
-          <div class="archive-tag-small">
-            <p class="archive-tag-year">2024</p>
-          </div>
-        </a>
-        <div class="line"></div>
-      </div>
+      {% endfor %}
+      
+      <!-- Aba vazia decorativa do final -->
       <div class="archive-link">
         <a class="archive-tag-container" id="archive-link-empty">
           <div class="archive-tag"></div>
@@ -44,263 +30,42 @@ permalink: "/arquivo/"
         </a>
         <div class="line"></div>
       </div>
-      <!-- <div class="line line-empty"></div> -->
+
     </div>
+    
     <div class="archive-front-container">
       <div class="archive-front-top"></div>
       <div class="archive-front"></div>
     </div>
   </section>
+
   <section class="archive-sheets-container">
+    
+    <!-- Loop 2: Gera os blocos anuais de imagens -->
+    {% for sheet in archive %}
     <div class="archive-sheet">
-      <span class="anchor" id="archive-sheet-2026"></span>
-      <div class="archive-tag-container">
-        <div class="archive-tag"></div>
-        <div class="archive-tag-small">
-        </div>
-        <p class="archive-tag-year">2026</p>
-      </div>
-      <div class="archive-item-container" id="archive-item-container-2026">
-        <div class=" archive-item">
-          <a href="/asterismo/">
-            <img class="archive-img" src="/project-files/asterismo/asterismo-01.webp" alt="Asterismo tabuleiro antigo">
-          </a>
-        </div>
-        <div class=" archive-item">
-          <a href="/asterismo/">
-            <img class="archive-img" src="/project-files/asterismo/asterismo-06.webp" alt="Asterismo manual">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/asterismo/">
-            <img class="archive-img" src="/project-files/asterismo/asterismo-02.webp" alt="Asterismo tabuleiro">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/asterismo/">
-            <img class="archive-img" src="/project-files/asterismo/asterismo-03.webp" alt="Asterismo cronometro">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/asterismo/">
-            <img class="archive-img" src="/project-files/asterismo/asterismo-04.webp" alt="Asterismo roleta de dados">
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="archive-sheet">
-      <span class="anchor" id="archive-sheet-2025"></span>
-      <div class="archive-tag-container">
-        <div class="archive-tag"></div>
-        <div class="archive-tag-small">
-        </div>
-        <p class="archive-tag-year">2025</p>
-      </div>
-      <div class="archive-item-container" id="archive-item-container-2025">
-        <div class="archive-item">
-          <a href="/desan/">
-            <img class="archive-img" src="/project-files/desan/desan1.webp" alt="Ecobag Desan">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/desan/">
-            <img class="archive-img" src="/project-files/desan/desan5.webp" alt="Marca Página Desan">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/desan/">
-            <img class="archive-img" src="/project-files/desan/desan3.webp" alt="Canecas Desan">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/desan/">
-            <img class="archive-img" src="/project-files/desan/desan4.webp" alt="Instagram Desan">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/desan/">
-            <img class="archive-img border-img" src="/project-files/desan/desan6.webp" alt="Cartaz Desan">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/desan/">
-            <img class="archive-img" src="/project-files/desan/desan2.webp" alt="Logo Desan">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="#">
-            <img class="archive-img border-img" src="/project-files/entremundos/P0-Entremundos.webp"
-              alt="Cartaz evento EntreMundos">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="#">
-            <img class="archive-img border-img" src="/project-files/entremundos/P4-Entremundos.webp"
-              alt="Cartaz evento EntreMundos">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="#">
-            <img class="archive-img border-img" src="/project-files/entremundos/P1-Entremundos.webp"
-              alt="Cartaz evento EntreMundos">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="#">
-            <img class="archive-img border-img" src="/project-files/entremundos/P2-Entremundos.webp"
-              alt="Cartaz evento EntreMundos">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="#">
-            <img class="archive-img border-img" src="/project-files/entremundos/P3-Entremundos.webp"
-              alt="Cartaz evento EntreMundos">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="#">
-            <img class="archive-img border-img" src="/project-files/gefop/Workshop de escrita 2025.webp"
-              alt="Cartaz workshop de escrita do GEFOP">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="#">
-            <img class="archive-img border-img" src="/project-files/gefop/conversa de corredor Milena.webp"
-              alt="Cartaz conversa de corredor para o GEFOP">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="#">
-            <img class="archive-img" src="/project-files/gefop/logo-gefop-black.webp"
-              alt="Adeviso Grupo de Estudos em Filosofia Social e Opressão">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="#">
-            <img class="archive-img" src="/project-files/gefop/logo-gefop-white.webp"
-              alt="Logo Grupo de Estudos em Filosofia Social e Opressão">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k02/">
-            <img class="archive-img" src="/project-files/k02/k02-01.webp" alt="Teclado K02 01">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k02/">
-            <img class="archive-img" src="/project-files/k02/k02-03.webp" alt="Teclado K02 03">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k02/">
-            <img class="archive-img" src="/project-files/k02/k02-04.webp" alt="Teclado K02 04">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k02/">
-            <img class="archive-img" src="/project-files/k02/k02-05.webp" alt="Teclado K02 05">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k02/">
-            <img class="archive-img" src="/project-files/k02/k02-06.webp" alt="Teclado K02 06">
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="archive-sheet">
-      <span class="anchor" id="archive-sheet-2024"></span>
+      <span class="anchor" id="archive-sheet-{{ sheet.year }}"></span>
+      
       <div class="archive-tag-container">
         <div class="archive-tag"></div>
         <div class="archive-tag-small"></div>
-        <p class="archive-tag-year">2024</p>
+        <p class="archive-tag-year">{{ sheet.year }}</p>
       </div>
-      <div class="archive-item-container" id="archive-item-container-2024">
+      
+      <div class="archive-item-container" id="archive-item-container-{{ sheet.year }}">
+        <!-- Loop 3: Insere as imagens de dentro de cada ano específico -->
+        {% for item in sheet.items %}
         <div class="archive-item">
-          <a href="/leituras-queer/">
-            <img class="archive-img" src="/project-files/leituras-queer/Cartaz-gravidade.webp"
-              alt="Cartaz Leituras Queer gravidade">
+          <a {% if item.url %}href="{{ item.url }}"{% endif %}>
+            <!-- O if item.border injeta a classe border-img dinamicamente -->
+            <img class="archive-img {% if item.border %}border-img{% endif %}" src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy">
           </a>
         </div>
-        <div class="archive-item">
-          <a href="/leituras-queer/">
-            <img class="archive-img" src="/project-files/leituras-queer/Cartaz-encontro.webp"
-              alt="Cartaz Leituras Queer encontro">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/leituras-queer/">
-            <img class="archive-img" src="/project-files/leituras-queer/Cartaz-caca-pal.webp"
-              alt="Cartaz Leituras Queer caçapalavras">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/leituras-queer/">
-            <img class="archive-img" src="/project-files/leituras-queer/Ecobag-Mockup.webp" alt="Ecobag Leituras Queer">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k01/">
-            <img class="archive-img" src="/project-files/k01/k01-01.webp" alt="Teclado K01 01">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k01/">
-            <img class="archive-img" src="/project-files/k01/k01-02.webp" alt="Teclado K01 02">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k01/">
-            <img class="archive-img" src="/project-files/k01/k01-03.webp" alt="Teclado K01 03">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k01/">
-            <img class="archive-img" src="/project-files/k01/k01-04.webp" alt="Teclado K01 04">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k01/">
-            <img class="archive-img" src="/project-files/k01/k01-05.webp" alt="Teclado K01 05">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a href="/k01/">
-            <img class="archive-img" src="/project-files/k01/k01-06.webp" alt="Teclado K01 06">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a>
-            <img class="archive-img"
-              src="/project-files/primeiro-workshop-interseccionalidade/Cartaz-primeiro-workshop-fil-inter.webp"
-              alt="1 workshop filosofia e interseccionalidade divulgação">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a>
-            <img class="archive-img" src="/project-files/primeiro-workshop-interseccionalidade/Cartaz-adesivos.webp"
-              alt="1 workshop filosofia e interseccionalidade adesivos">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a>
-            <img class="archive-img" src="/project-files/primeiro-workshop-interseccionalidade/Cartaz-pronomes.webp"
-              alt="1 workshop filosofia e interseccionalidade pronomes">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a>
-            <img class="archive-img" src="/project-files/primeiro-workshop-interseccionalidade/Cartaz-programacao.webp"
-              alt="1 workshop filosofia e interseccionalidade programação">
-          </a>
-        </div>
-        <div class="archive-item">
-          <a>
-            <img class="archive-img" src="/project-files/theseus/Adesivo-theseus.webp"
-              alt="Adesivo do projeto Bicicleta de Theseus">
-          </a>
-        </div>
+        {% endfor %}
       </div>
+      
     </div>
+    {% endfor %}
+    
   </section>
 </main>
