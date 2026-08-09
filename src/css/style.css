@@ -495,7 +495,6 @@ footer a {
   .archive-tag-year,
   .archive-tag-year .zero {
     right: 0.6rem;
-    top: 0.2rem;
     font-size: var(--fs-0);
   }
 
