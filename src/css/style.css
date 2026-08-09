@@ -473,8 +473,11 @@ footer a {
   .archive-item a div {
     display: none;
   }
+  .archive-links-container {
+    width: 75vw;
+  }
   .archive-link {
-    width: 78vw;
+    width: 72vw;
   }
   .archive-front-container {
     margin-top: -1rem;
@@ -507,6 +510,7 @@ footer a {
     margin-left: 15%;
   }
   .archive-links-container {
+    align-self: center;
     padding-bottom: 2rem;
   }
 
