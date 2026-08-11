@@ -75,11 +75,24 @@ a {
   text-decoration: none;
   color: #000000;
 }
+@media (hover: hover) and (pointer: fine) {
+  a {
+    transition: opacity 0.5s ease;
+  }
+}
 
 @media (hover: hover) and (pointer: fine) {
   a:hover,
   a:active {
     text-decoration: line-through;
+    opacity: 0.8;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  a img:hover,
+  a img:active,
+  a img:focus-visible {
+    opacity: 0.95;
   }
 }
 
@@ -355,7 +368,10 @@ footer a {
     transform: translateY(-2rem);
   }
 }
-
+.archive-link a:hover,
+.archive-link a:active {
+  opacity: 1;
+}
 .line {
   height: 2px;
   background: black;

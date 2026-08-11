@@ -1,0 +1,251 @@
+:root {
+  /* clamp(mínimo, ideal, máximo) */
+  --fs-0: clamp(0.8rem, 1.5vw, 1rem);
+  --fs-1: clamp(1rem, 2vw, 1.125rem);
+  --fs-2: clamp(2rem, 4vw, 2.25rem);
+  --fs-3: clamp(3rem, 6vw, 4.5rem);
+}
+
+.grid-container {
+  width: 92vw;
+  margin: 0 auto;
+  font-size: var(--fs-1);
+}
+
+/* ==========================================================================
+   1. HERO
+   ========================================================================== */
+.hero {
+  font-weight: 400;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 5vh;
+}
+
+.hero__top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: var(--fs-1);
+}
+
+.hero__col-left {
+  width: fit-content;
+  margin-bottom: 40vh;
+}
+
+.hero__col-left p {
+  font-weight: 400;
+  margin: 0 0 0.5rem 0; /* Respiro sutil entre o cargo e a atuação */
+}
+
+.hero__col-right {
+  font-size: var(--fs-2);
+  line-height: 1.15;
+  font-weight: 240;
+  margin: 0;
+  max-width: 25ch;
+  text-wrap: balance;
+}
+
+/* ==========================================================================
+   3 & 4. SEÇÕES DE TRABALHO
+   ========================================================================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10vw;
+  margin-top: -5vh; /* Restaurado: Mantém a proximidade exata que você queria com o Hero */
+
+  /* O Pulo do Gato Sênior: Se não usar isso, o grid estica o card par 
+     e o margin-top de 60vh se perde ou gera scroll horizontal/vertical bizarro. */
+  align-items: start;
+}
+
+/* Desloca a coluna da direita para criar o visual editorial */
+.project-card:nth-child(even) {
+  margin-top: 60vh; /* Restaurado o seu degrau dramático editorial */
+}
+
+/* ==========================================================================
+   MÁSCARAS E PARALLAX
+   ========================================================================== */
+.project__image-mask,
+.footer__image-mask {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.project__image-mask {
+  margin-bottom: 3vh;
+}
+
+.project__image-mask a,
+.project__image-mask a:hover,
+.project__image-mask a:focus-visible {
+  opacity: 0.95;
+}
+
+.project__image-mask a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.parallax-img {
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+  /* Define 'center center' como padrão, mas aceita reescrita via HTML */
+  object-position: var(--img-foco, center center);
+  position: absolute;
+  top: -15%;
+  left: 0;
+  will-change: transform;
+}
+
+.project__footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2vw;
+  margin-top: 1rem;
+}
+
+.project__roles,
+.project__desc {
+  font-size: var(--fs-1);
+  margin: 0;
+}
+
+.project__roles {
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
+.footer-section {
+  /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
+  padding-top: 10vh;
+  margin-top: 10vh;
+}
+
+.footer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10vw;
+  align-items: center;
+  min-height: 90vh;
+  margin-bottom: -5vh;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer__link {
+  text-decoration: none;
+  width: fit-content;
+  transition: opacity 0.3s ease; /* Transição polida adicionada */
+}
+
+/* ==========================================================================
+   6. ESTADOS DE ANIMAÇÃO & ACESSIBILIDADE
+   ========================================================================== */
+
+.slide-up {
+  opacity: 0;
+  /* Aumentamos o deslocamento para 10vh. Isso cria uma distância maior 
+     a ser percorrida, gerando a percepção de peso editorial. */
+  transform: translateY(10vh);
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: none !important;
+  }
+  .parallax-img {
+    height: 100% !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   7. RESPONSIVIDADE (Telas Verticais e Quadradas)
+   ========================================================================== */
+
+/* Intercepta telas onde a altura é maior ou igual à largura (aspect-ratio 1/1 ou menor) */
+@media (max-aspect-ratio: 1/1), (max-width: 768px) {
+  /* Hero: Empilha o texto e ajusta o alinhamento */
+  .hero {
+    height: auto;
+    padding-top: 40vh;
+  }
+
+  .hero__top-row {
+    flex-direction: column;
+    gap: 10vh;
+    align-items: start;
+  }
+
+  .hero__col-left {
+    margin-bottom: 50vh;
+  }
+
+  .hero__col-right {
+    justify-self: start; /* Alinha à esquerda para facilitar a leitura no mobile */
+    align-self: start;
+    font-size: var(--fs-1);
+    max-width: 30ch;
+    margin-bottom: 30vh;
+  }
+
+  .hero__col-right p {
+    font-weight: 400;
+  }
+  .work-section {
+    display: none;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 15vh; /* Mantém um respiro agradável entre os projetos */
+  }
+  .project__footer {
+    display: flex;
+  }
+  .project__roles {
+    display: none;
+  }
+
+  .project-card:nth-child(even) {
+    margin-top: 0; /* Remove a margem que quebrava as telas verticais */
+  }
+
+  /* Footer: Empilha a foto e os links */
+  .footer-layout {
+    grid-template-columns: 1fr;
+    gap: 5vh;
+  }
+
+  /* Reduz sutilmente a altura das máscaras para focar no conteúdo */
+  .project__image-mask,
+  .footer__image-mask {
+    aspect-ratio: 1 / 1; /* Transforma as imagens em quadrados nas telas estreitas */
+  }
+  .footer-section {
+    border: none;
+  }
+}

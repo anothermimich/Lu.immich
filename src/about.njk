@@ -1,17 +1,78 @@
 ---
 layout: base.njk
-title: About - Lu Immich
+title: Lu Immich | Sobre
 permalink: "/sobre/"
+custom_css: "about.css"
 ---
 
-  <main class="about">
-    <div class="about-container">
-      <h1 class="about-title">Sobre</h1>
-      <p class="about-text">
-        <i>"Entre ideias e interfaces, Lu Immich investiga o pensamento enquanto forma — doutoranda em Filosofia e
-          graduanda
-          em desenho industrial, ela atua onde conceito encontra a visualidade."</i> &mdash; Jornalista importante,
-        porém
-        inexistente.
-      </p>
-  </main>
+<main class="about">
+  <section class="hero grid-container">
+    <div class="hero__top-row">
+      <div class="hero__col-left">
+        <p class="slide-up">Doutoranda em Filosofia</p>
+        <p class="slide-up">Freelancer em Design</p>
+        </div>
+      <div class="hero__col-right">
+        <p class="slide-up">Em meu trabalho busco mitigar o atrito entre sistemas e pessoas. Na filosofia abordo a existência trans em contextos não ideais; no design projeto interações e experiências centradas no usuário. 
+       </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de 2 Colunas -->
+  <section class="work-section grid-container">
+    
+    <div class="projects-grid">
+      {% for item in about.works %}
+      <article class="project-card">
+        <div class="project__header slide-up">
+          <h3 class="project__title">{{ item.title }}</h3>
+          <p class="project__year">{{ item.year }}</p>
+        </div>
+
+        <!-- Máscara do Parallax -->
+        <div class="project__image-mask">
+          <a href="{{ item.url }}">
+            <img src="{{ item.image }}" alt="{{ item.title }}" class="parallax-img" loading="lazy">
+          </a>
+        </div>
+
+        <div class="project__footer slide-up">
+          <p class="project__roles">{{ item.roles | safe }}</p>
+          <p class="project__desc">{{ item.desc }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  
+  <!-- 5. FOOTER -->
+  <section class="footer-section grid-container">
+    <div class="footer-layout">
+      
+      <div class="footer__photo-col slide-up">
+        <div class="footer__image-mask">
+           <img src="/img/lu-immich.jpg" alt="Lu Immich e sua companheira" class="parallax-img" style="--img-foco: top bottom;" loading="lazy">
+        </div>
+      </div>
+      
+      <!-- Contato -->
+      <div class="footer__contact-col slide-up">
+        <div class="footer__links">
+          <a href="https://lattes.cnpq.br/6938481194529175" class="footer__link">Lattes</a>
+          <a href="https://github.com/anothermimich" class="footer__link">GitHub</a>
+          <a href="https://philpeople.org/profiles/lu-immich" class="footer__link">PhilPeople</a>
+          <a href="mailto:lu.immich@gmail.com" class="footer__link">lu.immich@gmail.com</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="/js/about.js"></script>

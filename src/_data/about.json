@@ -1,50 +1,18 @@
 {
-  "philosophy": [
+  "works": [
     {
-      "year": "2026",
-      "title": "Ontologia Social e a Categoria de Gênero",
-      "type": "Pesquisa de Doutorado em Andamento",
+      "index": "01",
+      "roles": "Artigo<br>Forthcoming",
+      "desc": "Esse artigo busca introduzir na Filosofia brasileira um problema até então pouco abordado. Para tanto ele reconstroí algumas das principais posições do debate atual.",
+      "image": "/project-files/k02/k02-04.webp",
       "url": "/publicacoes/ontologia-social/"
     },
     {
-      "year": "2025",
-      "title": "II Oficina de Escrita GEFOP: Resumos",
-      "type": "Organização de Evento",
-      "url": "/publicacoes/oficina-gefop/"
-    },
-    {
-      "year": "2024",
-      "title": "Mulheres Também Sabem Filosofia",
-      "type": "Diretório Acadêmico Web",
-      "url": "/publicacoes/mulheres-sabem-filosofia/"
-    }
-  ],
-  "design_layer_1": [
-    {
+      "index": "02",
+      "roles": "Web Design<br>Developer Full Stack",
+      "desc": "Criação de hardware focado na redução da sobrecarga cognitiva e sensorial, unindo design ergonômico e código aberto.",
       "image": "/project-files/k02/k02-04.webp",
-      "alt": "Teclado K02",
-      "caption": "Teclado K02. Hardware e Ergonomia.",
       "url": "/k02/"
-    },
-    {
-      "image": "/project-files/desan/desan1.webp",
-      "alt": "Cartaz DESAN",
-      "caption": "DESAN. Identidade Visual.",
-      "url": "/desan/"
-    }
-  ],
-  "design_layer_2": [
-    {
-      "image": "/project-files/asterismo/asterismo-02.webp",
-      "alt": "Asterismo",
-      "caption": "Asterismo. Performance.",
-      "url": "/asterismo/"
-    },
-    {
-      "image": "/project-files/k01/k01-06.webp",
-      "alt": "Teclado K01",
-      "caption": "Teclado K01. Hardware.",
-      "url": "/k01/"
     }
   ]
 }
