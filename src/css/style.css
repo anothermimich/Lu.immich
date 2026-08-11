@@ -86,6 +86,7 @@ a {
   a:active {
     text-decoration: line-through;
     opacity: 0.8;
+    cursor: pointer;
   }
 }
 @media (hover: hover) and (pointer: fine) {
