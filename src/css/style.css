@@ -642,7 +642,9 @@ footer a {
   border-left: 1px solid #000;
   padding-left: 2.5vw;
 }
-
+/* ==========================================================================
+   NOVA ESTRUTURA DE IMAGENS DOS PROJETOS
+   ========================================================================== */
 .project-img-container {
   display: flex;
   flex-direction: column;
@@ -650,34 +652,41 @@ footer a {
   width: 80vw;
 }
 
-/* 1. O picture principal herda a largura total da página */
-.project-img-container > picture,
-.project-img {
+/* Transformamos o <picture> no contêiner estrutural */
+.project-img-container picture {
   display: block;
+}
+
+/* 1. Imagens Full Width (Ocupam os 80vw completos) */
+.project-img-container > picture {
   width: 80vw;
 }
 
+/* 2. O grid dividido (Split) */
 .project-split-img {
   display: flex;
   flex-direction: row;
   gap: 10vh;
+  width: 80vw;
 }
 
-/* 2. A tag picture agora é o flex-item oficial do grid */
 .project-split-img > picture {
   flex: 1;
   min-width: 0;
   max-width: 46%;
-  align-self: baseline;
-  display: flex;
 }
 
-/* 3. A imagem obedece a tag picture */
-.project-split-img picture img {
+/* 3. A REGRA DE OURO QUE RESTAURA A PROPORÇÃO */
+.project-img {
   width: 100%;
-  height: auto;
+  height: auto !important; /* Anula os atributos de height injetados pelo Eleventy */
   object-fit: contain;
+  display: block;
 }
+
+/* ==========================================================================
+   OVERRIDES MOBILE
+   ========================================================================== */
 @media (max-width: 1000px) {
   .project-container {
     padding: 0;
@@ -690,29 +699,18 @@ footer a {
   .project-description {
     display: none;
   }
-  /* .project-description {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  .project-description > *:nth-child(n + 2) {
-    border-left: none;
-    padding-left: 0;
-  } */
   .project-team {
     grid-column: 1;
     grid-row: 3;
     text-align: start;
   }
+
+  /* Empilha as imagens divididas no celular */
   .project-split-img {
     display: flex;
     flex-direction: column;
     gap: 10vh;
   }
-
-  /* A responsividade foca no contêiner picture */
   .project-split-img > picture {
     max-width: 100%;
   }
