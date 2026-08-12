@@ -237,7 +237,7 @@
   /* Footer: Empilha a foto e os links */
   .footer-layout {
     grid-template-columns: 1fr;
-    gap: 5vh;
+    padding: 15vh 0;
   }
 
   /* Reduz sutilmente a altura das máscaras para focar no conteúdo */
