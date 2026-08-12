@@ -190,6 +190,7 @@
 /* Intercepta telas onde a altura é maior ou igual à largura (aspect-ratio 1/1 ou menor) */
 @media (max-aspect-ratio: 1/1), (max-width: 768px) {
   /* Hero: Empilha o texto e ajusta o alinhamento */
+
   .hero {
     height: auto;
     padding-top: 40vh;
