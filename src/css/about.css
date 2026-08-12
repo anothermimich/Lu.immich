@@ -135,6 +135,7 @@
   /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
   padding-top: 10vh;
   margin-top: 10vh;
+  min-height: 90vh;
 }
 
 .footer-layout {
@@ -142,10 +143,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 10vw;
   align-items: center;
-  min-height: 90vh;
   margin-bottom: -5vh;
   padding: 15vh 0;
-  max-height: 70vh;
 }
 
 .footer__links {
