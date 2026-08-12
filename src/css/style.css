@@ -645,9 +645,8 @@ footer a {
 .project-description > *:nth-child(n + 2) {
   border-left: 1px solid #000;
   padding-left: 2.5vw;
-}
-/* ==========================================================================
-   NOVA ESTRUTURA DE IMAGENS DOS PROJETOS
+} /* ==========================================================================
+   ESTRUTURA DE IMAGENS E PICTURE (CORREÇÃO DO ASPECT RATIO)
    ========================================================================== */
 .project-img-container {
   display: flex;
@@ -656,34 +655,36 @@ footer a {
   width: 80vw;
 }
 
-/* Transformamos o <picture> no contêiner estrutural */
-.project-img-container picture {
-  display: block;
-}
-
-/* 1. Imagens Full Width (Ocupam os 80vw completos) */
+/* O picture que ocupa a largura total (80vw) */
 .project-img-container > picture {
-  width: 80vw;
+  display: flex;
+  width: 100%;
 }
 
-/* 2. O grid dividido (Split) */
+/* O Grid Dividido (Split) */
 .project-split-img {
   display: flex;
   flex-direction: row;
   gap: 10vh;
-  width: 80vw;
+  width: 100%;
+
+  /* O SEGREDO: Impede que o Flexbox estique a tag picture verticalmente */
+  align-items: flex-start;
 }
 
+/* O picture dentro do split */
 .project-split-img > picture {
+  display: flex;
   flex: 1;
   min-width: 0;
   max-width: 46%;
 }
 
-/* 3. A REGRA DE OURO QUE RESTAURA A PROPORÇÃO */
-.project-img {
-  width: 100%;
-  height: auto !important; /* Anula os atributos de height injetados pelo Eleventy */
+/* A Imagem Final (<img>) - Blindada contra distorções do HTML */
+.project-img-container picture img {
+  width: 100% !important;
+  height: auto !important; /* Destrói a altura fixa inserida pelo Eleventy */
+  max-height: none !important;
   object-fit: contain;
   display: block;
 }
@@ -715,6 +716,8 @@ footer a {
     flex-direction: column;
     gap: 10vh;
   }
+
+  /* Permite que o picture docupe a tela toda no Mobile */
   .project-split-img > picture {
     max-width: 100%;
   }
