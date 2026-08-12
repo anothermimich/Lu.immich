@@ -131,11 +131,16 @@
 /* ==========================================================================
    5. FOOTER
    ========================================================================== */
+section:last-of-type {
+  padding: 0;
+}
 .footer-section {
   /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
   padding-top: 10vh;
   margin-top: 10vh;
   min-height: 90vh;
+  display: flex;
+  align-items: center;
 }
 
 .footer-layout {
@@ -143,8 +148,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 10vw;
   align-items: center;
-  margin-bottom: -5vh;
-  padding: 15vh 0;
+  min-width: 80vw;
 }
 
 .footer__links {
