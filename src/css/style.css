@@ -645,48 +645,45 @@ footer a {
 .project-description > *:nth-child(n + 2) {
   border-left: 1px solid #000;
   padding-left: 2.5vw;
-} /* ==========================================================================
-   ESTRUTURA DE IMAGENS E PICTURE (CORREÇÃO DO ASPECT RATIO)
+}
+/* ==========================================================================
+   ESTRUTURA DE IMAGENS COM CSS GRID (RESOLUÇÃO DO ASPECT RATIO)
    ========================================================================== */
 .project-img-container {
+  /* Mantemos o flex apenas no contêiner-pai para empilhar as blocos verticais */
   display: flex;
   flex-direction: column;
   gap: 10vh;
   width: 80vw;
 }
 
-/* O picture que ocupa a largura total (80vw) */
+/* 1. Imagem que ocupa a largura total (80vw) */
 .project-img-container > picture {
-  display: flex;
+  display: block;
   width: 100%;
 }
 
-/* O Grid Dividido (Split) */
+/* 2. O Novo Layout Dividido usando CSS Grid */
 .project-split-img {
-  display: flex;
-  flex-direction: row;
-  gap: 10vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas exatamente iguais */
+  gap: 8vw; /* Mantém o respiro lateral elegante */
   width: 100%;
-
-  /* O SEGREDO: Impede que o Flexbox estique a tag picture verticalmente */
-  align-items: flex-start;
+  align-items: start; /* Proíbe o Grid de esticar as fotos verticalmente */
 }
 
-/* O picture dentro do split */
+/* O picture dentro do split não precisa mais de cálculos de porcentagem */
 .project-split-img > picture {
-  display: flex;
-  flex: 1;
-  min-width: 0;
-  max-width: 46%;
+  display: block;
+  width: 100%;
 }
 
-/* A Imagem Final (<img>) - Blindada contra distorções do HTML */
+/* 3. A Imagem Final (<img>) - Simples, fluida e obediente */
 .project-img-container picture img {
   width: 100% !important;
-  height: auto !important; /* Destrói a altura fixa inserida pelo Eleventy */
-  max-height: none !important;
-  object-fit: contain;
+  height: auto !important; /* Corta a interferência de altura do Eleventy */
   display: block;
+  object-fit: contain;
 }
 
 /* ==========================================================================
@@ -710,16 +707,10 @@ footer a {
     text-align: start;
   }
 
-  /* Empilha as imagens divididas no celular */
+  /* No Mobile, o Grid de 2 colunas se transforma em 1 coluna empilhada */
   .project-split-img {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 10vh;
-  }
-
-  /* Permite que o picture docupe a tela toda no Mobile */
-  .project-split-img > picture {
-    max-width: 100%;
   }
 }
 
