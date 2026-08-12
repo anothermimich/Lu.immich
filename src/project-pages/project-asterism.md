@@ -23,9 +23,9 @@ custom_css: "asterismo.css"
 </main>
 
 <section class="project-img-container">
-  <img class="" src="/project-files/asterismo/asterismo-06.webp" alt="Manual" loading="lazy">
-  <img class="project-img" src="/project-files/asterismo/asterismo-02.webp" alt="Ceu estrelado" loading="lazy">
-  <img class="" src="/project-files/asterismo/asterismo-03.webp" alt="Cronometro" loading="lazy">
+  {% image "project-files/asterismo/asterismo-06.webp", "Manual", "" %}
+  {% image "project-files/asterismo/asterismo-02.webp", "Ceu estrelado", "project-img" %}
+  {% image "project-files/asterismo/asterismo-03.webp", "Cronometro", "" %}
 
   <div class="constellation-panel-container">
     <h3>Vamos?</h3>

@@ -37,10 +37,10 @@ image: "/project-files/k01/k01-06.webp"
       </div>
     </div>
   </main>
-  <section class="project-img-container">
-    <img class="project-img" src="/project-files/k01/k01-06.webp" alt="Teclado K01 - vista de cima" loading="lazy">
-    <img class="project-img" src="/project-files/k01/k01-01.webp" alt="Teclado K01 - vista lateral" loading="lazy">
-    <img class="project-img" src="/project-files/k01/k01-02.webp" alt="Teclado K01 - vista de cima" loading="lazy">
-    <img class="project-img" src="/project-files/k01/k01-03.webp" alt="Teclado K01 - vista detalhe" loading="lazy">
-    <img class="project-img" src="/project-files/k01/k01-04.webp" alt="Teclado K01 - vista detalhe" loading="lazy">
+<section class="project-img-container">
+    {% image "project-files/k01/k01-06.webp", "Teclado K01 - vista de cima", "project-img" %}
+    {% image "project-files/k01/k01-01.webp", "Teclado K01 - vista lateral", "project-img" %}
+    {% image "project-files/k01/k01-02.webp", "Teclado K01 - vista de cima", "project-img" %}
+    {% image "project-files/k01/k01-03.webp", "Teclado K01 - vista detalhe", "project-img" %}
+    {% image "project-files/k01/k01-04.webp", "Teclado K01 - vista detalhe", "project-img" %}
   </section>

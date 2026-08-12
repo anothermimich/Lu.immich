@@ -144,6 +144,7 @@
   align-items: center;
   min-height: 90vh;
   margin-bottom: -5vh;
+  padding: 15vh 0;
 }
 
 .footer__links {
@@ -238,7 +239,7 @@
   /* Footer: Empilha a foto e os links */
   .footer-layout {
     grid-template-columns: 1fr;
-    padding: 15vh 0;
+    padding: 10vh 0;
   }
 
   /* Reduz sutilmente a altura das máscaras para focar no conteúdo */

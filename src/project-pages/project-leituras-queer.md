@@ -29,12 +29,11 @@ image: "/project-files/leituras-queer/Cartaz-gravidade.webp"
   </main>
   <section class="project-img-container">
     <div class="project-split-img">
-      <img class="project-img" src="/project-files/leituras-queer/Cartaz-gravidade.webp" alt="Cartaz" loading="lazy">
-      <img class="project-img" src="/project-files/leituras-queer/Cartaz-caca-pal.webp" alt="Cartaz" loading="lazy">
+      {% image "project-files/leituras-queer/Cartaz-gravidade.webp", "Cartaz", "project-img" %}
+      {% image "project-files/leituras-queer/Cartaz-caca-pal.webp", "Cartaz", "project-img" %}
     </div>
     <div class="project-split-img">
-      <img class="project-img" src="/project-files/leituras-queer/Cartaz-encontro.webp" alt="Cartaz" loading="lazy">
-      <img class="project-img" src="/project-files/leituras-queer/Ecobag-Mockup.webp" alt="Ecobag" loading="lazy">
+      {% image "project-files/leituras-queer/Cartaz-encontro.webp", "Cartaz", "project-img" %}
+      {% image "project-files/leituras-queer/Ecobag-Mockup.webp", "Ecobag", "project-img" %}
     </div>
-
   </section>

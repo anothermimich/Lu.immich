@@ -26,15 +26,14 @@ image: "/project-files/desan/desan4.webp"
     </div>
   </main>
   <section class="project-img-container">
-    <img class="project-img" src="/project-files/desan/desan4.webp" alt="" loading="lazy">
+    {% image "project-files/desan/desan4.webp", "Apresentação da Identidade Visual DESAN", "project-img" %}
     <div class="project-split-img">
-      <img class="project-img" src="/project-files/desan/desan1.webp" alt="" loading="lazy">
-      <img class="project-img" src="/project-files/desan/desan2.webp" alt="Logo" loading="lazy">
+      {% image "project-files/desan/desan1.webp", "Aplicações da marca DESAN", "project-img" %}
+      {% image "project-files/desan/desan2.webp", "Logo", "project-img" %}
     </div>
-    <img class="project-img" src="/project-files/desan/desan3.webp" alt="" loading="lazy">
+    {% image "project-files/desan/desan3.webp", "Variações do logo DESAN", "project-img" %}
     <div class="project-split-img">
-      <img class="project-img border-img" src="/project-files/desan/desan6.webp" alt="" loading="lazy">
-      <img class="project-img" src="/project-files/desan/desan5.webp" alt="" loading="lazy">
+      {% image "project-files/desan/desan6.webp", "Detalhes gráficos DESAN", "project-img border-img" %}
+      {% image "project-files/desan/desan5.webp", "Materiais gráficos DESAN", "project-img" %}
     </div>
-
   </section>

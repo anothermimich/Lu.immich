@@ -38,10 +38,10 @@ image: "/project-files/k02/k02-04.webp"
       </div>
     </div>
   </main>
-  <section class="project-img-container">
-    <img class="project-img" src="/project-files/k02/k02-02.webp" alt="Teclado K02 - vista superior" loading="lazy">
-    <img class="project-img" src="/project-files/k02/k02-04.webp" alt="Teclado K01 - vista lateral" loading="lazy">
-    <img class="project-img" src="/project-files/k02/k02-06.webp" alt="Teclado K02 - Arte PCB" loading="lazy">
-    <img class="project-img" src="/project-files/k02/k02-05.webp" alt="Teclado K01 - vista lateral" loading="lazy">
-    <img class="project-img" src="/project-files/k02/k02-03.webp" alt="Teclado K01 - detable" loading="lazy">
+<section class="project-img-container">
+    {% image "project-files/k02/k02-02.webp", "Teclado K02 - vista superior", "project-img" %}
+    {% image "project-files/k02/k02-04.webp", "Teclado K01 - vista lateral", "project-img" %}
+    {% image "project-files/k02/k02-06.webp", "Teclado K02 - Arte PCB", "project-img" %}
+    {% image "project-files/k02/k02-05.webp", "Teclado K01 - vista lateral", "project-img" %}
+    {% image "project-files/k02/k02-03.webp", "Teclado K01 - detalhe", "project-img" %}
   </section>
