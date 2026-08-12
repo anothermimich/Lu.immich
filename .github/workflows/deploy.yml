@@ -30,13 +30,22 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Salva o resultado do eleventy-img entre os deploys
+      - name: Cache das imagens otimizadas
+        uses: actions/cache@v4
+        with:
+          path: _site/img
+          key: ${{ runner.os }}-eleventy-img-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-eleventy-img-
+
       - name: Build site
         run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "_site" # A pasta gerada pelo Eleventy
+          path: "_site"
 
   deploy:
     environment:

@@ -4,8 +4,6 @@
   "description": "Personal portfolio website",
   "main": "index.js",
   "scripts": {
-    "convert:images": "bash src/project-files/convert-to-webp-recursive.sh",
-    "prebuild": "npm run convert:images",
     "start": "eleventy --serve",
     "build": "eleventy"
   },
