@@ -30,8 +30,15 @@ function ajustarHeroDinamicamente() {
     margemMinimaMobile: 100,
   };
 
-  items.forEach((item) => item.classList.remove("vh-hidden"));
-
+  items.forEach((item) => {
+    item.classList.remove("vh-hidden");
+    if (
+      item.nextElementSibling &&
+      item.nextElementSibling.classList.contains("hero-picture-wrapper")
+    ) {
+      item.nextElementSibling.classList.remove("vh-hidden");
+    }
+  });
   const isMobile = window.innerWidth <= config.mobileBreakpoint;
   const margemExigida = isMobile ? config.margemMinimaMobile : config.margemMinimaDesktop;
 
@@ -62,6 +69,14 @@ function ajustarHeroDinamicamente() {
   items.forEach((item, index) => {
     if (index >= quantidadePermitida) {
       item.classList.add("vh-hidden");
+
+      // Esconde também a imagem respectiva a este projeto
+      if (
+        item.nextElementSibling &&
+        item.nextElementSibling.classList.contains("hero-picture-wrapper")
+      ) {
+        item.nextElementSibling.classList.add("vh-hidden");
+      }
     }
   });
 

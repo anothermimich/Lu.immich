@@ -1,15 +1,58 @@
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+const eleventyImage = require("@11ty/eleventy-img");
+const path = require("path");
+
+// Extrai as funções corretamente do objeto importado (compatibilidade ESM/CJS)
+const Image = eleventyImage.default || eleventyImage;
+const generateHTML = eleventyImage.generateHTML;
 
 module.exports = function (eleventyConfig) {
-  // Automatically fixes root-relative paths for GitHub Pages subfolders
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
-  // Tell Eleventy to copy these static folders directly to _site
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/icons");
   eleventyConfig.addPassthroughCopy("src/project-files");
+
+  // --- SHORTCODE DE IMAGEM OTIMIZADA ---
+  eleventyConfig.addAsyncShortcode(
+    "image",
+    async function (src, alt, className = "", sizes = "100vw") {
+      if (!alt) {
+        throw new Error(`Acessibilidade comprometida: faltando atributo 'alt' na imagem ${src}`);
+      }
+
+      // Resolve o caminho da imagem relativo à pasta src
+      let imageSrc = src;
+      if (!src.startsWith(".") && !src.startsWith("http")) {
+        imageSrc = path.join("./src", src);
+      }
+
+      // Chama a função Image extraída corretamente
+      let metadata = await Image(imageSrc, {
+        widths: [400, 800, 1280],
+        formats: ["avif", "webp", "jpeg"], // 💡 A MÁGICA ESTÁ AQUI: Um único formato força a saída da tag <img> pura
+        outputDir: "./_site/img/opt/",
+        urlPath: "/img/opt/",
+        filenameFormat: function (id, src, width, format) {
+          const extension = path.extname(src);
+          const name = path.basename(src, extension);
+          return `${name}-${width}w.${format}`;
+        },
+      });
+
+      let imageAttributes = {
+        alt,
+        class: className,
+        sizes,
+        loading: "lazy",
+        decoding: "async",
+      };
+
+      return generateHTML(metadata, imageAttributes);
+    },
+  );
 
   return {
     dir: {
@@ -17,5 +60,7 @@ module.exports = function (eleventyConfig) {
       output: "_site",
       includes: "_includes",
     },
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
   };
 };

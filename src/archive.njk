@@ -8,7 +8,6 @@ permalink: "/arquivo/"
   <section class="archive-hero">
     <div class="archive-links-container">
       
-      <!-- Loop 1: Gera automaticamente o menu de anos no topo (2026, 2025, 2024...) -->
       {% for sheet in archive %}
       <div class="archive-link">
         <a class="archive-tag-container" id="archive-link-{{ sheet.year }}" href="#archive-sheet-{{ sheet.year }}">
@@ -21,7 +20,6 @@ permalink: "/arquivo/"
       </div>
       {% endfor %}
       
-      <!-- Aba vazia decorativa do final -->
       <div class="archive-link">
         <a class="archive-tag-container" id="archive-link-empty">
           <div class="archive-tag"></div>
@@ -41,7 +39,6 @@ permalink: "/arquivo/"
 
   <section class="archive-sheets-container">
     
-    <!-- Loop 2: Gera os blocos anuais de imagens -->
     {% for sheet in archive %}
     <div class="archive-sheet">
       <span class="anchor" id="archive-sheet-{{ sheet.year }}"></span>
@@ -53,12 +50,16 @@ permalink: "/arquivo/"
       </div>
       
       <div class="archive-item-container" id="archive-item-container-{{ sheet.year }}">
-        <!-- Loop 3: Insere as imagens de dentro de cada ano específico -->
         {% for item in sheet.items %}
         <div class="archive-item">
           <a {% if item.url %}href="{{ item.url }}"{% endif %}>
-            <!-- O if item.border injeta a classe border-img dinamicamente -->
-            <img class="archive-img {% if item.border %}border-img{% endif %}" src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy">
+            
+            <!-- 1. Define as classes condicionalmente -->
+            {% set imgClass = "archive-img border-img" if item.border else "archive-img" %}
+            
+            <!-- 2. Executa o shortcode com a classe correta -->
+            {% image item.image, item.alt, imgClass, "(max-width: 768px) 50vw, 400px" %}
+            
           </a>
         </div>
         {% endfor %}
