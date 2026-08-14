@@ -1,0 +1,284 @@
+/* ==========================================================================
+   CABEÇALHO DA SEÇÃO DE FILOSOFIA
+   ========================================================================== */
+.philosophy-page {
+  padding-top: 21vh;
+}
+
+.philosophy-header {
+  margin-bottom: 10vh;
+  max-width: 50ch;
+}
+
+.philosophy-header h1 {
+  margin-bottom: 2rem;
+}
+
+.philosophy-header p {
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   A ESTANTE (ACORDEÃO HORIZONTAL) - [ESTRUTURA BASE RESTAURADA]
+   ========================================================================== */
+.bookshelf-wrapper {
+  margin-bottom: 10vh;
+}
+
+/* ==========================================================================
+   A ESTANTE (SISTEMA DE PRATELEIRAS FÍSICAS)
+   ========================================================================== */
+.bookshelf-wrapper {
+  display: flex;
+  flex-direction: column; /* Empilha as prateleiras verticalmente */
+  gap: 8vh; /* O espaço livre (respiro) entre uma prateleira e a de baixo */
+  margin-bottom: 10vh;
+}
+
+.bookshelf-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* A REGRA DE OURO: Proíbe os livros de pularem de linha */
+  align-items: flex-end;
+  gap: 1vw;
+  width: 100%;
+}
+
+.book-item {
+  flex: 0 0 5vw;
+  height: var(--book-height, 45vh);
+  background-color: var(--book-color);
+  border: 1px solid #000;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: flex 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.book-item.is-open {
+  flex: 0 0 35vw;
+}
+
+/* ==========================================================================
+   LOMBADA (ESTADO FECHADO)
+   ========================================================================== */
+.book-spine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 5vw;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2vh;
+  transition: opacity 0.3s ease;
+}
+.book-title-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: var(--fs-1);
+  /* O white-space: nowrap foi removido do pai para permitir que existam múltiplas linhas */
+  line-height: 1.2; /* Controla a distância e o respiro entre o título e o subtítulo */
+}
+
+.book-item.is-open .book-spine {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   TIPOGRAFIA DA LOMBADA (TÍTULO E SUBTÍTULO EM LINHAS PARALELAS)
+   ========================================================================== */
+
+.book-spine-main,
+.book-spine-sub {
+  display: block;
+  white-space: nowrap;
+}
+
+.book-spine-main {
+  font-weight: 500;
+}
+
+.book-spine-sub {
+  font-weight: 300;
+  opacity: 0.7;
+  font-size: 0.85em;
+}
+
+/* ==========================================================================
+   CONTEÚDO (ESTADO ABERTO)
+   ========================================================================== */
+.book-content {
+  opacity: 0;
+  width: 45vw;
+  height: 100%;
+  padding: 2.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.book-item.is-open .book-content {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0.3s;
+}
+
+/* Metadados Superiores */
+.book-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2vh;
+  width: fit-content;
+}
+
+.book-publication {
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.book-meta-divider {
+  opacity: 0.4;
+  font-size: 0.8em;
+}
+
+/* Títulos */
+.book-title-expanded {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.book-subtitle-expanded {
+  font-size: var(--fs-1);
+  font-weight: 300;
+  opacity: 0.75;
+}
+
+/* Autoria e Resumo */
+.book-coauthors {
+  font-size: 0.9em;
+  font-weight: 400;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+  margin-top: -0.5rem;
+}
+
+.book-excerpt {
+  max-width: 40ch;
+  margin-bottom: 4vh;
+}
+
+.book-btn {
+  border: 1px solid #000;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  width: fit-content;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .book-btn:hover {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+/* ==========================================================================
+   OVERRIDES MOBILE E TABLETS (ACORDEÃO VERTICAL)
+   ========================================================================== */
+@media (max-width: 1000px) {
+  .bookshelf-wrapper {
+    gap: 2vh; /* Reduz o espaço entre prateleiras no celular */
+  }
+
+  .bookshelf-row {
+    flex-direction: column; /* Empilha a prateleira na vertical */
+    height: auto;
+    gap: 2vh;
+  }
+
+  .book-item {
+    flex: none; /* Desativa a matemática do eixo horizontal */
+    width: 100%; /* Ocupa 100% da tela */
+    height: 12vh; /* Altura do livro fechado no mobile */
+    /* A animação agora acontece na altura, não na largura */
+    transition: height 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .book-item.is-open {
+    flex: none;
+    width: 100%;
+    height: 65vh; /* Altura que o livro ocupa quando aberto na vertical */
+  }
+
+  /* --------------------------------------------------------------------------
+     LOMBADA HORIZONTAL (Mobile)
+     -------------------------------------------------------------------------- */
+  .book-spine {
+    width: 100%;
+    height: 12vh; /* Mesma altura do estado fechado */
+    bottom: auto;
+    top: 0;
+    left: 0;
+    padding-bottom: 0;
+    padding-left: 5vw;
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: flex-start;
+  }
+
+  .book-title-vertical {
+    writing-mode: horizontal-tb; /* Desliga o modo de leitura asiático/vertical */
+    transform: none; /* Remove a rotação de 180 graus */
+    display: flex;
+    gap: 0.2rem;
+  }
+  .book-spine-sub {
+    display: none;
+  }
+
+  /* --------------------------------------------------------------------------
+     CONTEÚDO EXPANDIDO (Mobile)
+     -------------------------------------------------------------------------- */
+  .book-content {
+    width: 100%;
+    height: 100%;
+    padding: 10vw 6vw 6vw 6vw; /* Adiciona respiro ao redor do texto */
+    overflow-y: auto; /* Permite scroll interno caso o resumo seja muito longo */
+  }
+
+  /* ==========================================================================
+     CONTROLE MINIMALISTA (OCULTAR METADADOS NO MOBILE)
+     Para ocultar um item da tela no celular, basta apagar as barras e 
+     asteriscos (/* e */ /*) que envolvem a regra 'display: none;'.
+     ========================================================================== */
+
+  /* 1. Ocultar apenas o TIPO (ex: "Artigo", "Ensaio") */
+  /* .book-item.is-open .book-meta .small-caps { display: none; } */
+
+  /* 2. Ocultar o NOME DA PUBLICAÇÃO (ex: "Revista...") e a bolinha ( • ) */
+  /* .book-publication, .book-meta-divider { display: none; } */
+
+  /* 3. Ocultar a LINHA INTEIRA de Tipo + Publicação de uma só vez */
+  /* .book-meta { display: none; } */
+
+  /* 4. Ocultar o SUBTÍTULO apenas quando o livro está aberto */
+  /* .book-subtitle-expanded { display: none; } */
+
+  /* 5. Ocultar o nome dos COAUTORES */
+  /* .book-coauthors { display: none; } */
+}

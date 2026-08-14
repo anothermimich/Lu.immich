@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ontologia-01",
+    "title": "Ontologia Social Feminista",
+    "subtitle": "Uma análise estrutural a partir de Sally Haslanger",
+    "type": "Artigo",
+    "publication": "Revista de Filosofia",
+    "coauthors": "Cristina Ribas",
+    "color": "#e63946",
+    "height": "40vh",
+    "excerpt": "Neste trabalho, investigamos a construção e a mitigação das categorias de gênero através da lente das estruturas sociais.",
+    "link": "#"
+  },
+  {
+    "id": "contrato-01",
+    "title": "O Contrato Racial e Sexual",
+    "subtitle": "Diálogos estruturais entre Charles W. Mills e Carole Pateman",
+    "type": "Resumo",
+    "publication": "Anais da ANPOF",
+    "coauthors": "Leonardo Penna",
+    "color": "#1d3557",
+    "height": "55vh",
+    "excerpt": "Uma reflexão sobre as intersecções de opressão na formulação dos contratos sociais vigentes.",
+    "link": "#"
+  },
+  {
+    "id": "solo-01",
+    "title": "Limites do Contratualismo",
+    "type": "Ensaio",
+    "color": "#f4a261",
+    "height": "45vh%",
+    "excerpt": "Ensaio individual explorando as lacunas da existência em contextos não ideais.",
+    "link": "#"
+  }
+]

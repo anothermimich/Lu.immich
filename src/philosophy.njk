@@ -1,0 +1,80 @@
+---
+layout: base.njk
+title: Filosofia
+custom_css: "philosophy.css"
+permalink: "/filosofia/"
+description: "Pesquisa acadêmica em filosofia social, ontologia social feminista e contratualismo."
+---
+
+<main class="philosophy-page">
+  <header class="philosophy-header">
+    <h1>Filosofia</h1>
+    <p>
+      Minha pesquisa acadêmica concentra-se em filosofia social, com ênfase em ontologia social feminista e contratualismo. Abaixo, uma seleção interativa de artigos, ensaios e reflexões que compõem meu trabalho e investigação.
+    </p>
+  </header>
+  <section class="bookshelf-wrapper">
+    
+    <!-- O 'batch(8)' divide sua lista em grupos de 8 livros automaticamente -->
+    {% for shelf in philosophy | batch(8) %}
+      {% set shelfIndex = loop.index0 %}
+      
+      <ul class="bookshelf-row">
+        
+        {% for book in shelf %}
+          
+          <!-- Garante que apenas o primeiro livro da PRIMEIRA prateleira fique aberto -->
+          <li class="book-item {% if shelfIndex == 0 and loop.index0 == 0 %}is-open{% endif %}" 
+              style="--book-color: {{ book.color }}; --book-height: {{ book.height }};">
+            
+            <!-- Lombada (Estante Fechada) -->
+            <div class="book-spine">
+              <span class="book-title-vertical">
+                <span class="book-spine-main">{{ book.title }}</span>
+                {% if book.subtitle %}
+                  <span class="book-spine-sub">{{ book.subtitle }}</span>
+                {% endif %}
+              </span>
+            </div>
+
+            <!-- Conteúdo Expandido (Livro Aberto) -->
+            <div class="book-content">
+              <div class="book-meta">
+                <span class="small-caps">{{ book.type }}</span>
+                {% if book.publication %}
+                  <span class="book-meta-divider">&bull;</span>
+                  <span class="book-publication">{{ book.publication }}</span>
+                {% endif %}
+              </div>
+              
+              <h2 class="book-title-expanded">
+                {{ book.title }}
+                {% if book.subtitle %}
+                  <span class="book-subtitle-expanded">{{ book.subtitle }}</span>
+                {% endif %}
+              </h2>
+
+              {% if book.coauthors %}
+                <p class="book-coauthors">Com {{ book.coauthors }}</p>
+              {% endif %}
+              
+              <p class="book-excerpt">{{ book.excerpt }}</p>
+              
+              <a href="{{ book.link }}" target="_blank" rel="noopener noreferrer" class="book-btn">
+                Ler publicação &rarr;
+              </a>
+            </div>
+
+          </li>
+          
+        {% endfor %}
+        
+      </ul>
+      
+    {% endfor %}
+
+  </section>
+
+</main>
+
+<script src="/js/philosophy.js"></script>
