@@ -3,77 +3,80 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("close-folder-btn");
   let activeTargetId = null;
 
+  // 1. O NOSSO CADEADO DE SEGURANÇA
+  let isAutoScrolling = false;
+
   tabs.forEach((tab) => {
     tab.addEventListener("click", (e) => {
       e.preventDefault();
       const targetId = tab.getAttribute("data-target");
 
-      // Se clicar na mesma pasta que já está aberta, não faz nada
       if (activeTargetId === targetId) return;
 
-      // 1. Fechar a pasta atual (se houver uma aberta)
       if (activeTargetId) {
         closeCurrentFolder();
       }
 
-      // 2. Registrar a nova aba ativa e puxá-la visualmente
       activeTargetId = targetId;
       tab.classList.add("is-pulled");
       tab.setAttribute("aria-expanded", "true");
 
-      // 3. Aguarda 300ms para renderizar a pasta
       setTimeout(() => {
         const targetSheet = document.getElementById(`archive-sheet-${targetId}`);
 
         if (targetSheet) {
           targetSheet.classList.add("is-open");
 
-          // 4. Calcular o Scroll Mágico com margem de 20vh no topo
           const offsetViewport = window.innerHeight * 0.2;
           const elementPosition = targetSheet.getBoundingClientRect().top;
           const finalScrollPosition = elementPosition + window.pageYOffset - offsetViewport;
+
+          // 2. TRANCA O CADEADO ANTES DE VIAJAR
+          isAutoScrolling = true;
 
           window.scrollTo({
             top: finalScrollPosition,
             behavior: "smooth",
           });
 
-          // 5. Exibir o botão flutuante de fechar
           closeBtn.classList.add("is-visible");
+
+          // 3. DESTRANCA O CADEADO DEPOIS QUE A ROLAGEM TERMINA (800ms)
+          setTimeout(() => {
+            isAutoScrolling = false;
+          }, 800);
         }
       }, 300);
     });
   });
 
-  // O clique no botão "Guardar Pasta"
   closeBtn.addEventListener("click", () => {
-    // Rola de volta para o Arquivo no topo
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Tranca o cadeado aqui também para não dar conflito na subida
+    isAutoScrolling = true;
 
-    // Remove a classe do botão imediatamente para dar um feedback tátil instantâneo
+    window.scrollTo({ top: 0, behavior: "smooth" });
     closeBtn.classList.remove("is-visible");
 
-    // Espera o scroll terminar para sumir com a pasta
     setTimeout(() => {
       closeCurrentFolder();
+      isAutoScrolling = false; // Destranca após guardar
     }, 600);
   });
 
   // ==========================================================================
-  // O FECHAMENTO AUTOMÁTICO POR SCROLL (NOVO)
+  // O FECHAMENTO AUTOMÁTICO POR SCROLL (AGORA PROTEGIDO)
   // ==========================================================================
   window.addEventListener(
     "scroll",
     () => {
-      // Se há uma pasta aberta e a usuária rolou manualmente até o topo (margem de 100px)
-      if (activeTargetId && window.scrollY < 100) {
+      // 4. SÓ FECHA A PASTA SE O CADEADO ESTIVER DESTRANCADO (ou seja, se foi o dedo do usuário rolando)
+      if (!isAutoScrolling && activeTargetId && window.scrollY < 100) {
         closeCurrentFolder();
       }
     },
     { passive: true },
-  ); // O 'passive' garante que o navegador não engasgue no scroll
+  );
 
-  // Função isolada de limpeza de estado
   function closeCurrentFolder() {
     if (!activeTargetId) return;
 
