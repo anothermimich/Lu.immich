@@ -67,14 +67,47 @@
 </head>
 
 <body>
-  <nav class="nav">
+<nav class="nav">
     <a class="nav-title" href="/">Lu Immich</a>
-    <div class="nav-links">
-      <a href="/filosofia/">Filosofia</a>
-      <a href="/design/">Design</a>
-      <a class="nav-about-link" href="/sobre/">Sobre</a>
-    </div>
+
+    <!-- O Botão Mobile (Invisível no Desktop) -->
+    <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+      Menu
+    </button>
   </nav>
+
+  <!-- O Menu Overlay Full-Screen -->
+  <div class="mobile-overlay">
+    <div class="mobile-overlay-header">
+      <span class="mobile-overlay-title">Lu Immich</span>
+      <button class="mobile-close-btn" aria-label="Fechar menu">Close</button>
+    </div>
+
+    <div class="mobile-overlay-content">
+      <ul class="mobile-nav-list">
+        <li>
+          <a href="/">
+            <span class="nav-number">01</span> Index <span class="nav-arrow">&nearr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="/filosofia/">
+            <span class="nav-number">02</span> Filosofia <span class="nav-arrow">&nearr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="/design/">
+            <span class="nav-number">03</span> Design <span class="nav-arrow">&nearr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="/sobre/">
+            <span class="nav-number">04</span> Sobre <span class="nav-arrow">&nearr;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   {{ content | safe }}
 
@@ -89,5 +122,7 @@
       </a>
     </div>
   </footer>
+
+<script src="/js/menu.js"></script>
 </body>
 </html>

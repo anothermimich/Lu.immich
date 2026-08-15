@@ -1,35 +1,36 @@
 [
   {
-    "id": "ontologia-01",
-    "title": "Ontologia Social Feminista",
-    "subtitle": "Uma análise estrutural a partir de Sally Haslanger",
+    "id": "bettcher-ontologia-01",
+    "title": "Para Além do Gênero",
+    "subtitle": "Decolonialidade e Espacialidade Interpessoal na Teoria de Bettcher",
     "type": "Artigo",
-    "publication": "Revista de Filosofia",
-    "coauthors": "Cristina Ribas",
-    "color": "#e63946",
-    "height": "40vh",
-    "excerpt": "Neste trabalho, investigamos a construção e a mitigação das categorias de gênero através da lente das estruturas sociais.",
-    "link": "#"
+    "publication": "Revista de Filosofia Paranaense",
+    "coauthors": "",
+    "color": "#C4D0FF",
+    "height": "60vh",
+    "excerpt": "Na obra Beyond Personhood, Talia Mae Bettcher adota o pluralismo ontológico e a crítica decolonial de Lugones para desenvolver sua teoria da espacialidade interpessoal...",
+    "link": "https://philpapers.org/go.pl?id=IMMPAD&proxyId=&u=https%3A%2F%2Fdoi.org%2F10.33871%2F27639657.2026.6.1.11909"
   },
   {
-    "id": "contrato-01",
-    "title": "O Contrato Racial e Sexual",
-    "subtitle": "Diálogos estruturais entre Charles W. Mills e Carole Pateman",
-    "type": "Resumo",
-    "publication": "Anais da ANPOF",
-    "coauthors": "Leonardo Penna",
-    "color": "#1d3557",
+    "id": "anpof-coluna-01",
+    "title": "Para além da Inclusão Caritativa",
+    "subtitle": "A Ilegibilidade Trans como Mecanismo Social",
+    "type": "Coluna",
+    "publication": "ANPOF",
+    "color": "#FFCE99",
     "height": "55vh",
-    "excerpt": "Uma reflexão sobre as intersecções de opressão na formulação dos contratos sociais vigentes.",
-    "link": "#"
+    "excerpt": "Cara leitora, aqui quem vos fala é alguém ilegível. Essa condição não se deve ao mero acaso; ela é sintomática de uma gramática social que visa traduzir existências em termos binários derivados de um biologismo mal fundamentado...",
+    "link": "https://anpof.org.br/comunicacoes/coluna-anpof/para-alem-da-inclusao-caritativa-a-ilegibilidade-trans-como-mecanismo-social"
   },
   {
-    "id": "solo-01",
-    "title": "Limites do Contratualismo",
-    "type": "Ensaio",
-    "color": "#f4a261",
-    "height": "45vh%",
-    "excerpt": "Ensaio individual explorando as lacunas da existência em contextos não ideais.",
-    "link": "#"
+    "id": "controversia-01",
+    "title": "Ontologia Social Aplicada ao Armário",
+    "subtitle": "A Objeção de Andler à Teoria Conferista de Ásta",
+    "type": "Artigo",
+    "publication": "Controvérsia",
+    "color": "#AED09B",
+    "height": "58vh",
+    "excerpt": "Na filosofia analítica, precisamente na metafísica feminista, questões sobre a definição e fundação de categorias sociais são alvo de debate. Nessa subárea, formou-se um debate dividido entre teorias de posição social e teorias baseadas em identidade...",
+    "link": "https://philpapers.org/go.pl?id=IMMOSA&proxyId=&u=https%3A%2F%2Fdx.doi.org%2F10.4013%2Fcon.2025.212.10"
   }
 ]
