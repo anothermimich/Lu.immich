@@ -10,6 +10,10 @@
   align-content: center;
 }
 
+section:last-of-type {
+  padding: 0 !important;
+}
+
 .archive-links-container {
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
@@ -175,9 +179,9 @@ button.archive-tag-container {
 .archive-sheets-container {
   display: flex;
   flex-direction: column;
-  gap: 10vh;
   position: relative;
-  margin-top: 10vh;
+  margin-top: 0;
+  gap: 10vh !important;
 }
 
 .archive-sheet {
@@ -196,7 +200,7 @@ button.archive-tag-container {
   visibility: visible;
   overflow: visible;
   pointer-events: auto;
-  margin-top: 10vh;
+  margin: 10vh 0;
 }
 
 /* ==========================================================================
