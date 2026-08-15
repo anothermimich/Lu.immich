@@ -309,7 +309,8 @@ button.archive-tag-container .archive-tag-year {
    ========================================================================== */
 @media (max-width: 1000px) {
   .archive-sheets-container {
-    gap: 5vh;
+    margin-top: -12vh;
+    gap: 10vh;
   }
 
   /* Variável Dinâmica de Espaçamento para o Botão */
