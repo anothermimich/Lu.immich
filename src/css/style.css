@@ -772,10 +772,6 @@ footer a {
   }
 }
 /* ==========================================================================
-   MENU MOBILE E OVERLAY (BOTÕES)
-   ========================================================================== */
-/* Esconde os botões nativamente no Desktop */
-/* ==========================================================================
    MENU UNIVERSAL E OVERLAY (BOTÕES)
    ========================================================================== */
 /* Os botões agora são visíveis em todas as resoluções */
@@ -877,10 +873,4 @@ footer a {
   font-weight: 200;
   margin-right: 1.5rem;
   opacity: 0.5;
-}
-
-.nav-arrow {
-  margin-left: auto;
-  font-weight: 200;
-  opacity: 0.3;
 }

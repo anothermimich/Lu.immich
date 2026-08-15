@@ -197,6 +197,9 @@
    OVERRIDES MOBILE E TABLETS (ACORDEÃO VERTICAL)
    ========================================================================== */
 @media (max-width: 1000px) {
+  .philosophy-page {
+    margin-top: 20vh;
+  }
   .bookshelf-wrapper {
     gap: 2vh; /* Reduz o espaço entre prateleiras no celular */
   }
