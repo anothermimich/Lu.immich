@@ -774,7 +774,7 @@ footer a {
 /* ==========================================================================
    MENU UNIVERSAL E OVERLAY (BOTÕES)
    ========================================================================== */
-/* Os botões agora são visíveis em todas as resoluções */
+
 .mobile-menu-btn,
 .mobile-close-btn {
   display: block;
@@ -789,7 +789,6 @@ footer a {
 /* ==========================================================================
    OVERLAY FULL-SCREEN
    ========================================================================== */
-/* Oculta o menu inteiro e joga ele para fora da tela no Desktop */
 .mobile-overlay {
   position: fixed;
   top: 0;
@@ -858,8 +857,8 @@ footer a {
   display: flex;
   align-items: center;
   padding: 3vh 0;
-  font-size: var(--fs-2);
-  font-weight: 500;
+  font-size: var(--fs-1);
+  font-weight: 400;
   color: #000;
   transition: opacity 0.3s ease;
 }

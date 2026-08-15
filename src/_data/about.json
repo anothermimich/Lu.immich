@@ -1,18 +1,19 @@
 {
-  "works": [
-    {
-      "index": "01",
-      "roles": "Artigo<br>Forthcoming",
-      "desc": "Esse artigo busca introduzir na Filosofia brasileira um problema até então pouco abordado. Para tanto ele reconstroí algumas das principais posições do debate atual.",
-      "image": "/project-files/k02/k02-04.webp",
-      "url": "/publicacoes/ontologia-social/"
-    },
-    {
-      "index": "02",
-      "roles": "Web Design<br>Developer Full Stack",
-      "desc": "Criação de hardware focado na redução da sobrecarga cognitiva e sensorial, unindo design ergonômico e código aberto.",
-      "image": "/project-files/k02/k02-04.webp",
-      "url": "/k02/"
-    }
-  ]
+  "intro": "A pesquisa acadêmica de Lu Immich concentra-se na ontologia social, área na qual investiga a existência trans em contextos não ideais. É doutoranda em Filosofia pela <a href='https://www.ufsm.br/' target='_blank' rel='noopener noreferrer'>Universidade Federal de Santa Maria (UFSM)</a>, instituição onde também concluiu seu mestrado e bacharelado. Para além da academia, possui experiência em design e desenvolvimento web. Essa intersecção evidencia uma premissa de sua abordagem: a busca não apenas pela compreensão das estruturas sociais, mas por um meio de transformá-las — seja pela engenharia conceitual ou pelo design.<br><br>Vive e trabalha em Santa Maria, Brasil.",
+  "skills": {
+    "philosophy": ["Ontologia Social", "Filosofia Trans", "Filosofia Social", "Filosofia Política"],
+    "design": ["Design Gráfico", "UI/UX Design", "Identidade Visual", "Web Dev. Full Stack"]
+  },
+  "charts": {
+    "languages": [
+      { "name": "Inglês", "level": 80 },
+      { "name": "Português", "level": 100 },
+      { "name": "Espanhol", "level": 40 }
+    ],
+    "coffee": [
+      { "name": "V60", "level": 50 },
+      { "name": "Prensa Francesa", "level": 90 },
+      { "name": "Mugen", "level": 70 }
+    ]
+  }
 }

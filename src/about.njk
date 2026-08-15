@@ -5,74 +5,82 @@ permalink: "/sobre/"
 custom_css: "about.css"
 ---
 
-<main class="about">
-  <section class="hero grid-container">
-    <div class="hero__top-row">
-      <div class="hero__col-left">
-        <p>Doutoranda em Filosofia</p>
-        <p>Freelancer em Design</p>
-        </div>
-      <div class="hero__col-right">
-        <p class="slide-up mobile-only-slide">Em meu trabalho busco mitigar o atrito entre sistemas e pessoas. Na filosofia abordo a existência trans em contextos não ideais; no design projeto interações e experiências centradas no usuário. 
-       </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Grid de 2 Colunas -->
-  <section class="work-section grid-container">
-    
-    <div class="projects-grid">
-      {% for item in about.works %}
-      <article class="project-card">
-        <div class="project__header slide-up">
-          <h3 class="project__title">{{ item.title }}</h3>
-          <p class="project__year">{{ item.year }}</p>
-        </div>
-
-        <!-- Máscara do Parallax -->
-        <div class="project__image-mask">
-          <a href="{{ item.url }}">
-            <img src="{{ item.image }}" alt="{{ item.title }}" class="parallax-img" loading="lazy">
-          </a>
-        </div>
-
-        <div class="project__footer slide-up">
-          <p class="project__roles">{{ item.roles | safe }}</p>
-          <p class="project__desc">{{ item.desc }}</p>
-        </div>
-      </article>
-      {% endfor %}
-    </div>
-  </section>
-
+<main class="about-cv">
   
-  <!-- 5. FOOTER -->
-  <section class="footer-section grid-container">
-    <div class="footer-layout">
-      
-      <div class="footer__photo-col slide-up">
-        <div class="footer__image-mask" style="--img-foco: top bottom;">
-   {% image "project-files/lu-immich.jpg", "Lu Immich e sua companheira", "parallax-img", "(max-width: 1000px) 100vw, 50vw" %}
-</div>
+  <div class="cv-grid grid-container">
+    
+    <!-- COLUNA ESQUERDA: FIXA E MINIMALISTA -->
+    <aside class="cv-sidebar">
+      <div class="cv-photo-container">
+        <img src="/project-files/lu-immich.jpg" alt="Lu Immich" class="cv-photo">
       </div>
+        
+      <div class="cv-contact">
+        <a href="mailto:lu.immich@gmail.com">lu.immich@gmail.com</a>
+        <a href="https://lattes.cnpq.br/6938481194529175" target="_blank" rel="noopener">Lattes</a>
+        <a href="https://philpeople.org/profiles/lu-immich" target="_blank" rel="noopener">PhilPeople</a>
+        <a href="https://github.com/anothermimich" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </aside>
+
+    <!-- COLUNA DIREITA: CONTEÚDO -->
+    <article class="cv-content">
       
-      <!-- Contato -->
-      <div class="footer__contact-col slide-up">
-        <div class="footer__links">
-          <a href="https://lattes.cnpq.br/6938481194529175" class="footer__link">Lattes</a>
-          <a href="https://github.com/anothermimich" class="footer__link">GitHub</a>
-          <a href="https://philpeople.org/profiles/lu-immich" class="footer__link">PhilPeople</a>
-          <a href="mailto:lu.immich@gmail.com" class="footer__link">lu.immich@gmail.com</a>
+      <section class="cv-section intro-section">
+        <p class="cv-intro-text">{{ about.intro | safe }}</p>
+      </section>
+
+      <!-- FOCO E HABILIDADES -->
+      <section class="cv-section cv-skills-section">
+        <div class="cv-skills-col">
+          <h2 class="cv-section-title">Pesquisa</h2>
+          <ul class="cv-list">
+            {% for skill in about.skills.philosophy %}
+              <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
         </div>
-      </div>
+        <div class="cv-skills-col">
+          <h2 class="cv-section-title">Design</h2>
+          <ul class="cv-list">
+            {% for skill in about.skills.design %}
+              <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
 
-    </div>
-  </section>
+      <!-- GRÁFICOS DE BARRA (IDIOMAS E CAFÉ) -->
+      <section class="cv-section cv-charts-section">
+        <div class="cv-chart-col">
+          <h2 class="cv-section-title">Idiomas</h2>
+          <div class="cv-chart-list">
+            {% for item in about.charts.languages %}
+            <div class="cv-chart-item">
+              <span class="cv-chart-label">{{ item.name }}</span>
+              <div class="cv-chart-track">
+                <div class="cv-chart-fill" style="width: {{ item.level }}%;"></div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
 
+        <div class="cv-chart-col">
+          <h2 class="cv-section-title">Café</h2>
+          <div class="cv-chart-list">
+            {% for item in about.charts.coffee %}
+            <div class="cv-chart-item">
+              <span class="cv-chart-label">{{ item.name }}</span>
+              <div class="cv-chart-track">
+                <div class="cv-chart-fill" style="width: {{ item.level }}%;"></div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
 
+    </article>
+  </div>
 </main>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="/js/about.js"></script>

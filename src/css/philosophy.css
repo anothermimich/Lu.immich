@@ -194,6 +194,17 @@
 }
 
 /* ==========================================================================
+   O LIVRO TOMBADO (ÚLTIMO ITEM DA PRATELEIRA)
+   ========================================================================== */
+.bookshelf-row .book-item:last-child {
+  pointer-events: none;
+  cursor: default;
+  transform-origin: bottom left;
+  transform: rotate(-8deg);
+  margin-left: 50px;
+}
+
+/* ==========================================================================
    OVERRIDES MOBILE E TABLETS (ACORDEÃO VERTICAL)
    ========================================================================== */
 @media (max-width: 1000px) {
@@ -246,6 +257,12 @@
     gap: 0.2rem;
   }
   .book-spine-sub {
+    display: none;
+  }
+
+  /* OCULTA O LIVRO TOMBADO */
+
+  .bookshelf-row .book-item:last-child {
     display: none;
   }
 
