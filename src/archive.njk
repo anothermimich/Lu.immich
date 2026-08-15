@@ -2,6 +2,7 @@
 layout: base.njk
 title: Lu Immich | Design
 permalink: "/design/"
+custom_css: "archive.css"
 ---
 
 <main>
@@ -10,22 +11,27 @@ permalink: "/design/"
       
       {% for sheet in archive %}
       <div class="archive-link">
-        <a class="archive-tag-container" id="archive-link-{{ sheet.year }}" href="#archive-sheet-{{ sheet.year }}">
+        <!-- 1. O botão com a injeção do style está no lugar certo agora (dentro do arquivo 3D) -->
+        <button class="archive-tag-container" 
+                data-target="{{ sheet.id }}" 
+                aria-expanded="false"
+                style="--tab-offset: {{ sheet.offsetDesktop | default('2vw') }}; --tab-offset-mobile: {{ sheet.offsetMobile | default('2vw') }};">
           <div class="archive-tag"></div>
           <div class="archive-tag-small">
-            <p class="archive-tag-year">{{ sheet.year }}</p>
+            <p class="archive-tag-year">{{ sheet.category }}</p>
           </div>
-        </a>
-        <div class="line" {% if sheet.year == '2025' %}id="archive-link-line-2025"{% endif %}></div>
+        </button>
+        <div class="line"></div>
       </div>
       {% endfor %}
       
+      <!-- Tag Vazia do Fundo -->
       <div class="archive-link">
-        <a class="archive-tag-container" id="archive-link-empty">
+        <button class="archive-tag-container" id="archive-link-empty" style="cursor: default;">
           <div class="archive-tag"></div>
           <div class="archive-tag-small"></div>
           <p class="archive-tag-year"></p>
-        </a>
+        </button>
         <div class="line"></div>
       </div>
 
@@ -40,26 +46,23 @@ permalink: "/design/"
   <section class="archive-sheets-container">
     
     {% for sheet in archive %}
-    <div class="archive-sheet">
-      <span class="anchor" id="archive-sheet-{{ sheet.year }}"></span>
+    <!-- 2. A div principal da pasta (e o ID dela) foram restaurados para o JS poder abri-la -->
+    <div class="archive-sheet" id="archive-sheet-{{ sheet.id }}">
       
+      <!-- O cabeçalho estático da pasta aberta -->
       <div class="archive-tag-container">
         <div class="archive-tag"></div>
         <div class="archive-tag-small"></div>
-        <p class="archive-tag-year">{{ sheet.year }}</p>
+        <p class="archive-tag-year">{{ sheet.category }}</p>
       </div>
       
-      <div class="archive-item-container" id="archive-item-container-{{ sheet.year }}">
+      <!-- As imagens -->
+      <div class="archive-item-container">
         {% for item in sheet.items %}
         <div class="archive-item">
           <a {% if item.url %}href="{{ item.url }}"{% endif %}>
-            
-            <!-- 1. Define as classes condicionalmente -->
             {% set imgClass = "archive-img border-img" if item.border else "archive-img" %}
-            
-            <!-- 2. Executa o shortcode com a classe correta -->
             {% image item.image, item.alt, imgClass, "(max-width: 768px) 50vw, 400px" %}
-            
           </a>
         </div>
         {% endfor %}
@@ -69,4 +72,13 @@ permalink: "/design/"
     {% endfor %}
     
   </section>
+
+  <!-- 3. Botão brutalista para fechar a pasta e voltar -->
+  <button id="close-folder-btn" class="close-folder-btn" aria-label="Guardar pasta no arquivo">
+    ↑ Guardar Pasta
+  </button>
+
 </main>
+
+<!-- Injeção do JS exclusivo -->
+<script src="/js/archive.js" defer></script>

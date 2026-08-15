@@ -1,12 +1,10 @@
 [
   {
-    "year": "2026",
+    "category": "Gráfico",
+    "id": "grafico-01",
+    "offsetDesktop": "2vw",
+    "offsetMobile": "2vw",
     "items": [
-      {
-        "url": "/asterismo/",
-        "image": "/project-files/asterismo/asterismo-01.webp",
-        "alt": "Asterismo tabuleiro antigo"
-      },
       {
         "url": "/asterismo/",
         "image": "/project-files/asterismo/asterismo-06.webp",
@@ -14,39 +12,9 @@
       },
       {
         "url": "/asterismo/",
-        "image": "/project-files/asterismo/asterismo-02.webp",
-        "alt": "Asterismo tabuleiro"
-      },
-      {
-        "url": "/asterismo/",
         "image": "/project-files/asterismo/asterismo-03.webp",
         "alt": "Asterismo cronometro"
       },
-      {
-        "url": "/asterismo/",
-        "image": "/project-files/asterismo/asterismo-04.webp",
-        "alt": "Asterismo roleta de dados"
-      }
-    ]
-  },
-  {
-    "year": "2025",
-    "items": [
-      { "url": "/desan/", "image": "/project-files/desan/desan1.webp", "alt": "Ecobag Desan" },
-      {
-        "url": "/desan/",
-        "image": "/project-files/desan/desan5.webp",
-        "alt": "Marca Página Desan"
-      },
-      { "url": "/desan/", "image": "/project-files/desan/desan3.webp", "alt": "Canecas Desan" },
-      { "url": "/desan/", "image": "/project-files/desan/desan4.webp", "alt": "Instagram Desan" },
-      {
-        "url": "/desan/",
-        "image": "/project-files/desan/desan6.webp",
-        "alt": "Cartaz Desan",
-        "border": true
-      },
-      { "url": "/desan/", "image": "/project-files/desan/desan2.webp", "alt": "Logo Desan" },
       {
         "url": "#",
         "image": "/project-files/entremundos/P0-Entremundos.webp",
@@ -99,16 +67,6 @@
         "image": "/project-files/gefop/logo-gefop-white.webp",
         "alt": "Logo Grupo de Estudos em Filosofia Social e Opressão"
       },
-      { "url": "/k02/", "image": "/project-files/k02/k02-01.webp", "alt": "Teclado K02 01" },
-      { "url": "/k02/", "image": "/project-files/k02/k02-03.webp", "alt": "Teclado K02 03" },
-      { "url": "/k02/", "image": "/project-files/k02/k02-04.webp", "alt": "Teclado K02 04" },
-      { "url": "/k02/", "image": "/project-files/k02/k02-05.webp", "alt": "Teclado K02 05" },
-      { "url": "/k02/", "image": "/project-files/k02/k02-06.webp", "alt": "Teclado K02 06" }
-    ]
-  },
-  {
-    "year": "2024",
-    "items": [
       {
         "url": "/leituras-queer/",
         "image": "/project-files/leituras-queer/Cartaz-gravidade.webp",
@@ -129,12 +87,6 @@
         "image": "/project-files/leituras-queer/Ecobag-Mockup.webp",
         "alt": "Ecobag Leituras Queer"
       },
-      { "url": "/k01/", "image": "/project-files/k01/k01-01.webp", "alt": "Teclado K01 01" },
-      { "url": "/k01/", "image": "/project-files/k01/k01-02.webp", "alt": "Teclado K01 02" },
-      { "url": "/k01/", "image": "/project-files/k01/k01-03.webp", "alt": "Teclado K01 03" },
-      { "url": "/k01/", "image": "/project-files/k01/k01-04.webp", "alt": "Teclado K01 04" },
-      { "url": "/k01/", "image": "/project-files/k01/k01-05.webp", "alt": "Teclado K01 05" },
-      { "url": "/k01/", "image": "/project-files/k01/k01-06.webp", "alt": "Teclado K01 06" },
       {
         "image": "/project-files/primeiro-workshop-interseccionalidade/Cartaz-primeiro-workshop-fil-inter.webp",
         "alt": "1 workshop filosofia e interseccionalidade divulgação"
@@ -155,6 +107,63 @@
         "image": "/project-files/theseus/Adesivo-theseus.webp",
         "alt": "Adesivo do projeto Bicicleta de Theseus"
       }
+    ]
+  },
+  {
+    "category": "Produto",
+    "id": "produto-01",
+    "offsetDesktop": "4vw",
+    "offsetMobile": "4vw",
+    "items": [
+      { "url": "/k02/", "image": "/project-files/k02/k02-01.webp", "alt": "Teclado K02 01" },
+      { "url": "/k02/", "image": "/project-files/k02/k02-03.webp", "alt": "Teclado K02 03" },
+      { "url": "/k02/", "image": "/project-files/k02/k02-04.webp", "alt": "Teclado K02 04" },
+      { "url": "/k02/", "image": "/project-files/k02/k02-05.webp", "alt": "Teclado K02 05" },
+      { "url": "/k02/", "image": "/project-files/k02/k02-06.webp", "alt": "Teclado K02 06" },
+      { "url": "/k01/", "image": "/project-files/k01/k01-01.webp", "alt": "Teclado K01 01" },
+      { "url": "/k01/", "image": "/project-files/k01/k01-02.webp", "alt": "Teclado K01 02" },
+      { "url": "/k01/", "image": "/project-files/k01/k01-03.webp", "alt": "Teclado K01 03" },
+      { "url": "/k01/", "image": "/project-files/k01/k01-04.webp", "alt": "Teclado K01 04" },
+      { "url": "/k01/", "image": "/project-files/k01/k01-05.webp", "alt": "Teclado K01 05" },
+      { "url": "/k01/", "image": "/project-files/k01/k01-06.webp", "alt": "Teclado K01 06" }
+    ]
+  },
+  {
+    "category": "Identidade Visual",
+    "id": "identidade-01",
+    "offsetDesktop": "8vw",
+    "offsetMobile": "6vw",
+    "items": [
+      { "url": "/desan/", "image": "/project-files/desan/desan1.webp", "alt": "Ecobag Desan" },
+      {
+        "url": "/desan/",
+        "image": "/project-files/desan/desan5.webp",
+        "alt": "Marca Página Desan"
+      },
+      { "url": "/desan/", "image": "/project-files/desan/desan3.webp", "alt": "Canecas Desan" },
+      { "url": "/desan/", "image": "/project-files/desan/desan4.webp", "alt": "Instagram Desan" },
+      {
+        "url": "/desan/",
+        "image": "/project-files/desan/desan6.webp",
+        "alt": "Cartaz Desan",
+        "border": true
+      },
+      { "url": "/desan/", "image": "/project-files/desan/desan2.webp", "alt": "Logo Desan" },
+      { "url": "/desan/", "image": "/project-files/desan/desan1.webp", "alt": "Ecobag Desan" },
+      {
+        "url": "/desan/",
+        "image": "/project-files/desan/desan5.webp",
+        "alt": "Marca Página Desan"
+      },
+      { "url": "/desan/", "image": "/project-files/desan/desan3.webp", "alt": "Canecas Desan" },
+      { "url": "/desan/", "image": "/project-files/desan/desan4.webp", "alt": "Instagram Desan" },
+      {
+        "url": "/desan/",
+        "image": "/project-files/desan/desan6.webp",
+        "alt": "Cartaz Desan",
+        "border": true
+      },
+      { "url": "/desan/", "image": "/project-files/desan/desan2.webp", "alt": "Logo Desan" }
     ]
   }
 ]
