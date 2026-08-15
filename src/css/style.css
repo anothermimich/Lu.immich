@@ -87,9 +87,10 @@ a {
 
 @media (hover: hover) and (pointer: fine) {
   a:hover,
-  a:active {
+  a:active,
+  button:hover,
+  button:active {
     text-decoration: line-through;
-    opacity: 0.8;
     cursor: pointer;
   }
 }
@@ -259,9 +260,12 @@ footer a {
   display: flex;
   gap: var(--fs-3);
 }
-
+.hero ul li p:first-of-type {
+  opacity: 0.7;
+}
 .hero ul li a div p:first-child {
   font-weight: 400;
+  opacity: 1;
 }
 .hero ul li a > p:first-of-type {
   letter-spacing: 0.5px;
@@ -819,8 +823,7 @@ footer a {
 }
 
 .mobile-overlay-content {
-  margin-top: auto;
-  margin-bottom: 10vh;
+  margin: auto 0;
 }
 
 .mobile-overlay-header {
@@ -836,7 +839,8 @@ footer a {
   font-size: var(--fs-1);
 }
 .mobile-overlay-title:hover {
-  color: #ff0000;
+  cursor: url("/icons/heart.svg"), pointer;
+  color: #000;
 }
 
 .mobile-nav-list {
@@ -846,30 +850,24 @@ footer a {
 }
 
 .mobile-nav-list li {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
 }
 
 .mobile-nav-list li:first-child {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
 }
 
 .mobile-nav-list a {
   display: flex;
   align-items: center;
-  padding: 3vh 0;
+  padding: var(--fs-2) 0;
   font-size: var(--fs-1);
   font-weight: 400;
   color: #000;
   transition: opacity 0.3s ease;
 }
 
-.mobile-nav-list a:hover {
-  opacity: 0.7;
-  text-decoration: none;
-}
-
 .nav-number {
-  font-weight: 200;
   margin-right: 1.5rem;
-  opacity: 0.5;
+  opacity: 0.7;
 }

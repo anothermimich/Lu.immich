@@ -59,10 +59,11 @@ permalink: "/"
       
       const pictureTag = templateImages.querySelector(`[data-project-url="${proj.url}"]`).innerHTML;
 
+          // variavel substituida <p>[&nbsp${num}&nbsp]</p>
       html += `
         <li>
           <a href="${proj.url}">
-            <p>(${num})</p>
+            <p>[&nbsp&nbsp]</p>
             <div>
               <p>${proj.title}</p>
               <p>${proj.type}</p>
