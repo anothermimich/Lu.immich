@@ -181,7 +181,7 @@ button.archive-tag-container {
   flex-direction: column;
   position: relative;
   margin-top: 0;
-  gap: 10vh !important;
+  gap: 10vh;
 }
 
 .archive-sheet {
@@ -308,6 +308,10 @@ button.archive-tag-container .archive-tag-year {
    7. RESPONSIVIDADE (MOBILE OVERRIDES)
    ========================================================================== */
 @media (max-width: 1000px) {
+  .archive-sheets-container {
+    gap: 5vh;
+  }
+
   /* Variável Dinâmica de Espaçamento para o Botão */
   button.archive-tag-container,
   button.archive-tag-container .archive-tag-small,
