@@ -68,26 +68,6 @@
         "alt": "Logo Grupo de Estudos em Filosofia Social e Opressão"
       },
       {
-        "url": "/leituras-queer/",
-        "image": "/project-files/leituras-queer/Cartaz-gravidade.webp",
-        "alt": "Cartaz Leituras Queer gravidade"
-      },
-      {
-        "url": "/leituras-queer/",
-        "image": "/project-files/leituras-queer/Cartaz-encontro.webp",
-        "alt": "Cartaz Leituras Queer encontro"
-      },
-      {
-        "url": "/leituras-queer/",
-        "image": "/project-files/leituras-queer/Cartaz-caca-pal.webp",
-        "alt": "Cartaz Leituras Queer caçapalavras"
-      },
-      {
-        "url": "/leituras-queer/",
-        "image": "/project-files/leituras-queer/Ecobag-Mockup.webp",
-        "alt": "Ecobag Leituras Queer"
-      },
-      {
         "image": "/project-files/primeiro-workshop-interseccionalidade/Cartaz-primeiro-workshop-fil-inter.webp",
         "alt": "1 workshop filosofia e interseccionalidade divulgação"
       },
@@ -149,21 +129,26 @@
         "border": true
       },
       { "url": "/desan/", "image": "/project-files/desan/desan2.webp", "alt": "Logo Desan" },
-      { "url": "/desan/", "image": "/project-files/desan/desan1.webp", "alt": "Ecobag Desan" },
       {
-        "url": "/desan/",
-        "image": "/project-files/desan/desan5.webp",
-        "alt": "Marca Página Desan"
+        "url": "/leituras-queer/",
+        "image": "/project-files/leituras-queer/Cartaz-gravidade.webp",
+        "alt": "Cartaz Leituras Queer gravidade"
       },
-      { "url": "/desan/", "image": "/project-files/desan/desan3.webp", "alt": "Canecas Desan" },
-      { "url": "/desan/", "image": "/project-files/desan/desan4.webp", "alt": "Instagram Desan" },
       {
-        "url": "/desan/",
-        "image": "/project-files/desan/desan6.webp",
-        "alt": "Cartaz Desan",
-        "border": true
+        "url": "/leituras-queer/",
+        "image": "/project-files/leituras-queer/Cartaz-encontro.webp",
+        "alt": "Cartaz Leituras Queer encontro"
       },
-      { "url": "/desan/", "image": "/project-files/desan/desan2.webp", "alt": "Logo Desan" }
+      {
+        "url": "/leituras-queer/",
+        "image": "/project-files/leituras-queer/Cartaz-caca-pal.webp",
+        "alt": "Cartaz Leituras Queer caçapalavras"
+      },
+      {
+        "url": "/leituras-queer/",
+        "image": "/project-files/leituras-queer/Ecobag-Mockup.webp",
+        "alt": "Ecobag Leituras Queer"
+      }
     ]
   }
 ]
