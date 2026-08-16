@@ -453,6 +453,7 @@ footer a {
     grid-column: 1;
     grid-row: 3;
     text-align: start;
+    align-self: end;
   }
 
   /* No Mobile, o Grid de 2 colunas se transforma em 1 coluna empilhada */
