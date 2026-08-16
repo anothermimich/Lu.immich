@@ -153,6 +153,7 @@
   margin-bottom: 1rem;
   line-height: 1.1;
   word-break: break-word;
+  text-wrap: balance;
 }
 
 .book-subtitle-expanded {
@@ -170,12 +171,29 @@
   margin-top: -0.5rem;
 }
 
+/* Autoria e Resumo */
+.book-coauthors {
+  font-size: 0.9em;
+  font-weight: 400;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+  margin-top: -0.5rem;
+}
+
 .book-excerpt {
-  max-width: 40ch;
-  margin-bottom: 4vh;
+  max-width: 45ch;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: balance;
+  margin-bottom: 1rem;
 }
 
 .book-btn {
+  flex-shrink: 0;
+  margin-top: auto;
   border: 1px solid #000;
   padding: 0.5rem 1.5rem;
   width: fit-content;
