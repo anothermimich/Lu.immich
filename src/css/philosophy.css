@@ -303,7 +303,7 @@
   .book-content {
     width: 100%;
     height: 100%;
-    padding: 10vw 6vw 6vw 6vw; /* Adiciona respiro ao redor do texto */
+    padding: 10vw 6vw; /* Adiciona respiro ao redor do texto */
     overflow-y: auto; /* Permite scroll interno caso o resumo seja muito longo */
   }
 
