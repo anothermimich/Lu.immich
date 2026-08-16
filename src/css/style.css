@@ -574,7 +574,7 @@ footer a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10vh;
+  /* margin-bottom: 10vh; */
 }
 
 .mobile-overlay-title {
@@ -612,6 +612,6 @@ footer a {
 }
 
 .nav-number {
-  margin-right: 1.5rem;
+  margin-right: var(--fs-3);
   opacity: 0.7;
 }
