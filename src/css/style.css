@@ -140,7 +140,7 @@ ul li {
 
 section,
 main {
-  max-width: 80vw;
+  width: 80vw;
   margin: 0 auto;
 }
 
