@@ -113,11 +113,7 @@ section {
 .cv-intro-text {
   font-size: var(--fs-1);
   width: 100%;
-
-  /* 3ª Camada: Se alguma palavra/link for monstruosamente grande, o CSS a corta ao meio 
-     em vez de empurrar todo o layout para a direita. */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  text-wrap: pretty;
 }
 .cv-section-title {
   font-size: var(--fs-1);
