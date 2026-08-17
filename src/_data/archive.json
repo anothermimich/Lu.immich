@@ -92,8 +92,8 @@
   {
     "category": "Interação",
     "id": "produto-01",
-    "offsetDesktop": "4vw",
-    "offsetMobile": "4vw",
+    "offsetDesktop": "6vw",
+    "offsetMobile": "10vw",
     "items": [
       { "url": "/k02/", "image": "/project-files/k02/k02-01.webp", "alt": "Teclado K02 01" },
       { "url": "/k02/", "image": "/project-files/k02/k02-03.webp", "alt": "Teclado K02 03" },
@@ -111,8 +111,8 @@
   {
     "category": "Identidade Visual",
     "id": "identidade-01",
-    "offsetDesktop": "8vw",
-    "offsetMobile": "6vw",
+    "offsetDesktop": "10vw",
+    "offsetMobile": "18vw",
     "items": [
       { "url": "/desan/", "image": "/project-files/desan/desan1.webp", "alt": "Ecobag Desan" },
       {

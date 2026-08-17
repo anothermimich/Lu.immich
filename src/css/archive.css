@@ -150,7 +150,7 @@ button.archive-tag-container {
 }
 
 #archive-link-empty {
-  margin-left: 15vw;
+  margin-left: 14vw;
   z-index: 5;
 }
 
@@ -311,6 +311,9 @@ button.archive-tag-container .archive-tag-year {
   .archive-sheets-container {
     margin-top: -12vh;
     gap: 10vh;
+  }
+  #archive-link-empty {
+    margin-left: 26vw;
   }
 
   /* Variável Dinâmica de Espaçamento para o Botão */
