@@ -37,7 +37,17 @@ module.exports = function (eleventyConfig) {
         urlPath: "/img/opt/",
         filenameFormat: function (id, src, width, format) {
           const extension = path.extname(src);
-          const name = path.basename(src, extension);
+          let name = path.basename(src, extension);
+
+          // 1. Tira os acentos e cedilhas (ex: "Apresentação" vira "Apresentacao")
+          name = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+          // 2. Transforma qualquer coisa que NÃO seja letra ou número em hífen (incluindo espaços)
+          name = name.replace(/[^a-zA-Z0-9]/g, "-");
+
+          // 3. Limpa hifens duplicados e joga tudo para minúsculo
+          name = name.replace(/-+/g, "-").toLowerCase();
+
           return `${name}-${width}w.${format}`;
         },
       });
