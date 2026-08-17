@@ -28,7 +28,7 @@ html {
 
 body {
   background-color: #ffffff;
-  overflow-x: hidden;
+  overflow-x: clip;
   font-size: var(--fs-1);
   user-select: none;
   display: flex;

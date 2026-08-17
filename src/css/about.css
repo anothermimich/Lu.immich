@@ -15,7 +15,7 @@ section {
    VARIÁVEIS LOCAIS (Herdadas do root global)
    ========================================================================== */
 .grid-container {
-  width: 90vw;
+  width: 100%;
 }
 
 .about-cv {
@@ -27,7 +27,7 @@ section {
    ========================================================================== */
 .cv-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr); /* Divide a tela em 5 frações iguais */
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 5vw;
   align-items: start;
 }
@@ -35,17 +35,23 @@ section {
 /* ==========================================================================
    COLUNA ESQUERDA (SIDEBAR STICKY)
    ========================================================================== */
+/* ==========================================================================
+   COLUNA ESQUERDA (SIDEBAR FIXED)
+   ========================================================================== */
 .cv-sidebar {
-  grid-column: span 2;
-  position: sticky;
-  top: 25vh; /* O ponto exato onde a imagem ancora e para de rolar */
+  /* 1. O comportamento absoluto que trava o elemento na tela */
+  position: fixed;
+  top: 25vh;
+
+  /* 2. Como ela saiu do Grid, definimos uma largura que simula o espaço 
+     das suas 3 antigas colunas */
+  width: 32vw;
+  max-width: 350px; /* Trava de segurança para não explodir em monitores Ultrawide */
+
   display: flex;
   flex-direction: column;
-
-  /* O rigor do alinhamento: Trava absolutamente tudo à esquerda */
   align-items: flex-start;
   text-align: left;
-
   gap: 2vh;
   min-width: 0;
 }
@@ -53,34 +59,42 @@ section {
 .cv-photo-container {
   width: 100%;
   max-width: 350px;
-  /* Removemos o aspect-ratio e o overflow para a imagem não ser mutilada */
 }
 
 .cv-photo {
   width: 100%;
-  height: auto; /* Deixa a foto assumir sua proporção natural */
-  display: block; /* Remove o pequeno respiro fantasma que o navegador cria embaixo de imagens */
+  height: auto;
+  display: block;
 }
 
 .cv-contact {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Garante que os links nunca centralizem */
+  align-items: flex-start;
   gap: 0.5rem;
   font-size: var(--fs-0);
   width: 100%;
 }
 
 /* ==========================================================================
-   COLUNA DIREITA (CONTEÚDO)
+   COLUNA DIREITA (CONTEÚDO E TRAVAS DE SEGURANÇA)
    ========================================================================== */
+
 .cv-content {
-  grid-column: span 3; /* O conteúdo ocupa as 4 colunas restantes */
+  grid-column: 4 / 8;
+
   display: flex;
   flex-direction: column;
   gap: 10vh;
+  min-width: 0;
+  width: 100%;
 }
 
+.cv-section {
+  min-width: 0;
+  width: 100%;
+  max-width: none !important;
+}
 /* ==========================================================================
    RESPONSIVIDADE (MOBILE)
    ========================================================================== */
@@ -96,10 +110,14 @@ section {
     top: 0;
   }
 }
-
 .cv-intro-text {
   font-size: var(--fs-1);
-  text-wrap: pretty;
+  width: 100%;
+
+  /* 3ª Camada: Se alguma palavra/link for monstruosamente grande, o CSS a corta ao meio 
+     em vez de empurrar todo o layout para a direita. */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 .cv-section-title {
   font-size: var(--fs-1);
