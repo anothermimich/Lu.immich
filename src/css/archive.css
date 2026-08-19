@@ -226,6 +226,14 @@ button.archive-tag-container {
 .archive-item a {
   display: block;
   width: 100%;
+  overflow: hidden;
+}
+.archive-item a picture,
+.archive-item a img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .archive-img {

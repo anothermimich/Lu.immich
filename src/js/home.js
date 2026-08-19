@@ -13,11 +13,11 @@ function debounce(func, wait) {
 
 function ajustarHeroDinamicamente() {
   const hero = document.querySelector(".hero");
-  const footer = document.querySelector("footer");
   const nav = document.querySelector(".nav");
   const ul = hero ? hero.querySelector("ul") : null;
 
-  if (!hero || !footer || !nav || !ul) return;
+  // Removido o footer daqui, eliminando pontos de falha
+  if (!hero || !nav || !ul) return;
 
   const items = Array.from(ul.querySelectorAll("li"));
   if (items.length === 0) return;
@@ -30,53 +30,42 @@ function ajustarHeroDinamicamente() {
     margemMinimaMobile: 100,
   };
 
-  items.forEach((item) => {
-    item.classList.remove("vh-hidden");
-    if (
-      item.nextElementSibling &&
-      item.nextElementSibling.classList.contains("hero-picture-wrapper")
-    ) {
-      item.nextElementSibling.classList.remove("vh-hidden");
-    }
-  });
   const isMobile = window.innerWidth <= config.mobileBreakpoint;
   const margemExigida = isMobile ? config.margemMinimaMobile : config.margemMinimaDesktop;
 
-  // 1. ÁREA LIVRE: Mede o tamanho real da tela menos Nav, Footer e Margens
+  // 1. ÁREA LIVRE
   const viewportHeight = document.documentElement.clientHeight;
   const navHeight = nav.offsetHeight;
-  const footerHeight = footer.offsetHeight;
+  const alturaMaximaHero = viewportHeight - navHeight - margemExigida * 2;
 
-  const alturaMaximaHero = viewportHeight - navHeight - footerHeight - margemExigida * 2;
-
-  // 2. MATEMÁTICA DA GRID: Pega o tamanho exato de 1 item e o gap(espaço) entre eles
+  // 2. MATEMÁTICA DA GRID (Usamos apenas o item 0, que sempre está visível, evitando o Layout Thrashing)
   const itemHeight = items[0].offsetHeight;
   const gap = parseFloat(window.getComputedStyle(ul).rowGap) || 0;
 
-  // 3. O VEREDITO: Quantos itens cabem perfeitos na tela?
-  // (Altura Livre + Gap) dividido por (Altura do Item + Gap)
+  // 3. O VEREDITO
   let quantidadePermitida = Math.floor((alturaMaximaHero + gap) / (itemHeight + gap));
 
-  // Regra de Segurança: Nunca permite que fiquem 0 itens na tela
+  // Regras de Segurança
   if (quantidadePermitida < 1) quantidadePermitida = 1;
-
-  // Regra do Mobile: Respeita o seu teto máximo estipulado no painel
   if (isMobile && quantidadePermitida > config.maxMobileItens) {
     quantidadePermitida = config.maxMobileItens;
   }
 
-  // 4. APLICA O CORTE
+  // 4. APLICA O CORTE SILENCIOSAMENTE
   items.forEach((item, index) => {
+    // Busca a imagem associada verificando o irmão direto
+    const picture =
+      item.nextElementSibling && item.nextElementSibling.classList.contains("hero-picture-wrapper")
+        ? item.nextElementSibling
+        : null;
+
+    // Se estiver fora do limite, esconde. Se estiver dentro, garante que está visível.
     if (index >= quantidadePermitida) {
       item.classList.add("vh-hidden");
-
-      // Esconde também a imagem respectiva a este projeto
-      if (
-        item.nextElementSibling &&
-        item.nextElementSibling.classList.contains("hero-picture-wrapper")
-      ) {
-        item.nextElementSibling.classList.add("vh-hidden");
-      }
+      if (picture) picture.classList.add("vh-hidden");
+    } else {
+      item.classList.remove("vh-hidden");
+      if (picture) picture.classList.remove("vh-hidden");
     }
   });
 
