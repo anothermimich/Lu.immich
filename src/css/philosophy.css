@@ -245,6 +245,9 @@
   .bookshelf-wrapper {
     gap: 2vh; /* Reduz o espaço entre prateleiras no celular */
   }
+  .book-excerpt {
+    hyphens: auto;
+  }
 
   .bookshelf-row {
     flex-direction: column; /* Empilha a prateleira na vertical */
