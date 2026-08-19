@@ -1,8 +1,8 @@
 {
-  "intro": "A pesquisa acadêmica de Lu Immich concentra-se na ontologia social, área na qual investiga a existência trans em contextos não ideais. É doutoranda em Filosofia pela <a href='https://www.ufsm.br/' target='_blank' rel='noopener noreferrer'>Universidade Federal de Santa Maria (UFSM)</a>, instituição onde também concluiu seu mestrado e bacharelado. Para além da filosofia, possui experiência em design e desenvolvimento web. Essa intersecção evidencia uma premissa de sua abordagem: a busca não apenas pela compreensão das estruturas sociais, mas ponor um meio de transformá-las — seja pela engenharia conceitual ou pelo design.<br><br>Vive e trabalha em Santa Maria, Brasil.",
+  "intro": "A pesquisa acadêmica de Lu Immich concentra-se na ontologia social, área na qual investiga a existência trans em contextos não ideais. É doutoranda em Filosofia pela <a href='https://www.ufsm.br/' target='_blank' rel='noopener noreferrer'>Universidade Federal de Santa Maria (UFSM)</a>, instituição onde também concluiu seu mestrado e bacharelado. Para além da filosofia, possui experiência em design e desenvolvimento web. Essa intersecção evidencia uma premissa de sua abordagem: a busca não apenas pela compreensão das estruturas sociais, mas ponor um meio de transformá-las — seja pela engenharia conceitual ou pelo design.",
   "skills": {
     "philosophy": ["Ontologia Social", "Filosofia Trans", "Filosofia Social", "Filosofia Política"],
-    "design": ["Design Gráfico", "UI/UX Design", "Identidade Visual", "Web Dev. Full Stack"]
+    "design": ["UI/UX Design", "Design Gráfico", "Identidade Visual", "Web Dev. Full Stack"]
   },
   "charts": {
     "languages": [

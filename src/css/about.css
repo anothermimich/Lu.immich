@@ -1,166 +1,112 @@
-section {
-  margin: 0 !important;
-}
-.nav {
-  position: sticky;
-  top: 0;
-  width: 100%; /* Substitui o 100vw */
-  box-sizing: border-box; /* Trava matemática que impede o padding de estourar a tela */
-  padding: 3vh 10vw 2vh 10vw;
-  background-color: #ffffff;
-  z-index: 100;
-}
-
 /* ==========================================================================
-   VARIÁVEIS LOCAIS (Herdadas do root global)
+   ESTRUTURA PRINCIPAL
    ========================================================================== */
-.grid-container {
-  width: 100%;
-}
-
 .about-cv {
-  padding-top: 15vh;
-  padding-bottom: 10vh;
+  margin: 15vh 0;
+  display: flex;
+  flex-direction: column;
 }
-/* ==========================================================================
-   GRID DE 5 COLUNAS
-   ========================================================================== */
+
 .cv-grid {
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 5vw;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2vw;
   align-items: start;
 }
 
 /* ==========================================================================
-   COLUNA ESQUERDA (SIDEBAR STICKY)
+   CABEÇALHO (Foto, Meta e Intro)
    ========================================================================== */
-/* ==========================================================================
-   COLUNA ESQUERDA (SIDEBAR FIXED)
-   ========================================================================== */
-.cv-sidebar {
-  /* 1. O comportamento absoluto que trava o elemento na tela */
-  position: fixed;
-  top: 25vh;
-
-  /* 2. Como ela saiu do Grid, definimos uma largura que simula o espaço 
-     das suas 3 antigas colunas */
-  width: 32vw;
-  max-width: 350px; /* Trava de segurança para não explodir em monitores Ultrawide */
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 2vh;
-  min-width: 0;
+.cv-header {
+  grid-template-rows: auto auto;
+  height: 80vh;
 }
 
-.cv-photo-container {
+.cv-img-header {
+  grid-column: 1 / 7;
+  grid-row: 2;
   width: 100%;
-  max-width: 350px;
+  overflow: hidden;
+  height: 100%;
+  max-height: 60vh;
 }
 
-.cv-photo {
+.cv-img-header img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
 .cv-contact {
+  grid-column: 7 / 10;
+  grid-row: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 0.5rem;
-  font-size: var(--fs-0);
-  width: 100%;
+  align-self: end;
+  margin-bottom: -0.5rem;
 }
 
-/* ==========================================================================
-   COLUNA DIREITA (CONTEÚDO E TRAVAS DE SEGURANÇA)
-   ========================================================================== */
-
-.cv-content {
-  grid-column: 4 / 8;
-
-  display: flex;
-  flex-direction: column;
-  gap: 10vh;
-  min-width: 0;
-  width: 100%;
-}
-
-.cv-section {
-  min-width: 0;
-  width: 100%;
-  max-width: none !important;
-}
-/* ==========================================================================
-   RESPONSIVIDADE (MOBILE)
-   ========================================================================== */
-@media (max-width: 1000px) {
-  .cv-grid {
-    grid-template-columns: 1fr; /* Volta a empilhar no celular */
-    gap: 10vh;
-  }
-
-  .cv-sidebar {
-    grid-column: span 1;
-    position: relative;
-    top: 0;
-  }
-}
 .cv-intro-text {
+  grid-column: 1 / 7;
+  grid-row: 1;
   font-size: var(--fs-1);
-  width: 100%;
-  text-wrap: pretty;
+  text-align: start;
+  text-wrap: balance;
+  align-self: end;
 }
-.cv-section-title {
-  font-size: var(--fs-1);
+@media (max-width: 1280px) and (min-width: 1000px) {
+  .cv-intro-text {
+    hyphens: auto;
+  }
+}
+
+/* ==========================================================================
+   CONTEÚDO
+   ========================================================================== */
+.cv-data-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-row: auto auto auto;
+  column-gap: 4vw;
+  row-gap: 5vh;
+  align-items: start;
+}
+
+.cv-divide {
+  grid-column: 1 / 7;
+  grid-row: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  margin-top: 5vh;
+}
+
+.col-filosofia {
+  grid-column: 1 / 4;
+  grid-row: 2;
+}
+
+.col-design {
+  grid-column: 4 / 7;
+  grid-row: 2;
+}
+
+.col-idiomas {
+  grid-column: 1 / 4;
+  grid-row: 3;
+}
+
+.col-cafe {
+  grid-column: 4 / 7;
+  grid-row: 3;
+}
+
+.cv-sub-title {
   font-weight: 400;
-  color: #00000080;
-  border-bottom: 1px solid #00000040; /* Linha grossa inspirada no invoice */
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
-}
-
-/* Itens do Currículo (Grid interno para Data e Descrição) */
-.cv-item {
-  display: grid;
-  grid-template-columns: 150px 1fr; /* Data tem largura fixa, o resto flui */
-  gap: 2vw;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Linha fina de separação */
-}
-
-.cv-item:last-child {
-  border-bottom: none;
-}
-
-.cv-item-meta {
-  font-size: var(--fs-0);
-  opacity: 0.6;
-}
-
-.cv-item-title {
-  font-size: var(--fs-1);
-  font-weight: 500;
-  margin-bottom: 0.2rem;
-}
-
-.cv-item-desc {
-  font-size: var(--fs-1);
-  opacity: 0.8;
-}
-
-/* Seção de Habilidades (Divide em mais colunas) */
-.cv-skills-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5vw;
-  margin: 0 !important;
 }
 
 .cv-list {
+  margin-top: 2vh;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -170,49 +116,12 @@ section {
 .cv-list li {
   font-size: var(--fs-1);
   list-style-type: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.322);
   padding-bottom: 0.5rem;
 }
 
-/* ==========================================================================
-   RESPONSIVIDADE (MOBILE)
-   ========================================================================== */
-@media (max-width: 1000px) {
-  .cv-grid {
-    grid-template-columns: 1fr; /* Empilha tudo */
-    gap: 10vh;
-  }
-
-  .cv-sidebar {
-    position: relative; /* Desliga o sticky no celular */
-    top: 0;
-  }
-
-  .cv-photo-container {
-    max-width: 60vw; /* Não deixa a foto gigante no celular */
-  }
-
-  .cv-item {
-    grid-template-columns: 1fr; /* Data vai para cima do título */
-    gap: 0.5rem;
-  }
-
-  .cv-skills-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ==========================================================================
-   SEÇÃO DE GRÁFICOS (IDIOMAS E CAFÉ)
-   ========================================================================== */
-.cv-charts-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5vw;
-  margin: 0 !important;
-}
-
 .cv-chart-list {
+  margin-top: 2vh;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -226,96 +135,104 @@ section {
 
 .cv-chart-label {
   font-size: var(--fs-0);
-  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .cv-chart-track {
   width: 100%;
-  height: 4px; /* Trilha super minimalista */
-  background-color: #e5e5e5; /* Cinza claro para o fundo */
-  border-radius: 2px;
-  overflow: hidden;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .cv-chart-fill {
   height: 100%;
-  background-color: #000; /* Preto sólido para o preenchimento brutalista */
-  transition: width 1s cubic-bezier(0.85, 0, 0.15, 1); /* Animação suave caso a página recarregue */
+  background-color: #000000;
+  transition: width 1s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (TABLETS E TELAS MÉDIAS - ATÉ 1000PX)
+   RESPONSIVIDADE (O EXORCISMO DO DOM NO MOBILE)
    ========================================================================== */
 @media (max-width: 1000px) {
-  .cv-grid {
-    grid-template-columns: 100%; /* Força rigorosamente o grid a ter apenas a largura da tela */
-    gap: 8vh;
-  }
-
-  /* O EXORCISMO DO GRID: 
-     O '1 / -1' força o conteúdo a ignorar o 'span 4' do desktop 
-     e se confinar exatamente dentro da única coluna existente */
-  .cv-sidebar,
-  .cv-content {
-    grid-column: 1 / -1;
-  }
-
-  .cv-sidebar {
-    position: relative;
-    top: 0;
+  .about-cv {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 5vw;
-    width: 80vw;
-  }
-  .cv-contact {
-    font-size: var(--fs-1);
+    grid-template-columns: 1fr 1fr; /* As 2 colunas do celular */
+    gap: 6vh 5vw; /* Espaço vertical e horizontal */
+    margin: 5vh 0;
   }
 
-  .cv-photo-container {
-    max-width: 100%;
+  .cv-header,
+  .cv-content,
+  .cv-data-grid {
+    display: contents;
   }
 
-  .intro-section,
+  /* 1º - O Manifesto (Tela toda) */
   .cv-intro-text {
-    width: 100%;
+    order: 1;
+    grid-column: 1 / -1;
+    grid-row: auto;
+    text-align: start;
+    text-wrap: pretty;
+    height: 85vh;
+    align-content: center;
+    max-width: 35ch;
   }
 
-  .cv-skills-section {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* ==========================================================================
-   RESPONSIVIDADE (APENAS CELULARES - ATÉ 600PX)
-   ========================================================================== */
-@media (max-width: 600px) {
-  .cv-grid {
-    margin-top: 10vh;
-    gap: 40vh;
-  }
-  .cv-sidebar {
-    grid-template-columns: 1fr;
-    gap: 4vh;
-    align-items: stretch;
-    grid-row: 2;
-  }
-
-  .cv-photo-container {
-    width: 100%;
-  }
-
-  .cv-skills-section {
+  /* 2º - A Linha Divisória (Logo após o texto) */
+  .cv-divide {
+    order: 2;
+    grid-column: 1 / -1;
+    grid-row: auto;
+    margin: 0;
     display: none;
-    grid-template-columns: 1fr;
   }
 
-  .cv-charts-section {
-    display: none;
-    grid-template-columns: 1fr;
-    gap: 8vh;
+  /* 3º - Filosofia e Design (Dividem as 2 colunas) */
+  .col-filosofia {
+    order: 3;
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .col-design {
+    order: 4;
+    grid-column: 2 / 3;
+    grid-row: auto;
+  }
+
+  /* 4º - Idiomas e Café (Dividem as 2 colunas) */
+  .col-idiomas {
+    order: 5;
+    grid-column: 1 / 2;
+    grid-row: auto;
+  }
+
+  .col-cafe {
+    order: 6;
+    grid-column: 2 / 3;
+    grid-row: auto;
+    margin-bottom: 20vh;
+  }
+
+  /* 5º - Os Contatos (Final) */
+  .cv-contact {
+    order: 7;
+    grid-column: 1 / -1;
+    grid-row: auto;
+    align-self: start;
+    margin-top: 22vh;
+  }
+  /* 6º - A Foto (Proporção Cinematográfica) */
+  .cv-img-header {
+    order: 8;
+    grid-column: 1 / -1;
+    grid-row: auto;
+    aspect-ratio: 16 / 8;
+    height: auto;
+    max-height: none;
+    margin-top: -2vh;
+    margin-bottom: 5vh;
   }
 }

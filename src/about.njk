@@ -7,80 +7,81 @@ custom_css: "about.css"
 
 <main class="about-cv">
   
-  <div class="cv-grid grid-container">
+  <!-- CABEÇALHO (12 Colunas) -->
+  <div class="cv-grid cv-header">
+    <div class="cv-img-header cv-img-wrapper">
+      {% image "/project-files/about/lu-immich.jpg", "Lu Immich", "funnel-img" %}
+    </div>
     
-    <!-- COLUNA ESQUERDA: FIXA E MINIMALISTA -->
-    <aside class="cv-sidebar">
-      <div class="cv-photo-container">
-      {% image "/project-files/lu-immich.jpg", "Lu Immich", "cv-photo" %}
-      </div> 
-        
-      <div class="cv-contact">
-        <a href="mailto:lu.immich@gmail.com">lu.immich@gmail.com</a>
-        <a href="https://lattes.cnpq.br/6938481194529175" target="_blank" rel="noopener">Lattes</a>
-        <a href="https://philpeople.org/profiles/lu-immich" target="_blank" rel="noopener">PhilPeople</a>
-        <a href="https://github.com/anothermimich" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </aside>
-
-    <!-- COLUNA DIREITA: CONTEÚDO -->
-    <article class="cv-content">
+    
       
-      <section class="cv-section intro-section">
-        <p class="cv-intro-text">{{ about.intro | safe }}</p>
-      </section>
+      <div class="cv-contact">
+        <a href="https://lattes.cnpq.br/6938481194529175" target="_blank" rel="noopener">Lattes</a>
+        <a href="https://github.com/anothermimich" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://philpeople.org/profiles/lu-immich" target="_blank" rel="noopener">PhilPeople</a>
+        <a href="mailto:lu.immich@gmail.com">lu.immich@gmail.com</a>
+      </div>
 
-      <!-- FOCO E HABILIDADES -->
-      <section class="cv-section cv-skills-section">
-        <div class="cv-skills-col">
-          <h2 class="cv-section-title">Pesquisa</h2>
-          <ul class="cv-list">
-            {% for skill in about.skills.philosophy %}
-              <li>{{ skill }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="cv-skills-col">
-          <h2 class="cv-section-title">Design</h2>
-          <ul class="cv-list">
-            {% for skill in about.skills.design %}
-              <li>{{ skill }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-      </section>
+    <p class="cv-intro-text">{{ about.intro | safe }}</p>
+  </div>
 
-      <!-- GRÁFICOS DE BARRA (IDIOMAS E CAFÉ) -->
-      <section class="cv-section cv-charts-section">
-        <div class="cv-chart-col">
-          <h2 class="cv-section-title">Idiomas</h2>
-          <div class="cv-chart-list">
-            {% for item in about.charts.languages %}
-            <div class="cv-chart-item">
-              <span class="cv-chart-label">{{ item.name }}</span>
-              <div class="cv-chart-track">
-                <div class="cv-chart-fill" style="width: {{ item.level }}%;"></div>
-              </div>
+<div class="cv-content">
+    
+    <div class="cv-grid cv-data-grid">
+      
+      <!-- 1. A Linha Divisória -->
+      <div class="cv-divide"></div>
+      
+      <!-- 2. Filosofia (Note a nova classe 'col-filosofia') -->
+      <div class="cv-skills-col col-filosofia">
+        <h2 class="cv-sub-title">Filosofia</h2>
+        <ul class="cv-list">
+          {% for skill in about.skills.philosophy %}
+            <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- 3. Design (Note a nova classe 'col-design') -->
+      <div class="cv-skills-col col-design">
+        <h2 class="cv-sub-title">Design</h2>
+        <ul class="cv-list">
+          {% for skill in about.skills.design %}
+            <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- 4. Idiomas (Note a nova classe 'col-idiomas') -->
+      <div class="cv-chart-col col-idiomas">
+        <h2 class="cv-sub-title">Idiomas</h2>
+        <div class="cv-chart-list">
+          {% for item in about.charts.languages %}
+          <div class="cv-chart-item">
+            <span class="cv-chart-label">{{ item.name }}</span>
+            <div class="cv-chart-track">
+              <div class="cv-chart-fill" style="width: {{ item.level }}%;"></div>
             </div>
-            {% endfor %}
           </div>
+       {% endfor %}
         </div>
+      </div>
 
-        <div class="cv-chart-col">
-          <h2 class="cv-section-title">Café</h2>
-          <div class="cv-chart-list">
-            {% for item in about.charts.coffee %}
-            <div class="cv-chart-item">
-              <span class="cv-chart-label">{{ item.name }}</span>
-              <div class="cv-chart-track">
-                <div class="cv-chart-fill" style="width: {{ item.level }}%;"></div>
-              </div>
+
+      <div class="cv-chart-col col-cafe">
+        <h2 class="cv-sub-title">Café</h2>
+        <div class="cv-chart-list">
+          {% for item in about.charts.coffee %}
+          <div class="cv-chart-item">
+            <span class="cv-chart-label">{{ item.name }}</span>
+            <div class="cv-chart-track">
+              <div class="cv-chart-fill" style="width: {{ item.level }}%;"></div>
             </div>
-            {% endfor %}
           </div>
+       {% endfor %}
         </div>
-      </section>
+      </div>
 
-    </article>
+    </div>
   </div>
 </main>
