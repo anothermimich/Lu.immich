@@ -1,4 +1,3 @@
-const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const eleventyImage = require("@11ty/eleventy-img");
 const path = require("path");
 
@@ -7,8 +6,7 @@ const Image = eleventyImage.default || eleventyImage;
 const generateHTML = eleventyImage.generateHTML;
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
-
+  // Passthrough Copy (Mantendo a sua estrutura de pastas intacta)
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/fonts");
@@ -29,23 +27,19 @@ module.exports = function (eleventyConfig) {
         imageSrc = path.join("./src", src);
       }
 
-      // Chama a função Image extraída corretamente
+      // Motor de processamento (Gera AVIF e WEBP com fallback para JPEG)
       let metadata = await Image(imageSrc, {
         widths: [400, 800, 1280],
-        formats: ["avif", "webp", "jpeg"], // 💡 A MÁGICA ESTÁ AQUI: Um único formato força a saída da tag <img> pura
+        formats: ["avif", "webp", "jpeg"],
         outputDir: "./_site/img/opt/",
         urlPath: "/img/opt/",
         filenameFormat: function (id, src, width, format) {
           const extension = path.extname(src);
           let name = path.basename(src, extension);
 
-          // 1. Tira os acentos e cedilhas (ex: "Apresentação" vira "Apresentacao")
+          // Limpeza avançada de string
           name = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-          // 2. Transforma qualquer coisa que NÃO seja letra ou número em hífen (incluindo espaços)
           name = name.replace(/[^a-zA-Z0-9]/g, "-");
-
-          // 3. Limpa hifens duplicados e joga tudo para minúsculo
           name = name.replace(/-+/g, "-").toLowerCase();
 
           return `${name}-${width}w.${format}`;
