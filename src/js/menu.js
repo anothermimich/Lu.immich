@@ -31,8 +31,61 @@ document.addEventListener("DOMContentLoaded", () => {
     closeBtn.addEventListener("click", toggleMenu);
 
     // CAMADA DE DEFESA UX: Clicou no link, fecha o menu imediatamente
-    navLinks.forEach((link) => {
-      link.addEventListener("click", closeMenu);
+    if (menuBtn && closeBtn && overlay) {
+      menuBtn.addEventListener("click", toggleMenu);
+      closeBtn.addEventListener("click", toggleMenu);
+
+      // ==========================================================================
+      // A ESTRATÉGIA DA CORTINA
+      // ==========================================================================
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          // Verifica se o link é apenas uma âncora para a MESMA página (ex: #contato)
+          const href = link.getAttribute("href");
+          const isAnchor = href.startsWith("#");
+
+          if (isAnchor) {
+            // Se for âncora, a página não vai recarregar, então fechamos o menu na hora
+            closeMenu();
+          }
+
+          // SE FOR OUTRA PÁGINA:
+          // Nós simplesmente não fazemos nada!
+          // O menu continua cobrindo a tela antiga até que a nova página seja renderizada.
+        });
+      });
+    }
+
+    if (menuBtn && closeBtn && overlay) {
+      menuBtn.addEventListener("click", toggleMenu);
+      closeBtn.addEventListener("click", toggleMenu);
+
+      // ==========================================================================
+      // A ESTRATÉGIA DA CORTINA
+      // ==========================================================================
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          // Verifica se o link é apenas uma âncora para a MESMA página (ex: #contato)
+          const href = link.getAttribute("href");
+          const isAnchor = href.startsWith("#");
+
+          if (isAnchor) {
+            // Se for âncora, a página não vai recarregar, então fechamos o menu na hora
+            closeMenu();
+          }
+
+          // SE FOR OUTRA PÁGINA:
+          // Nós simplesmente não fazemos nada!
+          // O menu continua cobrindo a tela antiga até que a nova página seja renderizada.
+        });
+      });
+    }
+
+    // CAMADA DE DEFESA BFCACHE (Garante o botão "Voltar" livre de bugs)
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        closeMenu();
+      }
     });
   }
 
