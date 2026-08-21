@@ -27,7 +27,7 @@ function ajustarHeroDinamicamente() {
     mobileBreakpoint: 1000,
     maxMobileItens: 5,
     margemMinimaDesktop: 80,
-    margemMinimaMobile: 100,
+    margemMinimaMobile: 120,
   };
 
   const isMobile = window.innerWidth <= config.mobileBreakpoint;
