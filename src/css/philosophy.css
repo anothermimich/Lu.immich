@@ -5,27 +5,18 @@
   align-content: end;
   margin-top: auto;
 }
-/* ==========================================================================
-   A ESTANTE (ACORDEÃO HORIZONTAL)
-   ========================================================================== */
-.bookshelf-wrapper {
-  margin-bottom: 10vh;
-  padding: 0 !important;
-}
 
 /* ==========================================================================
    A ESTANTE (SISTEMA DE PRATELEIRAS FÍSICAS)
    ========================================================================== */
 .bookshelf-wrapper {
   display: flex;
-  flex-direction: column; /* Empilha as prateleiras verticalmente */
-  gap: 8vh; /* O espaço livre (respiro) entre uma prateleira e a de baixo */
+  flex-direction: column;
+  gap: 8vh;
   margin-bottom: 10vh;
+  padding: 0 !important;
 }
 
-/* ==========================================================================
-   A ESTANTE (SISTEMA DE PRATELEIRAS FÍSICAS)
-   ========================================================================== */
 .bookshelf-row {
   display: flex;
   flex-direction: row;
@@ -66,13 +57,13 @@
   padding-bottom: 2vh;
   transition: opacity 0.3s ease;
 }
+
 .book-title-vertical {
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
   font-size: var(--fs-1);
-  /* O white-space: nowrap foi removido do pai para permitir que existam múltiplas linhas */
-  line-height: 1.2; /* Controla a distância e o respiro entre o título e o subtítulo */
+  line-height: 1.2;
 }
 
 .book-item.is-open .book-spine {
@@ -81,9 +72,25 @@
 }
 
 /* ==========================================================================
-   TIPOGRAFIA DA LOMBADA (TÍTULO E SUBTÍTULO EM LINHAS PARALELAS)
+   DETALHE EDITORIAL (MARCADOR DA LOMBADA)
    ========================================================================== */
+@media (min-width: 1000px) {
+  /* Desenha o traço de 1px a exatos 20% do topo da lombada */
+  .book-spine::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background-color: #000;
+    z-index: 2;
+  }
+}
 
+/* ==========================================================================
+   TIPOGRAFIA DA LOMBADA
+   ========================================================================== */
 .book-spine-main,
 .book-spine-sub {
   display: block;
@@ -105,7 +112,7 @@
    ========================================================================== */
 .book-content {
   opacity: 0;
-  width: 100%; /* Herda a largura do pai perfeitamente, evitando cortes na direita */
+  width: 100%;
   height: 100%;
   padding: 2.5vw;
   display: flex;
@@ -171,15 +178,6 @@
   margin-top: -0.5rem;
 }
 
-/* Autoria e Resumo */
-.book-coauthors {
-  font-size: 0.9em;
-  font-weight: 400;
-  opacity: 0.6;
-  margin-bottom: 1rem;
-  margin-top: -0.5rem;
-}
-
 .book-excerpt {
   max-width: 45ch;
   line-height: 1.4;
@@ -224,7 +222,6 @@
 /* ==========================================================================
    OVERRIDES MOBILE E TABLETS (ACORDEÃO VERTICAL)
    ========================================================================== */
-
 @media (max-width: 1366px) {
   .book-spine-sub {
     display: none;
@@ -238,28 +235,30 @@
     height: 65vh;
   }
 }
+
 @media (max-width: 1000px) {
   .philosophy-page {
     margin-top: 20vh;
   }
+
   .bookshelf-wrapper {
-    gap: 2vh; /* Reduz o espaço entre prateleiras no celular */
+    gap: 2vh;
   }
+
   .book-excerpt {
     hyphens: auto;
   }
 
   .bookshelf-row {
-    flex-direction: column; /* Empilha a prateleira na vertical */
+    flex-direction: column;
     height: auto;
     gap: 2vh;
   }
 
   .book-item {
-    flex: none; /* Desativa a matemática do eixo horizontal */
-    width: 100%; /* Ocupa 100% da tela */
-    height: 12vh; /* Altura do livro fechado no mobile */
-    /* A animação agora acontece na altura, não na largura */
+    flex: none;
+    width: 100%;
+    height: 12vh;
     transition: height 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
@@ -269,65 +268,40 @@
     height: 65vh;
   }
 
-  /* --------------------------------------------------------------------------
-     LOMBADA HORIZONTAL (Mobile)
-     -------------------------------------------------------------------------- */
+  /* LOMBADA HORIZONTAL (Mobile) */
   .book-spine {
     width: 100%;
-    height: 12vh; /* Mesma altura do estado fechado */
+    height: 12vh;
     bottom: auto;
     top: 0;
     left: 0;
     padding-bottom: 0;
     padding-left: 5vw;
-    align-items: center; /* Centraliza o texto verticalmente */
+    align-items: center;
     justify-content: flex-start;
   }
 
   .book-title-vertical {
-    writing-mode: horizontal-tb; /* Desliga o modo de leitura asiático/vertical */
-    transform: none; /* Remove a rotação de 180 graus */
+    writing-mode: horizontal-tb;
+    transform: none;
     display: flex;
     gap: 0.2rem;
   }
+
   .book-spine-sub {
     display: none;
   }
 
   /* OCULTA O LIVRO TOMBADO */
-
   .bookshelf-row .book-item:last-child {
     display: none;
   }
 
-  /* --------------------------------------------------------------------------
-     CONTEÚDO EXPANDIDO (Mobile)
-     -------------------------------------------------------------------------- */
+  /* CONTEÚDO EXPANDIDO (Mobile) */
   .book-content {
     width: 100%;
     height: 100%;
-    padding: 10vw 6vw; /* Adiciona respiro ao redor do texto */
-    overflow-y: auto; /* Permite scroll interno caso o resumo seja muito longo */
+    padding: 10vw 6vw;
+    overflow-y: auto;
   }
-
-  /* ==========================================================================
-     CONTROLE MINIMALISTA (OCULTAR METADADOS NO MOBILE)
-     Para ocultar um item da tela no celular, basta apagar as barras e 
-     asteriscos (/* e */ /*) que envolvem a regra 'display: none;'.
-     ========================================================================== */
-
-  /* 1. Ocultar apenas o TIPO (ex: "Artigo", "Ensaio") */
-  /* .book-item.is-open .book-meta .small-caps { display: none; } */
-
-  /* 2. Ocultar o NOME DA PUBLICAÇÃO (ex: "Revista...") e a bolinha ( • ) */
-  /* .book-publication, .book-meta-divider { display: none; } */
-
-  /* 3. Ocultar a LINHA INTEIRA de Tipo + Publicação de uma só vez */
-  /* .book-meta { display: none; } */
-
-  /* 4. Ocultar o SUBTÍTULO apenas quando o livro está aberto */
-  /* .book-subtitle-expanded { display: none; } */
-
-  /* 5. Ocultar o nome dos COAUTORES */
-  /* .book-coauthors { display: none; } */
 }
