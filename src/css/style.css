@@ -455,33 +455,23 @@ footer a {
 }
 
 /* ==========================================================================
-   1. O CONTÊINER (A "Forma de Gelo" blindada para o WebKit/Safari)
+   1. O CONTÊINER (Estrutura limpa, sem sobrecarregar a GPU)
    ========================================================================== */
 .funnel-img-wrapper {
   width: 100%;
   aspect-ratio: 9 / 5;
   overflow: hidden;
-  
-  /* 1. A ÂNCORA: Obrigatória para segurar a tag picture absoluta */
-  position: relative; 
-  
-  /* 2. HACK DO SAFARI: Força o navegador a respeitar o overflow: hidden 
-     enquanto o Parallax anima o zoom lá dentro (impede o vazamento de borda) */
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-  -webkit-transform: translateZ(0);
+  position: relative;
+  /* Removemos as regras -webkit-mask e -webkit-transform que estavam causando o tremor */
 }
 
 /* ==========================================================================
-   2. A GAIOLA (A tag picture removida do fluxo do documento)
+   2. A GAIOLA (Mantém a blindagem contra fotos pequenas do Safari)
    ========================================================================== */
 .funnel-img-wrapper picture,
 .funnel-img-home picture {
   display: block;
-  
-  /* 3. A TRAVA DEFINITIVA: Ao colocar a imagem como absoluta, nós tiramos 
-     a responsabilidade de altura do ombro dela. O contêiner-pai passa a 
-     respeitar o aspect-ratio rigorosamente, e a imagem apenas preenche o vazio. */
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -489,7 +479,7 @@ footer a {
 }
 
 /* ==========================================================================
-   3. A IMAGEM E O MOTOR (Parallax e Zoom)
+   3. A IMAGEM E O MOTOR (Parallax com Aceleração 3D Nativa)
    ========================================================================== */
 .funnel-img-wrapper picture img,
 .funnel-img-wrapper img,
@@ -499,11 +489,10 @@ footer a {
   height: 100%;
   object-fit: cover;
   display: block;
-  
+
   --parallax-y: 0px;
-  --zoom: 1.15; 
-  
-  transform: translateY(var(--parallax-y)) scale(var(--zoom));
+  --zoom: 1.15;
+  transform: translate3d(0, var(--parallax-y), 0) scale(var(--zoom));
   transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: transform;
 }
