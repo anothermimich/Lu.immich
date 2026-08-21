@@ -6,6 +6,7 @@ isProject: true
 description: "Asterismo é uma ferramenta conceitual e performance participativa para criar sentido coletivamente através de um céu estrelado."
 image: "/project-files/asterismo/asterismo-06.webp"
 custom_css: "asterismo.css"
+priority: 0.6
 ---
 
 <main class="project">

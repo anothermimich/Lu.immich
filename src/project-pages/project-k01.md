@@ -5,6 +5,7 @@ permalink: "/k01/"
 isProject: true
 description: "Design de produto do Teclado K01. Este é um teclado ortolinear dividido (split) inspirado no movimento de Design Internacional."
 image: "/project-files/k01/k01-06.webp"
+priority: 0.6
 ---
 
   <main class="project">

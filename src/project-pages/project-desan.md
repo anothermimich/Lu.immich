@@ -5,6 +5,7 @@ permalink: "/desan/"
 isProject: true
 description: "Identidade visual desenvolvida para o DESAN."
 image: "/project-files/desan/desan4.webp"
+priority: 0.6
 ---
 
   <main class="project">

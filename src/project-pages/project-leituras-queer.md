@@ -5,6 +5,7 @@ permalink: "/leituras-queer/"
 isProject: true
 description: "Identidade visual e peças gráficas desenvolvidas para o grupo Leituras Queer."
 image: "/project-files/leituras-queer/Cartaz-gravidade.webp"
+priority: 0.6
 ---
 
   <main class="project">
