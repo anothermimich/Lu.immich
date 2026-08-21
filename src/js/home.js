@@ -75,4 +75,22 @@ function ajustarHeroDinamicamente() {
 
 window.addEventListener("DOMContentLoaded", ajustarHeroDinamicamente);
 window.addEventListener("load", ajustarHeroDinamicamente);
-window.addEventListener("resize", debounce(ajustarHeroDinamicamente, 150));
+
+// ==========================================================================
+// A BLINDAGEM MOBILE (Ignora a barra do navegador)
+// ==========================================================================
+let larguraAnterior = window.innerWidth;
+
+window.addEventListener(
+  "resize",
+  debounce(() => {
+    const larguraAtual = window.innerWidth;
+
+    // Só recalcula o Hero se a LARGURA da tela mudar (ex: girar o celular).
+    // Se apenas a altura mudar (barra do navegador sumindo no scroll), ele ignora silenciosamente.
+    if (larguraAtual !== larguraAnterior) {
+      larguraAnterior = larguraAtual;
+      ajustarHeroDinamicamente();
+    }
+  }, 150),
+);
