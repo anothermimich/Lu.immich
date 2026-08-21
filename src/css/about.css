@@ -42,7 +42,7 @@
   /* A MÁGICA DO ENQUADRAMENTO: 
      50% = centro horizontal. 
      25% = foca nos 25% superiores da foto (preservando o seu rosto/cabeça) */
-  object-position: 50% 45%;
+  object-position: 50% 35%;
 
   display: block;
   --parallax-y: 0px;
