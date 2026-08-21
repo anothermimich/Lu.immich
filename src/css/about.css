@@ -276,4 +276,12 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  .cv-skills-col.reveal-element,
+  .cv-chart-col.reveal-element {
+    /* O !important bloqueia os 60px de movimento do eixo Y */
+    transform: none !important;
+    /* Mantém apenas a transição de opacidade ativa e macia */
+    transition: opacity 0.8s ease-out;
+  }
 }

@@ -448,12 +448,18 @@ footer a {
   gap: 0.5rem;
 }
 
+/* ==========================================================================
+   1. O CONTÊINER (Restaurando a largura e proporção perdidas)
+   ========================================================================== */
 .funnel-img-wrapper {
   width: 100%;
   aspect-ratio: 9 / 5;
   overflow: hidden;
 }
 
+/* ==========================================================================
+   2. A GAIOLA (A tag picture blindada contra CLS)
+   ========================================================================== */
 .funnel-img-wrapper picture,
 .funnel-img-home picture {
   display: block;
@@ -462,7 +468,7 @@ footer a {
 }
 
 /* ==========================================================================
-   O MOTOR DE ANIMAÇÃO: Parallax e Zoom aplicados apenas na imagem final
+   3. A IMAGEM E O MOTOR (Parallax e Zoom)
    ========================================================================== */
 .funnel-img-wrapper picture img,
 .funnel-img-wrapper img,
@@ -473,7 +479,6 @@ footer a {
   object-fit: cover;
   display: block;
 
-  /* Inicializa as variáveis de animação */
   --parallax-y: 0px;
   --zoom: 1.15;
 
