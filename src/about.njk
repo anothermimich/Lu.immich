@@ -9,31 +9,31 @@ custom_css: "about.css"
   
   <!-- CABEÇALHO (12 Colunas) -->
   <div class="cv-grid cv-header">
-    <div class="cv-img-header cv-img-wrapper">
+    
+    <!-- 1. Gatilho na Foto -->
+    <div class="cv-img-header cv-img-wrapper reveal-element">
       {% image "/project-files/about/lu-immich.jpg", "Lu Immich", "funnel-img" %}
     </div>
     
-    
-      
-      <div class="cv-contact" id="contact">
-        <a href="https://lattes.cnpq.br/6938481194529175" target="_blank" rel="noopener">Lattes</a>
-        <a href="https://github.com/anothermimich" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://philpeople.org/profiles/lu-immich" target="_blank" rel="noopener">PhilPeople</a>
-        <a href="mailto:lu.immich@gmail.com">lu.immich@gmail.com</a>
-      </div>
+    <!-- 2. Gatilho nos Contatos -->
+    <div class="cv-contact reveal-element" id="contact">
+      <a href="https://lattes.cnpq.br/6938481194529175" target="_blank" rel="noopener">Lattes</a>
+      <a href="https://github.com/anothermimich" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://philpeople.org/profiles/lu-immich" target="_blank" rel="noopener">PhilPeople</a>
+      <a href="mailto:lu.immich@gmail.com">lu.immich@gmail.com</a>
+    </div>
 
-    <p class="cv-intro-text">{{ about.intro | safe }}</p>
+    <!-- 3. Gatilho no Texto de Introdução -->
+    <p class="cv-intro-text reveal-element">{{ about.intro | safe }}</p>
   </div>
 
-<div class="cv-content">
-    
+  <div class="cv-content">
     <div class="cv-grid cv-data-grid">
       
-      <!-- 1. A Linha Divisória -->
       <div class="cv-divide"></div>
       
-      <!-- 2. Filosofia (Note a nova classe 'col-filosofia') -->
-      <div class="cv-skills-col col-filosofia">
+      <!-- 4. Gatilho na Filosofia -->
+      <div class="cv-skills-col col-filosofia reveal-element">
         <h2 class="cv-sub-title">Filosofia</h2>
         <ul class="cv-list">
           {% for skill in about.skills.philosophy %}
@@ -42,8 +42,8 @@ custom_css: "about.css"
         </ul>
       </div>
 
-      <!-- 3. Design (Note a nova classe 'col-design') -->
-      <div class="cv-skills-col col-design">
+      <!-- 5. Gatilho no Design -->
+      <div class="cv-skills-col col-design reveal-element">
         <h2 class="cv-sub-title">Design</h2>
         <ul class="cv-list">
           {% for skill in about.skills.design %}
@@ -52,8 +52,8 @@ custom_css: "about.css"
         </ul>
       </div>
 
-      <!-- 4. Idiomas (Note a nova classe 'col-idiomas') -->
-      <div class="cv-chart-col col-idiomas">
+      <!-- 6. Gatilho nos Idiomas -->
+      <div class="cv-chart-col col-idiomas reveal-element">
         <h2 class="cv-sub-title">Idiomas</h2>
         <div class="cv-chart-list">
           {% for item in about.charts.languages %}
@@ -67,8 +67,8 @@ custom_css: "about.css"
         </div>
       </div>
 
-
-      <div class="cv-chart-col col-cafe">
+      <!-- 7. Gatilho no Café -->
+      <div class="cv-chart-col col-cafe reveal-element">
         <h2 class="cv-sub-title">Café</h2>
         <div class="cv-chart-list">
           {% for item in about.charts.coffee %}

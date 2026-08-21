@@ -32,11 +32,21 @@
   max-height: 60vh;
 }
 
+.cv-img-header picture,
+.cv-img-header picture img,
 .cv-img-header img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+
+  /* O motor do Parallax (com a "sobra" de 15% para a foto poder deslizar) */
+  --parallax-y: 0px;
+  --zoom: 1.15;
+
+  transform: translateY(var(--parallax-y)) scale(var(--zoom));
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
 }
 
 .cv-contact {
@@ -238,4 +248,20 @@
     margin-top: -2vh;
     margin-bottom: 5vh;
   }
+}
+
+/* ==========================================================================
+   ANIMAÇÕES EDITORIAIS (SLIDE-UP)
+   ========================================================================== */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-element.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
