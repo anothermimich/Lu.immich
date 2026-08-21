@@ -67,4 +67,53 @@ document.addEventListener("DOMContentLoaded", () => {
   // e não mais no .book-excerpt. Isso impede que o JS entre em loop infinito.
   const bookContents = document.querySelectorAll(".book-content");
   bookContents.forEach((content) => clampObserver.observe(content));
+
+  // ==========================================================================
+  // 3. O EASTER EGG (Leitura limpa via JSON isolado)
+  // ==========================================================================
+
+  const rows = document.querySelectorAll(".bookshelf-row");
+  const dataTag = document.getElementById("tilted-books-data"); // Captura a ponte de dados
+
+  if (rows.length > 0 && dataTag) {
+    // 1. Converte o texto da tag invisível de volta para um Array JSON perfeito
+    const tiltedBooksPool = JSON.parse(dataTag.textContent);
+
+    const lastRow = rows[rows.length - 1];
+    const randomBook = tiltedBooksPool[Math.floor(Math.random() * tiltedBooksPool.length)];
+
+    const tiltedLi = document.createElement("li");
+    tiltedLi.className = "book-item tilted-book";
+    tiltedLi.style.setProperty("--book-color", randomBook.color);
+    tiltedLi.style.setProperty("--book-height", randomBook.height);
+
+    tiltedLi.innerHTML = `
+      <div class="book-spine">
+        <span class="book-title-vertical">
+          <span class="book-spine-main">${randomBook.title}</span>
+          ${randomBook.subtitle ? `<span class="book-spine-sub">${randomBook.subtitle}</span>` : ""}
+        </span>
+      </div>
+      <div class="book-content">
+        ${
+          randomBook.type
+            ? `
+        <div class="book-meta">
+          <span class="small-caps">${randomBook.type}</span>
+          ${randomBook.publication ? `<span class="book-meta-divider">&bull;</span><span class="book-publication">${randomBook.publication}</span>` : ""}
+        </div>`
+            : ""
+        }
+        <h2 class="book-title-expanded">
+          ${randomBook.title}
+          ${randomBook.subtitle ? `<span class="book-subtitle-expanded">${randomBook.subtitle}</span>` : ""}
+        </h2>
+        ${randomBook.coauthors ? `<p class="book-coauthors">Com ${randomBook.coauthors}</p>` : ""}
+        ${randomBook.excerpt ? `<p class="book-excerpt">${randomBook.excerpt}</p>` : ""}
+        ${randomBook.link ? `<a href="${randomBook.link}" target="_blank" rel="noopener noreferrer" class="book-btn">Ler publicação &rarr;</a>` : ""}
+      </div>
+    `;
+
+    lastRow.appendChild(tiltedLi);
+  }
 });

@@ -211,8 +211,8 @@
 /* ==========================================================================
    O LIVRO TOMBADO (ÚLTIMO ITEM DA PRATELEIRA)
    ========================================================================== */
-.bookshelf-row .book-item:last-child {
-  pointer-events: none;
+.book-item.tilted-book {
+  pointer-events: none; /* Mantém o livro puramente decorativo, sem clique */
   cursor: default;
   transform-origin: bottom left;
   transform: rotate(-8deg);
@@ -293,7 +293,7 @@
   }
 
   /* OCULTA O LIVRO TOMBADO */
-  .bookshelf-row .book-item:last-child {
+  .book-item.tilted-book {
     display: none;
   }
 

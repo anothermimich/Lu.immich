@@ -1,0 +1,16 @@
+[
+  {
+    "id": "empty-01",
+    "title": "ÉTICA",
+    "subtitle": "Espinosa",
+    "height": "38vh",
+    "color": "#ff996a"
+  },
+  {
+    "id": "empty-02",
+    "title": "FICCIONES",
+    "subtitle": "Jorge Luís Borges",
+    "height": "38vh",
+    "color": "#ff796a"
+  }
+]
