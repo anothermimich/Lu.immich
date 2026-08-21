@@ -486,7 +486,6 @@ footer a {
 @media (hover: hover) and (pointer: fine) {
   .funnel-card:hover .funnel-img-wrapper img,
   .funnel-link:hover {
-    /* O hover adiciona apenas mais 3% de zoom, mantendo o eixo Y para o Parallax */
     --zoom: 1.18;
   }
   .funnel-card:hover {
@@ -498,8 +497,6 @@ footer a {
   display: flex;
   flex-direction: column;
   align-content: end;
-
-  /* SEU ALINHAMENTO MANTIDO INTACTO */
   text-align: end;
   gap: 0.5rem;
 }
@@ -824,15 +821,6 @@ footer a {
   flex-direction: column;
   gap: 0;
 }
-
-.mobile-nav-list li {
-  /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
-}
-
-.mobile-nav-list li:first-child {
-  /* border-top: 1px solid rgba(0, 0, 0, 0.2); */
-}
-
 .mobile-nav-list a {
   display: flex;
   align-items: center;

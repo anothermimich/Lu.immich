@@ -38,11 +38,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 
-  /* O motor do Parallax (com a "sobra" de 15% para a foto poder deslizar) */
+  /* A MÁGICA DO ENQUADRAMENTO: 
+     50% = centro horizontal. 
+     25% = foca nos 25% superiores da foto (preservando o seu rosto/cabeça) */
+  object-position: 50% 45%;
+
+  display: block;
   --parallax-y: 0px;
-  --zoom: 1.15;
+  --zoom: 1.1;
 
   transform: translateY(var(--parallax-y)) scale(var(--zoom));
   transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -188,7 +192,8 @@
     grid-row: auto;
     text-align: start;
     text-wrap: pretty;
-    height: 85vh;
+    /* height: 85vh; */
+    margin: 25vh 0;
     align-content: center;
     max-width: 35ch;
   }
@@ -226,7 +231,7 @@
     order: 6;
     grid-column: 2 / 3;
     grid-row: auto;
-    margin-bottom: 20vh;
+    margin-bottom: 25vh;
   }
 
   /* 5º - Os Contatos (Final) */
@@ -235,33 +240,40 @@
     grid-column: 1 / -1;
     grid-row: auto;
     align-self: start;
-    margin-top: 22vh;
+    margin-top: 10vh;
   }
+
   /* 6º - A Foto (Proporção Cinematográfica) */
   .cv-img-header {
     order: 8;
     grid-column: 1 / -1;
     grid-row: auto;
-    aspect-ratio: 16 / 8;
+    aspect-ratio: 16 / 10;
     height: auto;
     max-height: none;
     margin-top: -2vh;
-    margin-bottom: 5vh;
   }
-}
 
-/* ==========================================================================
+  .cv-img-header picture img,
+  .cv-img-header img {
+    object-position: center;
+    --zoom: 1;
+    --parallax-y: 0px !important;
+  }
+
+  /* ==========================================================================
    ANIMAÇÕES EDITORIAIS (SLIDE-UP)
    ========================================================================== */
-.reveal-element {
-  opacity: 0;
-  transform: translateY(60px);
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
+  .reveal-element {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
 
-.reveal-element.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  .reveal-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
