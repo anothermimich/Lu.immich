@@ -411,9 +411,15 @@ footer a {
 /* =======================================
    OS 2 CARDS INFERIORES (Trabalho)
    ======================================= */
+
 .home-funnel-cards {
-  align-items: start;
-  grid-auto-rows: min-content;
+  align-items: stretch;
+}
+
+.funnel-card {
+  width: 100%;
+  min-width: 100%;
+  margin-bottom: 5vh;
 }
 
 .cards-intro {
