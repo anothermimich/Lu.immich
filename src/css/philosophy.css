@@ -130,6 +130,23 @@
   transition-delay: 0.3s;
 }
 
+.book-item.is-open {
+  cursor: default;
+}
+
+/* 2. Força o cursor de texto ('I-beam') em todos os textos legíveis */
+.book-item.is-open .book-title-expanded,
+.book-item.is-open .book-subtitle-expanded,
+.book-item.is-open .book-coauthors,
+.book-item.is-open .book-excerpt {
+  cursor: text;
+  user-select: text;
+}
+
+.book-item.is-open .book-btn {
+  cursor: pointer;
+}
+
 /* Metadados Superiores */
 .book-meta {
   display: flex;

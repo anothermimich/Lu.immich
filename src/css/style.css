@@ -30,13 +30,13 @@ body {
   background-color: #ffffff;
   overflow-x: clip;
   font-size: var(--fs-1);
-  user-select: none;
   display: flex;
   flex-direction: column;
   min-height: 100svh;
   justify-content: space-between;
   align-items: center;
   overscroll-behavior-y: none;
+  user-select: none;
 }
 
 body.modal-open {
@@ -178,6 +178,7 @@ section:last-of-type {
   justify-content: space-between;
   min-width: 80vw;
   padding-top: 3vh;
+  user-select: none;
 }
 
 .nav-title {
@@ -258,7 +259,7 @@ footer a {
    4. HOME PAGE
    ========================================================================== */
 .hero {
-  min-height: 93vh;
+  min-height: 93svh;
   align-content: center;
   position: relative;
 }
@@ -787,13 +788,12 @@ footer a {
   left: 0;
   width: 100vw;
   height: 100vh;
-  height: 100dvh;
+  height: 100svh;
   background-color: #fff;
   z-index: 9999;
   display: flex;
   flex-direction: column;
   padding: 3vh 10vw;
-
   /* Animação de entrada */
   opacity: 0;
   transform: translateY(-100%);

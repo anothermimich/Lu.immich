@@ -1,29 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================================
-  // 1. SISTEMA DE CLIQUE E ACORDEÃO
+  // 1. SISTEMA DE CLIQUE E ACORDEÃO (TRAVA DE LIVRO ATIVO)
   // ==========================================================================
   const books = document.querySelectorAll(".book-item");
 
   books.forEach((book) => {
     book.addEventListener("click", function () {
-      const isAlreadyOpen = this.classList.contains("is-open");
+      // 1. Se este livro JÁ está aberto, não faz nada (mantém aberto)
+      if (this.classList.contains("is-open")) {
+        return;
+      }
 
-      // Remove a classe 'is-open' de TODOS os livros
+      // 2. Se clicou em outro livro, fecha todos e abre o novo
       books.forEach((b) => b.classList.remove("is-open"));
+      this.classList.add("is-open");
 
-      // Se não estava aberto, abre agora
-      if (!isAlreadyOpen) {
-        this.classList.add("is-open");
-
-        // Regra de rolagem suave para Mobile/Tablet (mantida)
-        if (window.innerWidth <= 1000) {
-          setTimeout(() => {
-            this.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          }, 300);
-        }
+      // Regra de rolagem suave para Mobile/Tablet
+      if (window.innerWidth <= 1000) {
+        setTimeout(() => {
+          this.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }, 300);
       }
     });
   });
