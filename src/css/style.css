@@ -24,6 +24,7 @@
 html {
   scroll-behavior: smooth;
   overscroll-behavior-y: none;
+  height: -webkit-fill-available;
 }
 
 body {
@@ -32,11 +33,12 @@ body {
   font-size: var(--fs-1);
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
   justify-content: space-between;
   align-items: center;
   overscroll-behavior-y: none;
   user-select: none;
+  min-height: 100svh;
+  min-height: -webkit-fill-available;
 }
 
 body.modal-open {
@@ -143,7 +145,7 @@ ul li {
 }
 .anchor {
   position: absolute;
-  transform: translateY(-5vh);
+  transform: translateY(-5svh);
 }
 .heart-cursor {
   cursor: url("/icons/heart.svg"), pointer;
@@ -166,7 +168,7 @@ main {
 }
 
 section:last-of-type {
-  padding: 0 0 10vh 0;
+  padding: 0 0 10svh 0;
 }
 
 /* ==========================================================================
@@ -177,7 +179,7 @@ section:last-of-type {
   align-items: center;
   justify-content: space-between;
   min-width: 80vw;
-  padding-top: 3vh;
+  padding-top: 3svh;
   user-select: none;
 }
 
@@ -245,7 +247,7 @@ footer a {
 
 @media (max-width: 1000px) {
   footer {
-    padding: 5vh 10vw 1rem 10vw;
+    padding: 5svh 10vw 1rem 10vw;
   }
   footer a {
     font-size: var(--fs-0);
@@ -302,11 +304,11 @@ footer a {
   transform: scale(0.8);
   position: absolute;
   display: flex;
-  max-height: 70vh;
+  max-height: 70svh;
   max-width: 40vw;
   right: 0;
-  top: 11vh;
-  bottom: 13vh;
+  top: 11svh;
+  bottom: 13svh;
   margin: auto;
   transition:
     transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
@@ -347,7 +349,7 @@ footer a {
 }
 
 .grid-home {
-  margin-top: 15vh;
+  margin-top: 15svh;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 2vw;
@@ -366,7 +368,7 @@ footer a {
   grid-row: 2 / 4;
   width: 100%;
   aspect-ratio: 5 / 10;
-  height: 65vh;
+  height: 65svh;
   overflow: hidden;
   filter: saturate(0);
   position: relative;
@@ -420,7 +422,7 @@ footer a {
 .funnel-card {
   width: 100%;
   min-width: 100%;
-  margin-bottom: 5vh;
+  margin-bottom: 5svh;
 }
 
 .cards-intro {
@@ -522,13 +524,13 @@ footer a {
    ========================================================================== */
 @media (max-width: 1000px) {
   .home-container {
-    gap: 8vh;
+    gap: 8svh;
   }
   .grid-home {
     display: flex;
     flex-direction: column;
-    gap: 4vh;
-    margin: 5vh 0;
+    gap: 4svh;
+    margin: 5svh 0;
   }
 
   /* A sua imagem preserva rigorosamente as dimensões que você exigiu */
@@ -537,7 +539,7 @@ footer a {
     width: 40vw;
     aspect-ratio: 5 / 10;
     height: 100%;
-    margin-bottom: 2vh;
+    margin-bottom: 2svh;
   }
   .funnel-desc,
   .funnel-sub-title {
@@ -545,15 +547,15 @@ footer a {
   }
 
   .funnel-link {
-    margin: 26vh auto;
+    margin: 26svh auto;
   }
 
   .cards-intro {
-    margin-bottom: 2vh;
+    margin-bottom: 2svh;
   }
 
   .funnel-card {
-    margin-bottom: 5vh;
+    margin-bottom: 5svh;
   }
 }
 
@@ -578,7 +580,7 @@ footer a {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding-bottom: 12vh;
+    padding-bottom: 12svh;
   }
   .about-title {
     line-height: 1;
@@ -595,12 +597,12 @@ footer a {
   display: grid;
   width: 80vw;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto 10vh auto;
+  grid-template-rows: auto 10svh auto;
   column-gap: 2.5vw;
   align-content: space-between;
   justify-content: space-between;
-  margin-top: 21vh;
-  margin-bottom: 10vh;
+  margin-top: 21svh;
+  margin-bottom: 10svh;
   border: 1px solid #000;
   padding: 2.5vw;
 }
@@ -645,7 +647,7 @@ footer a {
   /* Mantemos o flex apenas no contêiner-pai para empilhar as blocos verticais */
   display: flex;
   flex-direction: column;
-  gap: 10vh;
+  gap: 10svh;
   width: 80vw;
 }
 
@@ -685,7 +687,7 @@ footer a {
   .project-container {
     padding: 0;
     border: none;
-    margin-top: 40vh;
+    margin-top: 40svh;
   }
   .project-title {
     font-size: 15vw;
@@ -703,7 +705,7 @@ footer a {
   /* No Mobile, o Grid de 2 colunas se transforma em 1 coluna empilhada */
   .project-split-img {
     grid-template-columns: 1fr;
-    gap: 10vh;
+    gap: 10svh;
   }
 }
 
@@ -744,7 +746,7 @@ footer a {
     flex-direction: column;
     justify-content: end;
     align-items: start;
-    padding-bottom: 12vh;
+    padding-bottom: 12svh;
     transform: translateY(0);
   }
   .not-found-title {
@@ -787,13 +789,12 @@ footer a {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
   height: 100svh;
   background-color: #fff;
   z-index: 9999;
   display: flex;
   flex-direction: column;
-  padding: 3vh 10vw;
+  padding: 3svh 10vw;
   /* Animação de entrada */
   opacity: 0;
   transform: translateY(-100%);
@@ -818,7 +819,7 @@ footer a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-bottom: 10vh; */
+  /* margin-bottom: 10svh; */
 }
 
 .mobile-overlay-title {

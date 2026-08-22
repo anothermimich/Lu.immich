@@ -45,7 +45,7 @@ section:last-of-type {
 }
 
 .archive-front {
-  height: 10vh;
+  height: 10svh;
   width: 80vw;
   background-color: white;
   z-index: 99;
@@ -182,7 +182,7 @@ button.archive-tag-container {
   flex-direction: column;
   position: relative;
   margin-top: 0;
-  gap: 10vh;
+  gap: 10svh;
 }
 
 .archive-sheet {
@@ -201,7 +201,7 @@ button.archive-tag-container {
   visibility: visible;
   overflow: visible;
   pointer-events: auto;
-  margin: 10vh 0;
+  margin: 10svh 0;
 }
 
 /* ==========================================================================
@@ -252,7 +252,7 @@ button.archive-tag-container {
    ========================================================================== */
 .close-folder-btn {
   position: fixed;
-  bottom: 8vh;
+  bottom: 8svh;
   right: 10vw;
   background-color: #000;
   color: #fff;
@@ -318,8 +318,8 @@ button.archive-tag-container .archive-tag-year {
    ========================================================================== */
 @media (max-width: 1000px) {
   .archive-sheets-container {
-    margin-top: -12vh;
-    gap: 10vh;
+    margin-top: -12svh;
+    gap: 10svh;
   }
   #archive-link-empty {
     margin-left: 26vw;
@@ -355,10 +355,10 @@ button.archive-tag-container .archive-tag-year {
   }
 
   .archive-hero {
-    padding-bottom: 12vh;
+    padding-bottom: 12svh;
   }
   .archive-sheet.is-open {
-    margin-top: 10vh;
+    margin-top: 10svh;
   }
   .archive-item {
     padding: 1rem;
