@@ -61,25 +61,32 @@ document.addEventListener("DOMContentLoaded", () => {
       closeBtn.addEventListener("click", toggleMenu);
 
       // ==========================================================================
-      // A ESTRATÉGIA DA CORTINA
+      // A ESTRATÉGIA DA CORTINA COM FEEDBACK VISUAL
       // ==========================================================================
       navLinks.forEach((link) => {
         link.addEventListener("click", (e) => {
-          // Verifica se o link é apenas uma âncora para a MESMA página (ex: #contato)
           const href = link.getAttribute("href");
           const isAnchor = href.startsWith("#");
 
           if (isAnchor) {
-            // Se for âncora, a página não vai recarregar, então fechamos o menu na hora
             closeMenu();
+          } else {
+            // 1. Adiciona a classe que faz o botão piscar imediatamente
+            link.classList.add("is-loading");
+            // 2. O menu continua aberto escondendo a tela velha
           }
-
-          // SE FOR OUTRA PÁGINA:
-          // Nós simplesmente não fazemos nada!
-          // O menu continua cobrindo a tela antiga até que a nova página seja renderizada.
         });
       });
     }
+
+    // CAMADA DE DEFESA BFCACHE (O Faxineiro)
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) {
+        closeMenu();
+        // Remove o efeito de "carregando" de todos os links caso a usuária volte para cá
+        navLinks.forEach((link) => link.classList.remove("is-loading"));
+      }
+    });
 
     // CAMADA DE DEFESA BFCACHE (Garante o botão "Voltar" livre de bugs)
     window.addEventListener("pageshow", (event) => {

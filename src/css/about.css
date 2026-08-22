@@ -53,6 +53,11 @@
   will-change: transform;
 }
 
+#contact {
+  position: absolute;
+  top: 0;
+}
+
 .cv-contact {
   grid-column: 7 / 10;
   grid-row: 2;
@@ -243,6 +248,10 @@
     margin-top: 10vh;
   }
 
+  #contact {
+    position: unset;
+    order: 9;
+  }
   /* 6º - A Foto (Proporção Cinematográfica) */
   .cv-img-header {
     order: 8;

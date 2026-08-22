@@ -866,3 +866,23 @@ footer a {
   opacity: 1;
   transform: translateY(0); /* Sobe suavemente para o lugar original */
 }
+
+/* ==========================================================================
+   FEEDBACK DE CARREGAMENTO (LINKS DO MENU)
+   ========================================================================== */
+.is-loading {
+  /* Pisca suavemente entre 100% e 30% de opacidade */
+  animation: text-pulse 0.6s infinite alternate ease-in-out;
+
+  /* Trava de segurança: impede que a usuária clique duas vezes seguidas */
+  pointer-events: none;
+}
+
+@keyframes text-pulse {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
