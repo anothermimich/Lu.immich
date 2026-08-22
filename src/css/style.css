@@ -151,13 +151,18 @@ ul li {
   cursor: url("/icons/heart.svg"), pointer;
 }
 
-.border-img {
-  border: 1px #000 solid;
+a:has(.border-img) {
+  border: 1px solid #000;
+  display: block;
+}
+
+a:has(.border-img) .border-img {
+  border: none !important;
 }
 
 @media (max-width: 1000px) {
-  .border-img {
-    border: 0.5px #000 solid;
+  a:has(.border-img) {
+    border: 0.5px solid #000;
   }
 }
 
