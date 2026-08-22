@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: Asterismo - Lu Immich
+title: Asterismo
 permalink: "/asterismo/"
 isProject: true
 description: "Asterismo é uma ferramenta conceitual e performance participativa para criar sentido coletivamente através de um céu estrelado."

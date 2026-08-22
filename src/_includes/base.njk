@@ -6,33 +6,32 @@
   <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cloud.umami.is;">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="o2YMMty1BEuB8c6x55yYYqjvDjgNujVhYwkxwE9V5Gg" />
 
-<meta name="google-site-verification" content="o2YMMty1BEuB8c6x55yYYqjvDjgNujVhYwkxwE9V5Gg" />
-
-  <!-- SEO Básico -->
-  <title>{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }} | Design & Filosofia{% endif %}</title>
+  <!-- SEO BÁSICO -->
+  <title>{% if page.url == '/' %}{{ site.name }} | Portfólio de Filosofia e Design{% elif title %}{{ site.name }} | {{ title }}{% else %}{{ site.name }}{% endif %}</title>
   <meta name="description" content="{{ description | default(site.description) }}">
   <meta name="author" content="{{ site.author }}">
   <meta name="keywords" content="{{ keywords | default('Lu Immich, design, filosofia, ontologia social, desenho industrial, ui/ux') }}">
   <meta name="theme-color" content="#ffffff" />
 
-  <!-- Canonical URL (Evita punição por conteúdo duplicado no Google) -->
+  <!-- Canonical URL -->
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   
-  <!-- Open Graph / Redes Sociais (LinkedIn, WhatsApp, Facebook) -->
+  <!-- OPEN GRAPH / REDES SOCIAIS -->
   <meta property="og:type" content="{% if isProject %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
+  <meta property="og:title" content="{% if page.url == '/' %}{{ site.name }} | Portfólio de Filosofia e Design{% elif title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
   <meta property="og:description" content="{{ description | default(site.description) }}">
   <meta property="og:image" content="{{ site.url }}{{ image | default('/icons/favicon/android-chrome-512x512.png') }}">
   
-  <!-- Twitter Cards -->
+  <!-- TWITTER CARDS -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
+  <meta name="twitter:title" content="{% if page.url == '/' %}{{ site.name }} | Portfólio de Filosofia e Design{% elif title %}{{ title }} | {{ site.name }}{% else %}{{ site.name }}{% endif %}">
   <meta name="twitter:description" content="{{ description | default(site.description) }}">
   <meta name="twitter:image" content="{{ site.url }}{{ image | default('/icons/favicon/android-chrome-512x512.png') }}">
 
-  <!-- JSON-LD (Schema.org / Padrão Ouro do Google) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,7 +40,7 @@
     "description": "{{ description | default(site.description) }}",
     "url": "{{ site.url }}{{ page.url }}",
     {% if not isProject %}
-    "jobTitle": "Filosofa e Designer",
+    "jobTitle": "Filósofa e Designer",
     "affiliation": {
       "@type": "Organization",
       "name": "Universidade Federal de Santa Maria"
@@ -54,11 +53,11 @@
   }
   </script>
 
-<!-- Links CSS e Fontes -->
-<link rel="preload" href="/fonts/jost/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Links CSS e Fontes -->
+  <link rel="preload" href="/fonts/jost/jost-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css" type="text/css" charset="utf-8" />
   
-  <!-- CSS Dinâmico: Só carrega se a página exigir -->
+  <!-- CSS Dinâmico -->
   {% if custom_css %}
   <link rel="stylesheet" href="/css/{{ custom_css }}" type="text/css" charset="utf-8" />
   {% endif %}
@@ -71,20 +70,19 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon/apple-touch-icon.png">
   <link rel="manifest" href="/icons/favicon/site.webmanifest">
 
-<script defer src="https://cloud.umami.is/script.js" data-website-id="91642bab-227b-4ca6-ad87-ab49f95f044e"></script>
+  <!-- Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="91642bab-227b-4ca6-ad87-ab49f95f044e"></script>
 </head>
 
 <body>
-<nav class="nav">
+  <nav class="nav">
     <a class="nav-title" href="/">Lu Immich</a>
-
-    <!-- O Botão Mobile (Invisível no Desktop) -->
     <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">
       Menu
     </button>
   </nav>
 
-  <!-- O Menu Overlay Full-Screen -->
+  <!-- Menu Overlay -->
   <div class="mobile-overlay">
     <div class="mobile-overlay-header">
       <span class="mobile-overlay-title">Lu Immich</span>
@@ -93,26 +91,10 @@
 
     <div class="mobile-overlay-content">
       <ul class="mobile-nav-list">
-        <li>
-          <a href="/">
-            <span class="nav-number">[&nbsp&nbsp]</span> Home  
-          </a>
-        </li>
-        <li>
-          <a href="/filosofia/">
-            <span class="nav-number">[&nbsp&nbsp]</span> Textos de filosofia
-          </a>
-        </li>
-        <li>
-          <a href="/design/">
-            <span class="nav-number">[&nbsp&nbsp]</span> Projetos de design
-          </a>
-        </li>
-        <li>
-          <a href="/sobre/">
-            <span class="nav-number">[&nbsp&nbsp]</span> Sobre
-          </a>
-        </li>
+        <li><a href="/"><span class="nav-number">[&nbsp&nbsp]</span> Home</a></li>
+        <li><a href="/filosofia/"><span class="nav-number">[&nbsp&nbsp]</span> Textos de filosofia</a></li>
+        <li><a href="/design/"><span class="nav-number">[&nbsp&nbsp]</span> Projetos de design</a></li>
+        <li><a href="/sobre/"><span class="nav-number">[&nbsp&nbsp]</span> Sobre</a></li>
       </ul>
     </div>
   </div>
@@ -121,7 +103,8 @@
 
   <footer class="flex--column">
     <div class="footer-license">
-      <a class="made-with-love heart-cursor" href="https://github.com/anothermimich">Feito com amor por Lu Immich</a>
+      <a class="made-with-love heart-cursor" href="https://github.com/luimmich">Feito com amor por Lu Immich</a>
+      
       <a class="license-icons" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
         <img src="/icons/license/cc.svg" alt="CC">
         <img src="/icons/license/by.svg" alt="BY">
@@ -131,7 +114,7 @@
     </div>
   </footer>
 
-<script src="/js/menu.js" defer></script>
-<script src="/js/animations.js" defer></script>
+  <script src="/js/menu.js" defer></script>
+  <script src="/js/animations.js" defer></script>
 </body>
 </html>

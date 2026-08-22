@@ -1,6 +1,6 @@
 ---
 layout: base.njk
-title: K02 - Lu Immich
+title: K02
 permalink: "/k02/"
 isProject: true
 description: "O design de produto do Teclado K02 foca em ergonomia, forma, funcionalidade e baixo custo."
